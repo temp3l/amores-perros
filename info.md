@@ -4,14 +4,17 @@ setup + downloads:
 * 5 min 
 * 1h beratungs gepsräch + strato
 * 10 min domain findung
-
+* 1:30h analyse, aufbereitung + mailing (28.06)
 
 ## 28.06
 * gpt chat finden und in tasks umsetzen
 * analyse aktuelle website
-    * start: 13:00
+    * start: 12:30
+    * end: 13:00
 * ergebnisse:
     * https://chatgpt.com/share/6a410622-48f0-83eb-80f2-9477edb74a9c
+
+
 
 
 
