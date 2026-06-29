@@ -14,12 +14,19 @@ setup + downloads:
 * ergebnisse:
     * https://chatgpt.com/share/6a410622-48f0-83eb-80f2-9477edb74a9c
 
+* local wordpress:
+    * 6:15
 
 
 
 
 
 ## prompts
+
+
+codex -m gpt-5.3-codex for prompts/01-run-codex-wordpress-prompt.md
+
+    
 
 ### analysis and setup
 i have downloaded the existing amores-perros ewbsite from ftp in the ./amores-perros folder.
