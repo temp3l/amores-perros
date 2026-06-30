@@ -30,6 +30,33 @@ Die hierarchische Uebersicht findest du in [docs/structure.md](structure.md).
 - [Metadaten](seo/metadata.md)
 - [Sitemap](technical/sitemap.md)
 
+## Theme und Stil
+
+Die visuelle und technische Leitlinie fuer das WordPress-Theme ist in [wordpress-theme.md](wordpress-theme.md) beschrieben. Die wichtigsten Vorgaben sind:
+
+- eigenes, leichtgewichtiges WordPress Block Theme
+- Gutenberg und Full Site Editing statt Page Builder
+- zentrale Designsteuerung ueber `theme.json`
+- wiederverwendbare Block Patterns fuer Hero, Angebote, Prozess, Preise, CTA und Trust-Bereiche
+- keine harten Theme-Abhaengigkeiten fuer Business-Daten
+
+### Stilrichtung
+
+- ruhig, persoenlich, klar und hochwertig
+- natuerliche und warme Anmutung statt verspielter Tierbedarf-Optik
+- keine dominanten Pfotenmuster, Comic-Hunde oder aggressive Animationen
+- keine Slider, Autoplay-Videos oder ueberladene Kartenlayouts
+
+### Vorlaeufige Gestaltung
+
+- Farben: Dunkelgruen, Salbeigruen, warmes Beige, Cremeweiss, Terrakotta, Anthrazit und Hellgrau
+- Typografie: Lora fuer Ueberschriften, Inter fuer Fliesstext und Navigation
+- Fonts sollen lokal eingebunden werden
+- Dunkelgruen fuer Header, Footer und Ueberschriften
+- Cremeweiss und Beige fuer Flaechen und abgesetzte Bereiche
+- Terrakotta fuer primaere Buttons
+- Salbeigruen fuer sekundaere Akzente
+
 ## Rebuild und Umsetzung
 
 - [Rebuild-Entscheidungen](technical/rebuild-decisions.md)
