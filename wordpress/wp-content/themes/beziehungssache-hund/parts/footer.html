@@ -2,19 +2,56 @@
 <footer class="wp-block-group site-footer">
   <!-- wp:group {"tagName":"div","className":"site-footer__inner","layout":{"type":"constrained"}} -->
   <div class="wp-block-group site-footer__inner">
-    <!-- wp:site-title {"level":0} /-->
-    <!-- wp:paragraph -->
-    <p>Lokales WordPress-Theme fuer den Rebuild von Beziehungssache Hund.</p>
-    <!-- /wp:paragraph -->
-    <!-- wp:navigation {"overlayMenu":"never","layout":{"type":"flex","justifyContent":"left","flexWrap":"wrap"}} -->
-      <!-- wp:navigation-link {"label":"Erstgespraech","type":"custom","url":"/erstgespraech/"} /-->
-      <!-- wp:navigation-link {"label":"Einzeltraining","type":"custom","url":"/einzeltraining/"} /-->
-      <!-- wp:navigation-link {"label":"DOGSpace","type":"custom","url":"/dogspace-hamburg/"} /-->
-      <!-- wp:navigation-link {"label":"Preise","type":"custom","url":"/preise/"} /-->
-      <!-- wp:navigation-link {"label":"Kontakt","type":"custom","url":"/kontakt/"} /-->
-      <!-- wp:navigation-link {"label":"Impressum","type":"custom","url":"/impressum/"} /-->
-      <!-- wp:navigation-link {"label":"Datenschutz","type":"custom","url":"/datenschutz/"} /-->
-    <!-- /wp:navigation -->
+    <!-- wp:group {"className":"site-footer__brand","layout":{"type":"constrained"}} -->
+    <div class="wp-block-group site-footer__brand">
+      <!-- wp:html -->
+      <a class="site-footer__brand-link" href="/" aria-label="Beziehungssache Hund Startseite">
+        <img class="site-footer__logo" src="/wp-content/themes/beziehungssache-hund/assets/legacy/logo-full.webp" alt="" width="320" height="314" />
+      </a>
+      <!-- /wp:html -->
+      <!-- wp:paragraph -->
+      <p>Individuelles Hundetraining, klar strukturiert und mit ruhiger Begleitung. Die Seitenfuehrung bleibt schlank und ohne Builder-Overhead.</p>
+      <!-- /wp:paragraph -->
+    </div>
+    <!-- /wp:group -->
+
+    <!-- wp:group {"className":"site-footer__nav","layout":{"type":"constrained"}} -->
+    <div class="wp-block-group site-footer__nav">
+      <!-- wp:heading {"level":3} -->
+      <h3 class="wp-block-heading">Navigation</h3>
+      <!-- /wp:heading -->
+      <!-- wp:navigation {"overlayMenu":"never","layout":{"type":"flex","justifyContent":"left","flexWrap":"wrap"}} -->
+        <!-- wp:navigation-link {"label":"Startseite","type":"custom","url":"/"} /-->
+        <!-- wp:navigation-link {"label":"Erstgespraech","type":"custom","url":"/erstgespraech/"} /-->
+        <!-- wp:navigation-link {"label":"Einzeltraining","type":"custom","url":"/einzeltraining/"} /-->
+        <!-- wp:navigation-link {"label":"DOGSpace","type":"custom","url":"/dogspace-hamburg/"} /-->
+        <!-- wp:navigation-link {"label":"Workshops und Seminare","type":"custom","url":"/workshops-seminare/"} /-->
+        <!-- wp:navigation-link {"label":"Coaching mit Hund","type":"custom","url":"/coaching-mit-hund/"} /-->
+        <!-- wp:navigation-link {"label":"Preise","type":"custom","url":"/preise/"} /-->
+        <!-- wp:navigation-link {"label":"Kontakt","type":"custom","url":"/kontakt/"} /-->
+        <!-- wp:navigation-link {"label":"Impressum","type":"custom","url":"/impressum/"} /-->
+        <!-- wp:navigation-link {"label":"Datenschutz","type":"custom","url":"/datenschutz/"} /-->
+      <!-- /wp:navigation -->
+    </div>
+    <!-- /wp:group -->
+
+    <!-- wp:group {"className":"site-footer__cta","layout":{"type":"constrained"}} -->
+    <div class="wp-block-group site-footer__cta">
+      <!-- wp:heading {"level":3} -->
+      <h3 class="wp-block-heading">Naechster Schritt</h3>
+      <!-- /wp:heading -->
+      <!-- wp:paragraph -->
+      <p>Wenn du mit deinem Hund Klarheit suchst, ist das Erstgespraech der passende Einstieg.</p>
+      <!-- /wp:paragraph -->
+      <!-- wp:buttons -->
+      <div class="wp-block-buttons">
+        <!-- wp:button -->
+        <div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/erstgespraech/">Erstgespraech anfragen</a></div>
+        <!-- /wp:button -->
+      </div>
+      <!-- /wp:buttons -->
+    </div>
+    <!-- /wp:group -->
   </div>
   <!-- /wp:group -->
 </footer>

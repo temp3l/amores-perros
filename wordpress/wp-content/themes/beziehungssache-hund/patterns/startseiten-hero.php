@@ -20,6 +20,14 @@
   <p class="bsh-hero__lead">Fuer Mensch-Hund-Teams, die alltagstaugliche Loesungen, Klarheit und eine ruhigere gemeinsame Basis suchen.</p>
   <!-- /wp:paragraph -->
 
+  <!-- wp:group {"className":"bsh-hero__meta","layout":{"type":"flex","flexWrap":"wrap"}} -->
+  <div class="wp-block-group bsh-hero__meta">
+    <!-- wp:html -->
+    <span>Hamburg</span><span>Individuell</span><span>Ruhig und klar</span>
+    <!-- /wp:html -->
+  </div>
+  <!-- /wp:group -->
+
   <!-- wp:buttons -->
   <div class="wp-block-buttons">
     <!-- wp:button {"className":"is-style-fill"} -->

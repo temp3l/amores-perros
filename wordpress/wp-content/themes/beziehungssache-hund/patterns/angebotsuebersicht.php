@@ -24,6 +24,13 @@
         <!-- wp:paragraph -->
         <p>Der bevorzugte Einstieg fuer neue Mensch-Hund-Teams.</p>
         <!-- /wp:paragraph -->
+        <!-- wp:buttons -->
+        <div class="wp-block-buttons">
+          <!-- wp:button {"className":"is-style-outline"} -->
+          <div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/erstgespraech/">Mehr erfahren</a></div>
+          <!-- /wp:button -->
+        </div>
+        <!-- /wp:buttons -->
       </div>
       <!-- /wp:group -->
     </div>
@@ -39,6 +46,13 @@
         <!-- wp:paragraph -->
         <p>Individuelles Training mit klaren, alltagstauglichen Schritten.</p>
         <!-- /wp:paragraph -->
+        <!-- wp:buttons -->
+        <div class="wp-block-buttons">
+          <!-- wp:button {"className":"is-style-outline"} -->
+          <div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/einzeltraining/">Mehr erfahren</a></div>
+          <!-- /wp:button -->
+        </div>
+        <!-- /wp:buttons -->
       </div>
       <!-- /wp:group -->
     </div>
@@ -54,6 +68,13 @@
         <!-- wp:paragraph -->
         <p>Ein geschuetzter Lern- und Begegnungsraum in Hamburg.</p>
         <!-- /wp:paragraph -->
+        <!-- wp:buttons -->
+        <div class="wp-block-buttons">
+          <!-- wp:button {"className":"is-style-outline"} -->
+          <div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/dogspace-hamburg/">Mehr erfahren</a></div>
+          <!-- /wp:button -->
+        </div>
+        <!-- /wp:buttons -->
       </div>
       <!-- /wp:group -->
     </div>

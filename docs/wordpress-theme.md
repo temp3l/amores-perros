@@ -54,6 +54,17 @@ Die Marke soll nicht wirken wie:
 
 > Ruhig statt laut. Klar statt beliebig. Individuell statt pauschal.
 
+## 2.1 Visuelle Referenz
+
+Die optische Grundstimmung orientiert sich am Legacy-Snapshot von `amores-perros.de`:
+
+- dunkle Flaechen fuer Navigation und Footer
+- warmes Terrakotta als Akzentfarbe
+- weisse und cremefarbene Typografie auf dunklen Zonen
+- echte Fotomotive und Logos aus dem Legacy-Material statt generischer Platzhalter
+
+Die Umsetzung bleibt dennoch ein eigenes WordPress-Theme und keine 1:1-Kopie des alten Blocs-Layouts.
+
 ---
 
 ## 3. Zielgruppen
@@ -649,23 +660,23 @@ Mehrsprachigkeit muss in Version 1 nicht vorbereitet werden, solange dies keine 
 ### Vorläufige Farben
 
 ```text
-Dunkelgrün:   #263D35
-Salbeigrün:   #8FA394
-Warmes Beige: #EDE5D8
-Cremeweiß:    #FAF8F3
-Terrakotta:   #B8674B
-Anthrazit:    #292B2A
-Hellgrau:     #ECEDE9
+Anthrazit:    #1F1A17
+Warmes Grau:  #B8AEA2
+Warmes Beige: #E8DCCB
+Cremeweiß:    #FAF7F1
+Terrakotta:   #AE7C4F
+Dunkelbraun:  #0F0F0F
+Hellgrau:     #E8E3DB
 ```
 
 ### Verwendung
 
-* Dunkelgrün: Header, Footer, Überschriften
+* Anthrazit und Dunkelbraun: Header, Footer, Überschriften, Text
 * Cremeweiß: Hauptflächen
 * Beige: abgesetzte Inhaltsbereiche
 * Terrakotta: primäre Buttons
-* Salbeigrün: sekundäre Akzente
-* Anthrazit: Fließtext
+* Warmes Grau: sekundäre Akzente
+* Legacynahes Markenmaterial: Logo-Mark und persönliche Bildwelt aus dem alten Auftritt
 
 ### Typografie
 

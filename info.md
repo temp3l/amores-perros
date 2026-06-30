@@ -25,6 +25,11 @@ total: 1:30h analyse, aufbereitung + mailing (28.06)
 
 
 
+## Domains 22:05
+    * amores-perros.berlin, zum 23.06.2027
+    * amores-perros.hamburg
+
+
 
 ## Blocs
 

@@ -43,19 +43,19 @@ Die visuelle und technische Leitlinie fuer das WordPress-Theme ist in [wordpress
 ### Stilrichtung
 
 - ruhig, persoenlich, klar und hochwertig
-- natuerliche und warme Anmutung statt verspielter Tierbedarf-Optik
+- visuell an `amores-perros.de` angelehnt mit dunklen Flaechen, warmem Terrakotta und viel Weissraum
 - keine dominanten Pfotenmuster, Comic-Hunde oder aggressive Animationen
 - keine Slider, Autoplay-Videos oder ueberladene Kartenlayouts
 
 ### Vorlaeufige Gestaltung
 
-- Farben: Dunkelgruen, Salbeigruen, warmes Beige, Cremeweiss, Terrakotta, Anthrazit und Hellgrau
+- Farben: Schwarz/Anthrazit, Terrakotta, Cremeweiss, warmes Beige und gedecktes Grau
 - Typografie: Lora fuer Ueberschriften, Inter fuer Fliesstext und Navigation
 - Fonts sollen lokal eingebunden werden
-- Dunkelgruen fuer Header, Footer und Ueberschriften
+- Header und Footer greifen die dunkle, reduzierte Legacy-Anmutung auf
 - Cremeweiss und Beige fuer Flaechen und abgesetzte Bereiche
-- Terrakotta fuer primaere Buttons
-- Salbeigruen fuer sekundaere Akzente
+- Terrakotta fuer primaere Buttons und Akzente
+- Legacy-Bilder und Logos aus `amores-perros/` werden als lokale Theme-Assets genutzt
 
 ## Rebuild und Umsetzung
 

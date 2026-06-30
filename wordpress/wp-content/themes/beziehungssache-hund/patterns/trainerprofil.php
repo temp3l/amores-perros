@@ -12,13 +12,11 @@
   <div class="wp-block-columns are-vertically-aligned-center">
     <!-- wp:column {"verticalAlignment":"center","width":"38%"} -->
     <div class="wp-block-column is-vertically-aligned-center" style="flex-basis:38%">
-      <!-- wp:group {"className":"bsh-portrait-placeholder","layout":{"type":"constrained"}} -->
-      <div class="wp-block-group bsh-portrait-placeholder">
-        <!-- wp:paragraph -->
-        <p>Dummy-Portrait fuer die Entwicklungsphase</p>
-        <!-- /wp:paragraph -->
-      </div>
-      <!-- /wp:group -->
+      <!-- wp:html -->
+      <figure class="bsh-portrait-frame">
+        <img src="/wp-content/themes/beziehungssache-hund/assets/legacy/portrait.webp" alt="Jacky Rebien mit Hund" loading="lazy" decoding="async" width="2737" height="3024" />
+      </figure>
+      <!-- /wp:html -->
     </div>
     <!-- /wp:column -->
 
@@ -33,6 +31,13 @@
       <!-- wp:paragraph -->
       <p>Jacky Rebien arbeitet mit Blick auf die Mensch-Hund-Beziehung und mit einem hohen Anspruch an persoenliche, nachvollziehbare Begleitung.</p>
       <!-- /wp:paragraph -->
+      <!-- wp:buttons -->
+      <div class="wp-block-buttons">
+        <!-- wp:button {"className":"is-style-outline"} -->
+        <div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/kontakt/">Kontakt aufnehmen</a></div>
+        <!-- /wp:button -->
+      </div>
+      <!-- /wp:buttons -->
     </div>
     <!-- /wp:column -->
   </div>

@@ -4,28 +4,36 @@
 
 <!-- wp:group {"tagName":"div","className":"site-header","layout":{"type":"default"}} -->
 <div class="wp-block-group site-header">
-  <!-- wp:group {"tagName":"div","className":"site-header__inner","layout":{"type":"flex","justifyContent":"space-between","flexWrap":"nowrap","verticalAlignment":"center"}} -->
+  <!-- wp:group {"tagName":"div","className":"site-header__inner","layout":{"type":"default"}} -->
   <div class="wp-block-group site-header__inner">
-    <!-- wp:group {"tagName":"div","className":"site-header__brand","layout":{"type":"constrained"}} -->
+    <!-- wp:group {"tagName":"div","className":"site-header__brand","layout":{"type":"default"}} -->
     <div class="wp-block-group site-header__brand">
-      <!-- wp:site-title {"level":0} /-->
-      <!-- wp:site-tagline /-->
+      <!-- wp:html -->
+      <a class="site-header__brand-link" href="/" aria-label="Beziehungssache Hund Startseite">
+        <img class="site-header__logo" src="/wp-content/themes/beziehungssache-hund/assets/legacy/logo-square.webp" alt="" width="48" height="48" />
+      </a>
+      <!-- /wp:html -->
+      <!-- wp:group {"className":"site-header__brand-copy","layout":{"type":"constrained"}} -->
+      <div class="wp-block-group site-header__brand-copy">
+        <!-- wp:site-title {"level":0} /-->
+        <!-- wp:site-tagline /-->
+      </div>
+      <!-- /wp:group -->
     </div>
     <!-- /wp:group -->
 
     <!-- wp:navigation {"overlayMenu":"mobile","layout":{"type":"flex","setCascadingProperties":true,"justifyContent":"right"}} -->
-      <!-- wp:navigation-link {"label":"Start","type":"custom","url":"/"} /-->
-      <!-- wp:navigation-link {"label":"Hundetraining Hamburg","type":"custom","url":"/hundetraining-hamburg/"} /-->
+      <!-- wp:navigation-link {"label":"Startseite","type":"custom","url":"/"} /-->
       <!-- wp:navigation-link {"label":"Erstgespraech","type":"custom","url":"/erstgespraech/"} /-->
       <!-- wp:navigation-link {"label":"Einzeltraining","type":"custom","url":"/einzeltraining/"} /-->
-      <!-- wp:navigation-link {"label":"DOGSpace","type":"custom","url":"/dogspace-hamburg/"} /-->
-      <!-- wp:navigation-submenu {"label":"Weitere Angebote","url":"#"} -->
-        <!-- wp:navigation-link {"label":"Workshops und Seminare","type":"custom","url":"/workshops-seminare/"} /-->
-        <!-- wp:navigation-link {"label":"Coaching mit Hund","type":"custom","url":"/coaching-mit-hund/"} /-->
-      <!-- /wp:navigation-submenu -->
       <!-- wp:navigation-link {"label":"Ueber mich","type":"custom","url":"/ueber-jacky-rebien/"} /-->
       <!-- wp:navigation-link {"label":"Preise","type":"custom","url":"/preise/"} /-->
       <!-- wp:navigation-link {"label":"Kontakt","type":"custom","url":"/kontakt/"} /-->
+      <!-- wp:navigation-submenu {"label":"Mehr","url":"#"} -->
+        <!-- wp:navigation-link {"label":"DOGSpace","type":"custom","url":"/dogspace-hamburg/"} /-->
+        <!-- wp:navigation-link {"label":"Workshops und Seminare","type":"custom","url":"/workshops-seminare/"} /-->
+        <!-- wp:navigation-link {"label":"Coaching mit Hund","type":"custom","url":"/coaching-mit-hund/"} /-->
+      <!-- /wp:navigation-submenu -->
     <!-- /wp:navigation -->
 
     <!-- wp:buttons {"className":"site-header__cta"} -->
