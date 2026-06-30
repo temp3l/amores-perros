@@ -15,7 +15,7 @@ Purpose: map the current FTP-dump content into a clean WordPress information arc
 ├── workshops-seminare-hamburg
 ├── austausch-fuer-hundetrainerinnen
 ├── supervision-fuer-hundetrainerinnen
-├── ueber-jacqueline-rebien
+├── ueber-jacky-rebien
 ├── preise
 ├── kontakt
 ├── impressum
@@ -33,7 +33,7 @@ Purpose: map the current FTP-dump content into a clean WordPress information arc
 | `home-1.html` + `index.html` | Workshops & Seminare | `/workshops-seminare-hamburg` | Event landing page and archive | `Workshops Hund Hamburg` | `Seminare Hund Hamburg`, `Hundeworkshop Hamburg` | `Über aktuelle Termine informieren` | Price snippets and event mentions | Build a real event content structure | Topics, dates, booking, cancellation rules |
 | `home-1.html` + `index.html` | Austausch für Hundetrainer:innen | `/austausch-fuer-hundetrainerinnen` | B2B/professional community offer | `Austausch Hundetrainer Hamburg` | `Netzwerk Hundetrainer Hamburg`, `Fortbildung Hundetrainer Hamburg` | `Austausch anfragen` | Price snippets and trainer references | Create full audience-specific copy | Format, frequency, outcomes, eligibility |
 | `index.html` | Supervision | `/supervision-fuer-hundetrainerinnen` | Professional service landing page | `Supervision Hundetrainer Hamburg` | `Supervision Hundetraining`, `fachliche Begleitung Hundetrainer` | `Supervision anfragen` | Price only | Nearly the entire page must be written fresh | Description, target group, format, credentials, CTA |
-| `index.html` + nested `über.html` | About | `/ueber-jacqueline-rebien` | Trust page with biography and qualifications | `Hundetrainerin Hamburg Jacqueline Rebien` | `Hundetrainerin Hamburg`, `Mensch-Hund-Beraterin Hamburg` | `Mich kennenlernen` | Biography, 2004 thesis reference, trainer/mediator background, portrait content | Tighten language, add credibility blocks | Certifications, continuing education, photos, philosophy |
+| `index.html` + nested `über.html` | About | `/ueber-jacky-rebien` | Trust page with biography and qualifications | `Hundetrainerin Hamburg Jacky Rebien` | `Hundetrainerin Hamburg`, `Mensch-Hund-Beraterin Hamburg` | `Mich kennenlernen` | Biography, 2004 thesis reference, trainer/mediator background, portrait content | Tighten language, add credibility blocks | Certifications, continuing education, photos, philosophy |
 | `index.html` + `home-1.html` | Prices | `/preise` | Transparent pricing overview | `Preise Hundetraining Hamburg` | `Hundetraining Kosten Hamburg`, `DOGSpace Preise` | `Passendes Angebot anfragen` | Price tables | Resolve conflicting values and naming | Policy notes, package rules, payment terms |
 | `index.html` + `contact-us.html` | Contact | `/kontakt` | Contact and inquiry page | `Kontakt Hundetraining Hamburg` | `Hundetrainerin Hamburg Kontakt` | `Nachricht senden` | Email, phone, address, intro text | Replace English template copy and generic hours | GDPR text, consent, map, service area |
 | footer text only | Impressum | `/impressum` | Legal page | `Impressum` | N/A | None | Business name, address | Full legal text required | All legal content not present in dump |
@@ -57,4 +57,3 @@ Purpose: map the current FTP-dump content into a clean WordPress information arc
 | Price table block | Homepage, Prices, service pages | `index.html`, `home-1.html` |
 | Contact CTA block | Homepage, service pages, About | `index.html`, `contact-us.html`, `home-1.html` |
 | DOGSpace rules block | DOGSpace page, FAQ | `index.html`, `home-1.html` |
-

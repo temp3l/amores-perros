@@ -1,0 +1,61 @@
+services:
+  active:
+    - name: Erstgespräch
+      status: active
+      type: entry_offer
+      duration: "60 min"
+      notes:
+        - "Preis bestätigt mit 85 EUR"
+        - "Ziel: erste Einordnung, Zielklärung und nächster Schritt"
+    - name: Einzeltraining
+      status: active
+      type: core_service
+      notes:
+        - "Individuelles Training"
+        - "Themen: Leinenführigkeit, Alleinbleiben, Grenzen setzen"
+    - name: 5er-Karte
+      status: active
+      type: package
+      notes:
+        - "Prepaid"
+        - "3 Jahre gültig"
+        - "Preis bestätigt mit 280 EUR"
+    - name: Coaching mit Hund
+      status: active
+      type: secondary_offer
+      notes:
+        - "Wurde aus Führungskräfte-Coaching umbenannt"
+  planned:
+    - name: DOGSpace
+      status: planned
+      type: format
+      notes:
+        - "Gemeinsamer Rahmen fuer Stammtisch, Workshops und Hundecafe"
+        - "Nur mit Anmeldung"
+        - "Zeitfenster: Montag bis Freitag 13:00 bis 18:00"
+    - name: Stammtisch
+      status: planned
+      type: event_format
+    - name: Hundecafe
+      status: planned
+      type: event_format
+    - name: Workshops
+      status: planned
+      type: event
+    - name: Seminare
+      status: planned
+      type: event
+    - name: Hundetrainer-Austausch
+      status: planned
+      type: professional_offer
+    - name: Supervision
+      status: planned
+      type: professional_offer
+    - name: Mantrailing-Training
+      status: planned
+      type: training_format
+    - name: private Vermisstensuche
+      status: discontinued
+      type: emergency_service
+      notes:
+        - "Nicht mehr angeboten"

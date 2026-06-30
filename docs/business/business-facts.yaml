@@ -1,0 +1,37 @@
+brand:
+  name: Beziehungssache Hund
+  person_name: Jacqueline Rebien
+  preferred_name: Jacky Rebien
+  address: "Bundesstr. 74, 20144 Hamburg"
+  email: "info@beziehungssache-hund.de"
+  phone: "015228385291"
+  language: de
+  form_of_address: du
+  service_area: "Hamburg und Umgebung"
+
+positioning:
+  primary_focus: "Individuelles Hundetraining mit Blick auf die Mensch-Hund-Beziehung"
+  secondary_focus:
+    - "präventives Alltagstraining"
+    - "Hundetraining mit klaren, alltagstauglichen Schritten"
+    - "Begleitung bei Problemen wie Leinenführigkeit und Alleinbleiben"
+  special_cases:
+    - "aggressive Hunde nur nach Absprache"
+  differentiators:
+    - "Analyse der gesamten Mensch-Hund-Beziehung"
+    - "enge, flexible Begleitung statt Standardprogramm"
+    - "geschützter DOGSpace als besonderer Lern- und Begegnungsraum"
+
+credentials:
+  reported:
+    - "Hundetrainerin nach § 11 TierSchG"
+    - "Resilienz Coach"
+    - "Mensch-Hund-Beraterin"
+    - "Mediatorin"
+  source_note: "Diese Angaben wurden aus den beantworteten Fragen und der bestehenden Site-Quelle übernommen."
+
+business_rules:
+  address_visibility: "Auf allen relevanten Seiten konsistent ausspielen"
+  language_style: "Du-Ansprache"
+  lead_capture: "Kontakt bevorzugt per E-Mail, Telefon und Anfrageformular"
+  payment_note: "Keine Anzahlung, keine Stornierung bei Terminvorlauf; Prepaid nur dort, wo explizit bestätigt"

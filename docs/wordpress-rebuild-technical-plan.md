@@ -65,9 +65,9 @@ Purpose: define a practical WordPress rebuild approach based on the current FTP 
 | `/index.html` | `/` | Primary homepage redirect |
 | `/home-1.html` | `/` or the most relevant service page if some copy is split out | Use after final content selection |
 | `/contact-us.html` | `/kontakt/` | Replace English template slug |
-| `/about.html` | `/ueber-jacqueline-rebien/` or `/impressum/` depending on final use | Current file is not a real about page |
-| `/informationen.html` | `/impressum/` or `/kontakt/` depending on intent | Current file is not a real information page |
-| `/https/amores-perrosde/abouthtml/über.html` | `/ueber-jacqueline-rebien/` | Redirect nested export artifact |
+| `/about.html` | `/ueber-jacky-rebien/` | Current file is not a real about page |
+| `/informationen.html` | `/impressum/` | Current file is not a real information page |
+| `/https/amores-perrosde/abouthtml/über.html` | `/ueber-jacky-rebien/` | Redirect nested export artifact |
 
 ## Media Migration Plan
 
@@ -102,4 +102,3 @@ Purpose: define a practical WordPress rebuild approach based on the current FTP 
 | Technical QA | Check image compression, Core Web Vitals basics, broken links, and form delivery |
 | Legal QA | Confirm Impressum, Datenschutz, consent text, and any required cookies/tools notices |
 | Local QA | Verify address formatting, map data if used, and consistency with business listings |
-

@@ -1,0 +1,22 @@
+pricing:
+  verified:
+    erstgespraech:
+      price_eur: 85
+      duration: "60 min"
+      payment: "on_request"
+    einzeltraining_45:
+      price_eur: 65
+      duration: "45 min"
+    einzeltraining_90:
+      price_eur: 110
+      duration: "90 min"
+    5er_karte:
+      price_eur: 280
+      validity: "3 Jahre"
+      payment: prepaid
+    coaching_mit_hund:
+      price_eur: null
+      notes: "Eigene oeffentliche Seite ja, Preis noch nicht verifiziert"
+  open_items:
+    - "Welcher Preis gilt fuer Coaching mit Hund?"
+    - "Gibt es fuer DOGSpace, Workshops, Seminare oder Stammtisch feste Preise?"

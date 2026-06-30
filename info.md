@@ -17,6 +17,12 @@ total: 1:30h analyse, aufbereitung + mailing (28.06)
 * 45min - local wordpress: 6:15 - 7:00
 
 
+## 30.06
+* 75 min Gespraech (Domain + Fragen)
+* chatgpt init 18:36
+    * 
+
+
 
 
 ## Blocs

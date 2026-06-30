@@ -1,0 +1,14 @@
+opening_hours:
+  dogspace:
+    status: verified
+    confirmed_window: "Monday-Friday 13:00-18:00"
+    access: "nur mit Anmeldung"
+    use_cases:
+      - Stammtisch
+      - Workshops
+      - Hundecafe
+  legacy_conflicts:
+    - "index.html nennt Mo/Di/Do 16-19 Uhr, Freitag 13-17 Uhr, Samstag nach Vereinbarung"
+    - "home-1.html nennt Freitag 11-17 Uhr"
+    - "contact-us.html zeigt generische Bürozeiten"
+  source_of_truth: "Monday-Friday 13:00-18:00"

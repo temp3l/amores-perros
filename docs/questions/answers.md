@@ -3,7 +3,7 @@ Führungskräfte-Coaching wurde umbenannt in “Coaching mit Hund”
 1\. Erstgespräch 85€  
 2\. 60 min  
 3\. Das Dogspace steht zur Verfügung für Stammtisch, den Workshop und das Hundecafe  
-4\. 15:00 Uhr bis 18:00 Uhr  
+4\. Montag bis Freitag 13:00 Uhr bis 18:00 Uhr  
 5\. Nur mit Anmeldung  
 6\. 
 
@@ -22,7 +22,7 @@ Führungskräfte-Coaching wurde umbenannt in “Coaching mit Hund”
 
 7\. Ja besitzt sie  
 8\. Hundetrainer § 11 TierSchG und Resilienz Coach  
-9\. Ein neuer name wird weiterhin geprüft  
+9\. beziehungssache-hund.de 
 10\. Ja
 
 ## Positionierung
@@ -40,7 +40,7 @@ Führungskräfte-Coaching wurde umbenannt in “Coaching mit Hund”
 
 ### **1\. Analyse der gesamten Mensch-Hund-Beziehung**
 
-Bei Amores Perros beginnt das Training nicht unmittelbar mit Kommandos oder Übungen. Zuerst werden Werte, Erwartungen, Wünsche, Kommunikation und mögliche Ursachen des Verhaltens betrachtet. Anschließend werden ein individuelles Ziel, konkrete Schritte und messbare Fortschritte festgelegt.
+Bei Beziehungssache Hund beginnt das Training nicht unmittelbar mit Kommandos oder Übungen. Zuerst werden Werte, Erwartungen, Wünsche, Kommunikation und mögliche Ursachen des Verhaltens betrachtet. Anschließend werden ein individuelles Ziel, konkrete Schritte und messbare Fortschritte festgelegt.
 
 Das wirkt eher wie eine Kombination aus:
 
@@ -50,7 +50,7 @@ Viele Hamburger Hundeschulen werben zwar ebenfalls mit individuellem Training. H
 
 ### **2\. Enge und flexible Begleitung statt Standardprogramm**
 
-Amores Perros formuliert ausdrücklich:
+Beziehungssache Hund formuliert ausdrücklich:
 
 * individuelles Trainingskonzept,  
 * realistisches gemeinsames Ziel,  
@@ -75,7 +75,7 @@ Viele Wettbewerber haben zwar Trainingsplätze und Gruppenkurse. Die Kombination
 
 ### **4\. Angebote auch für Hundetrainer**
 
-Amores Perros nennt Stammtische, Austausch und Supervision für Hundetrainer. Damit richtet sich das Angebot nicht ausschließlich an Hundehalter.
+Beziehungssache Hund nennt Stammtische, Austausch und Supervision für Hundetrainer. Damit richtet sich das Angebot nicht ausschließlich an Hundehalter.
 
 Das eröffnet eine zweite Positionierung:
 
@@ -89,7 +89,7 @@ Der Preis kann daher ein Vorteil sein, sollte aber nicht zum zentralen Markenver
 
 ### **Empfehlenswerte Positionierung**
 
-**Amores Perros ist keine klassische Hundeschule mit Standardkursen. Wir betrachten Hund und Mensch als Team, analysieren Verhalten, Kommunikation und gemeinsame Bedürfnisse und entwickeln daraus einen persönlichen, messbaren Trainingsweg. Im geschützten DOGSpace können Begegnungen, Beziehung und Alltagssituationen gezielt trainiert werden – ruhig, fair und ohne Gruppendruck.**
+**Beziehungssache Hund ist keine klassische Hundeschule mit Standardkursen. Wir betrachten Hund und Mensch als Team, analysieren Verhalten, Kommunikation und gemeinsame Bedürfnisse und entwickeln daraus einen persönlichen, messbaren Trainingsweg. Im geschützten DOGSpace können Begegnungen, Beziehung und Alltagssituationen gezielt trainiert werden – ruhig, fair und ohne Gruppendruck.**
 
 ## Buchung und Betrieb
 
@@ -120,3 +120,11 @@ Der beste Weg ist:
 6. Mantrailing-Einsätze und Führungskräfte-Coaching zunächst vom Hauptangebot trennen.  
 7. Weitere Landingpages nur aufgrund echter Angebote und Suchdaten ergänzen.
 
+## Klärung nachträglich bestätigt
+
+31\. DOGSpace, Stammtisch, Hundecafe und Workshops sind ein gemeinsamer Rahmen  
+32\. Die 5er-Karte kostet weiterhin 280€  
+33\. Workshops und Seminare finden bei Bedarf statt  
+34\. Coaching mit Hund bekommt eine eigene öffentliche Seite  
+35\. Mantrailing-Training bleibt geplant  
+36\. about.html führt zu `Ueber mich` und informationen.html zu `Impressum`
