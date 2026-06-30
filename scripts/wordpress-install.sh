@@ -124,6 +124,9 @@ activate_theme_if_available
 echo "Synchronisiere Seitenstruktur und Basisinhalte ..."
 wp eval-file wp-content/themes/beziehungssache-hund/seed-content.php >/dev/null
 
+echo "Installiere und konfiguriere Yoast SEO ..."
+"${ROOT_DIR}/scripts/wordpress-configure-yoast.sh"
+
 installed_locale="$(wp option get WPLANG)"
 if [[ "${installed_locale}" != "de_DE" ]]; then
   printf 'Sprache konnte nicht korrekt gesetzt werden. Erwartet: de_DE, erhalten: %s\n' "${installed_locale}" >&2

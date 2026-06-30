@@ -56,6 +56,7 @@ make db-export
 make db-import FILE=backups/example.sql
 make reset
 make clean
+make audit-images
 ```
 
 Direkt ohne Make:
@@ -142,6 +143,14 @@ make visual-summary-ci
 
 Die Ausgabe ist absichtlich kurz und maschinenfreundlich, zum Beispiel mit `VISUAL_FAILURE_COUNT=` und einer Zeile pro fehlgeschlagener Seite.
 
+### Bildformat-Audit
+
+```bash
+make audit-images
+```
+
+Prueft im Headless-Browser, ob die optimierten Bildquellen fuer Header, Footer, Portrait und Hero auf AVIF mit WebP-Fallback aufloesen.
+
 ### Artefakte und Baselines
 
 - Baselines: `tests/visual/baselines/`
@@ -165,6 +174,7 @@ Uploads liegen lokal in einem Docker-Volume und werden nicht als Quellcode versi
 
 - Das Setup aktiviert automatisch das Theme `beziehungssache-hund`.
 - `./scripts/wordpress-install.sh` erstellt bzw. aktualisiert die kanonischen Seiten aus `docs/technical/wordpress-page-tree.md` und `docs/seo/url-map.md`.
+- `./scripts/wordpress-install.sh` installiert und aktiviert zusaetzlich `Yoast SEO` und synchronisiert die kanonischen Seitentitel und Descriptions fuer die angelegten Seiten.
 - Die Startseite wird als statische Frontpage gesetzt, `Ratgeber` als Beitragsseite.
 - `Impressum` und `Datenschutz` werden lokal als Platzhalterseiten angelegt und muessen vor einem Launch mit rechtlich geprueften Inhalten ersetzt werden.
 

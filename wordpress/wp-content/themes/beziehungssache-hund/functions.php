@@ -32,5 +32,13 @@ add_action(
             [],
             wp_get_theme()->get('Version')
         );
+
+        wp_enqueue_script(
+            'beziehungssache-hund-header',
+            get_template_directory_uri() . '/assets/js/header.js',
+            [],
+            wp_get_theme()->get('Version'),
+            true
+        );
     }
 );
