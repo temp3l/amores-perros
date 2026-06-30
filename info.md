@@ -15,6 +15,7 @@ total: 1:30h analyse, aufbereitung + mailing (28.06)
 
 ## 29.06
 * 45min - local wordpress: 6:15 - 7:00
+* 3h structure + setiup + theme
 
 
 ## 30.06

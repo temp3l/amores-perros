@@ -66,12 +66,19 @@ docker compose run --rm wp-cli theme list
 
 - `compose.yaml`: lokale Services fuer WordPress, MariaDB, WP-CLI, Adminer und Mailpit
 - `docker/wordpress/*.ini`: lokale PHP-Konfiguration
-- `scripts/`: wiederholbare Installations-, Reset- und Datenbankskripte
-- `wordpress/wp-content/themes/beziehungssache-hund/`: minimales Block-Theme-Startgeruest
+- `scripts/`: wiederholbare Installations-, Reset- und Datenbankskripte inklusive Seitensynchronisation
+- `wordpress/wp-content/themes/beziehungssache-hund/`: eigenes Block-Theme fuer Templates, Patterns und Styles
 - `wordpress/wp-content/plugins/` und `wordpress/wp-content/mu-plugins/`: versionierbare Projekt-Erweiterungen
 - `backups/`: lokale SQL-Exporte, standardmaessig nicht versioniert
 
 Uploads liegen lokal in einem Docker-Volume und werden nicht als Quellcode versioniert.
+
+## Aktueller WordPress-Stand
+
+- Das Setup aktiviert automatisch das Theme `beziehungssache-hund`.
+- `./scripts/wordpress-install.sh` erstellt bzw. aktualisiert die kanonischen Seiten aus `docs/technical/wordpress-page-tree.md` und `docs/seo/url-map.md`.
+- Die Startseite wird als statische Frontpage gesetzt, `Ratgeber` als Beitragsseite.
+- `Impressum` und `Datenschutz` werden lokal als Platzhalterseiten angelegt und muessen vor einem Launch mit rechtlich geprueften Inhalten ersetzt werden.
 
 ## Fehlersuche
 

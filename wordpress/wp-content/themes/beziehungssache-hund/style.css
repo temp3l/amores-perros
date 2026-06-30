@@ -2,9 +2,282 @@
 Theme Name: Beziehungssache Hund
 Theme URI: https://example.test/beziehungssache-hund
 Author: Local Development Setup
-Description: Minimales Block-Theme-Startgeruest fuer die lokale Entwicklung.
+Description: Leichtgewichtiges Block Theme fuer den lokalen Rebuild von beziehungssache-hund.de.
 Requires at least: 7.0
 Requires PHP: 8.1
-Version: 0.1.0
+Version: 0.2.0
 Text Domain: beziehungssache-hund
 */
+
+:root {
+  --bsh-radius: 1.5rem;
+  --bsh-shadow: 0 18px 40px rgba(38, 61, 53, 0.08);
+  --bsh-border: 1px solid rgba(38, 61, 53, 0.12);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+}
+
+.wp-site-blocks {
+  min-height: 100vh;
+}
+
+.bsh-skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+}
+
+.bsh-skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  z-index: 1000;
+  background: var(--wp--preset--color--terracotta);
+  color: var(--wp--preset--color--cream);
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+}
+
+.bsh-main {
+  padding: 0 1.25rem 4rem;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(250, 248, 243, 0.92);
+  backdrop-filter: blur(14px);
+  border-bottom: var(--bsh-border);
+}
+
+.site-header__inner,
+.site-footer__inner {
+  width: min(1200px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.site-header__brand {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.site-header .wp-block-navigation__responsive-container-open,
+.site-header .wp-block-navigation__responsive-container-close {
+  color: var(--wp--preset--color--forest);
+}
+
+.site-header .wp-block-site-title {
+  margin: 0;
+}
+
+.site-header .wp-block-site-title a,
+.site-footer .wp-block-site-title a {
+  text-decoration: none;
+}
+
+.site-header .wp-block-site-tagline {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.site-footer {
+  background: var(--wp--preset--color--forest);
+  color: var(--wp--preset--color--cream);
+  margin-top: 4rem;
+}
+
+.site-footer a {
+  color: var(--wp--preset--color--cream);
+}
+
+.site-footer__inner {
+  display: grid;
+  gap: 1.25rem;
+  padding: 3rem 0;
+}
+
+.site-footer .wp-block-site-title,
+.site-footer .wp-block-paragraph {
+  color: inherit;
+}
+
+.bsh-hero,
+.bsh-section {
+  padding: 4rem 0;
+}
+
+.bsh-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.bsh-hero::before {
+  content: "";
+  position: absolute;
+  inset: 1rem 0 auto auto;
+  width: min(28vw, 18rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(184, 103, 75, 0.18) 0%, rgba(184, 103, 75, 0) 72%);
+  pointer-events: none;
+}
+
+.bsh-section--soft {
+  background: var(--wp--preset--color--sand);
+  border-radius: var(--bsh-radius);
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.bsh-section--accent {
+  background: var(--wp--preset--color--forest);
+  color: var(--wp--preset--color--cream);
+  border-radius: var(--bsh-radius);
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.bsh-section--accent :is(h1, h2, h3, h4, h5, h6, p, li) {
+  color: inherit;
+}
+
+.bsh-eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--wp--preset--color--terracotta);
+}
+
+.bsh-hero__title,
+.bsh-page-hero__title {
+  max-width: 12ch;
+  margin-bottom: 0.25rem;
+}
+
+.bsh-hero__lead,
+.bsh-page-hero__lead {
+  max-width: 42rem;
+  font-size: 1.15rem;
+}
+
+.bsh-card-grid {
+  gap: 1.25rem;
+}
+
+.bsh-card {
+  height: 100%;
+  background: #fff;
+  border: var(--bsh-border);
+  border-radius: var(--bsh-radius);
+  box-shadow: var(--bsh-shadow);
+  padding: 1.5rem;
+}
+
+.bsh-post-card {
+  margin-bottom: 1.5rem;
+}
+
+.bsh-price-card__value {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  line-height: 1;
+  color: var(--wp--preset--color--forest);
+  font-family: var(--wp--preset--font-family--display-serif);
+  margin: 0;
+}
+
+.bsh-step-list {
+  padding-left: 1.25rem;
+}
+
+.bsh-step-list li + li {
+  margin-top: 0.75rem;
+}
+
+.bsh-portrait-placeholder {
+  min-height: 20rem;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(160deg, var(--wp--preset--color--mist), var(--wp--preset--color--sand));
+  border-radius: var(--bsh-radius);
+  border: var(--bsh-border);
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.wp-block-button.is-style-outline > .wp-block-button__link {
+  background: transparent;
+  color: var(--wp--preset--color--forest);
+  border: 1px solid currentColor;
+}
+
+.bsh-section--accent .wp-block-button.is-style-outline > .wp-block-button__link {
+  color: var(--wp--preset--color--cream);
+}
+
+.wp-block-table table {
+  border-collapse: collapse;
+}
+
+.wp-block-table :is(td, th) {
+  border: var(--bsh-border);
+  padding: 0.85rem 1rem;
+}
+
+.bsh-contact-list,
+.bsh-inline-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.bsh-contact-list li + li,
+.bsh-inline-list li + li {
+  margin-top: 0.5rem;
+}
+
+.bsh-inline-list li {
+  display: inline-block;
+  margin-right: 0.75rem;
+}
+
+:is(a, button, .wp-element-button):focus-visible {
+  outline: 3px solid rgba(184, 103, 75, 0.35);
+  outline-offset: 3px;
+}
+
+@media (max-width: 781px) {
+  .site-header__inner {
+    align-items: flex-start;
+  }
+
+  .site-header__cta {
+    display: none;
+  }
+
+  .bsh-main {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .bsh-hero,
+  .bsh-section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
