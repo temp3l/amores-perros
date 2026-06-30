@@ -2,7 +2,7 @@
 
 Diese Dokumentation ist die Arbeitsgrundlage fuer den Rebuild von `Beziehungssache Hund`.
 
-Die hierarchische Uebersicht findest du in [docs/structure.md](/home/box/workspace/fehmarn-seo/jacky/docs/structure.md).
+Die hierarchische Uebersicht findest du in [docs/structure.md](structure.md).
 
 ## Kanonische Fakten
 
@@ -16,39 +16,39 @@ Die hierarchische Uebersicht findest du in [docs/structure.md](/home/box/workspa
 
 ## Inhaltliche Quellen
 
-- [Business-Fakten](/home/box/workspace/fehmarn-seo/jacky/docs/business/business-facts.yaml)
-- [Kontakt](/home/box/workspace/fehmarn-seo/jacky/docs/business/contact-details.yaml)
-- [Leistungen](/home/box/workspace/fehmarn-seo/jacky/docs/business/services.yaml)
-- [Preise](/home/box/workspace/fehmarn-seo/jacky/docs/business/pricing.yaml)
-- [Oeffnungszeiten](/home/box/workspace/fehmarn-seo/jacky/docs/business/opening-hours.yaml)
-- [Positionierung](/home/box/workspace/fehmarn-seo/jacky/docs/brand/positioning.md)
+- [Business-Fakten](business/business-facts.yaml)
+- [Kontakt](business/contact-details.yaml)
+- [Leistungen](business/services.yaml)
+- [Preise](business/pricing.yaml)
+- [Oeffnungszeiten](business/opening-hours.yaml)
+- [Positionierung](brand/positioning.md)
 
 ## SEO und Struktur
 
-- [URL-Map](/home/box/workspace/fehmarn-seo/jacky/docs/seo/url-map.md)
-- [Weiterleitungsplan](/home/box/workspace/fehmarn-seo/jacky/docs/seo/redirect-map.md)
-- [Metadaten](/home/box/workspace/fehmarn-seo/jacky/docs/seo/metadata.md)
-- [Sitemap](/home/box/workspace/fehmarn-seo/jacky/docs/technical/sitemap.md)
+- [URL-Map](seo/url-map.md)
+- [Weiterleitungsplan](seo/redirect-map.md)
+- [Metadaten](seo/metadata.md)
+- [Sitemap](technical/sitemap.md)
 
 ## Rebuild und Umsetzung
 
-- [Rebuild-Entscheidungen](/home/box/workspace/fehmarn-seo/jacky/docs/technical/rebuild-decisions.md)
-- [Rebuild-Reihenfolge](/home/box/workspace/fehmarn-seo/jacky/docs/technical/rebuild-sequence.md)
-- [WordPress-Seitenbaum](/home/box/workspace/fehmarn-seo/jacky/docs/technical/wordpress-page-tree.md)
-- [Weiterleitungen final](/home/box/workspace/fehmarn-seo/jacky/docs/technical/redirects-final.md)
-- [Launch-Checkliste](/home/box/workspace/fehmarn-seo/jacky/docs/technical/launch-checklist.md)
+- [Rebuild-Entscheidungen](technical/rebuild-decisions.md)
+- [Rebuild-Reihenfolge](technical/rebuild-sequence.md)
+- [WordPress-Seitenbaum](technical/wordpress-page-tree.md)
+- [Weiterleitungen final](technical/redirects-final.md)
+- [Launch-Checkliste](technical/launch-checklist.md)
 
 ## Content-Drafts
 
-- [Startseite](/home/box/workspace/fehmarn-seo/jacky/docs/content/startseite-draft.md)
-- [Erstgespraech](/home/box/workspace/fehmarn-seo/jacky/docs/content/erstgespraech-draft.md)
-- [Einzeltraining](/home/box/workspace/fehmarn-seo/jacky/docs/content/einzeltraining-draft.md)
-- [Ueber mich](/home/box/workspace/fehmarn-seo/jacky/docs/content/ueber-mich-draft.md)
-- [Preise](/home/box/workspace/fehmarn-seo/jacky/docs/content/preise-draft.md)
-- [Kontakt](/home/box/workspace/fehmarn-seo/jacky/docs/content/kontakt-draft.md)
-- [DOGSpace](/home/box/workspace/fehmarn-seo/jacky/docs/content/dogspace-draft.md)
-- [Workshops und Seminare](/home/box/workspace/fehmarn-seo/jacky/docs/content/workshops-seminare-draft.md)
-- [Coaching mit Hund](/home/box/workspace/fehmarn-seo/jacky/docs/content/coaching-mit-hund-draft.md)
+- [Startseite](content/startseite-draft.md)
+- [Erstgespraech](content/erstgespraech-draft.md)
+- [Einzeltraining](content/einzeltraining-draft.md)
+- [Ueber mich](content/ueber-mich-draft.md)
+- [Preise](content/preise-draft.md)
+- [Kontakt](content/kontakt-draft.md)
+- [DOGSpace](content/dogspace-draft.md)
+- [Workshops und Seminare](content/workshops-seminare-draft.md)
+- [Coaching mit Hund](content/coaching-mit-hund-draft.md)
 
 ## Sprachregel fuer diese Dokumentation
 
@@ -58,4 +58,4 @@ Die hierarchische Uebersicht findest du in [docs/structure.md](/home/box/workspa
 
 ## Hinweis zum Archiv
 
-Das historische Material ist in [docs/archive/README.md](/home/box/workspace/fehmarn-seo/jacky/docs/archive/README.md) gebündelt.
+Das historische Material ist in [docs/archive/README.md](archive/README.md) gebündelt.

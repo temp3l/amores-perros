@@ -6,3 +6,14 @@
 # Local secrets
 .env
 .env.local
+
+# Local WordPress runtime data
+backups/*.sql
+backups/*.sql.gz
+wordpress/wp-content/uploads/
+wordpress/wp-content/cache/
+wordpress/wp-content/upgrade/
+wordpress/wp-content/debug.log
+
+# OS files
+.DS_Store
