@@ -10,7 +10,23 @@
     <div class="wp-block-group site-header__brand">
       <!-- wp:html -->
       <a class="site-header__brand-link" href="/" aria-label="Beziehungssache Hund Startseite">
-        <img class="site-header__logo" src="/wp-content/themes/beziehungssache-hund/assets/legacy/logo-square.webp" alt="" width="48" height="48" />
+        <picture>
+          <source
+            type="image/avif"
+            srcset="/wp-content/themes/beziehungssache-hund/assets/optimized/logo-square-96.avif 1x, /wp-content/themes/beziehungssache-hund/assets/optimized/logo-square-192.avif 2x"
+          />
+          <source
+            type="image/webp"
+            srcset="/wp-content/themes/beziehungssache-hund/assets/optimized/logo-square-96.webp 1x, /wp-content/themes/beziehungssache-hund/assets/optimized/logo-square-192.webp 2x"
+          />
+          <img
+            class="site-header__logo"
+            src="/wp-content/themes/beziehungssache-hund/assets/optimized/logo-square-96.webp"
+            alt=""
+            width="96"
+            height="85"
+          />
+        </picture>
       </a>
       <!-- /wp:html -->
       <!-- wp:group {"className":"site-header__brand-copy","layout":{"type":"constrained"}} -->
@@ -35,14 +51,6 @@
         <!-- wp:navigation-link {"label":"Coaching mit Hund","type":"custom","url":"/coaching-mit-hund/"} /-->
       <!-- /wp:navigation-submenu -->
     <!-- /wp:navigation -->
-
-    <!-- wp:buttons {"className":"site-header__cta"} -->
-    <div class="wp-block-buttons site-header__cta">
-      <!-- wp:button -->
-      <div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/erstgespraech/">Erstgespraech anfragen</a></div>
-      <!-- /wp:button -->
-    </div>
-    <!-- /wp:buttons -->
   </div>
   <!-- /wp:group -->
 </div>

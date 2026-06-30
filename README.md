@@ -7,6 +7,7 @@ Dieses Repository richtet eine rein lokale WordPress-Entwicklungsumgebung fuer d
 - Docker Engine
 - Docker Compose V2
 - GNU Make fuer die Komfortbefehle oder alternativ direkte `docker compose`-Aufrufe
+- Node.js 22+ und npm fuer lokale Visual-Checks mit Playwright
 - Linux, macOS oder Windows mit WSL2; unter Windows sollte Docker Desktop mit WSL2-Backend aktiv sein
 
 ## Ersteinrichtung
@@ -14,17 +15,20 @@ Dieses Repository richtet eine rein lokale WordPress-Entwicklungsumgebung fuer d
 1. `.env.example` nach `.env` kopieren und sichere lokale Werte eintragen.
 2. Container starten.
 3. WordPress installieren und lokalisieren.
+4. Playwright fuer lokale Screenshot-Checks installieren.
 
 ```bash
 cp .env.example .env
 docker compose up -d
 ./scripts/wordpress-install.sh
+npm install
 ```
 
 Alternativ:
 
 ```bash
 make setup
+npm install
 ```
 
 Eine bereits vorhandene lokale `.env` wird von `make setup` nicht ueberschrieben.
@@ -61,6 +65,90 @@ docker compose up -d
 docker compose run --rm wp-cli core version
 docker compose run --rm wp-cli theme list
 ```
+
+## Visuelle Layout-Checks
+
+Fuer lokale Desktop- und Mobile-Screenshots ist eine Playwright-basierte Visual-Check-Strecke hinterlegt. Sie prueft die geschäftskritischen Seiten gegen versionierte Baselines und schreibt Laufzeit-Artefakte getrennt von Theme-Code weg.
+
+### Abgedeckte Seiten
+
+- `/`
+- `/hundetraining-hamburg/`
+- `/erstgespraech/`
+- `/einzeltraining/`
+- `/dogspace-hamburg/`
+- `/workshops-seminare/`
+- `/coaching-mit-hund/`
+- `/ueber-jacky-rebien/`
+- `/kontakt/`
+- `/preise/`
+- `/impressum/`
+- `/datenschutz/`
+
+### Viewports
+
+- Desktop: `1440x900`
+- Mobile: `390x844`
+
+### Einmalige Einrichtung
+
+```bash
+npm install
+npx playwright install chromium
+```
+
+`chromium` reicht fuer diesen lokalen Workflow aus.
+
+### Ausfuehren
+
+```bash
+make visual-check
+```
+
+Alias:
+
+```bash
+make screenshots
+```
+
+Der Befehl:
+
+- prueft, ob der lokale WordPress-Container laeuft
+- prueft, ob `WORDPRESS_URL` aus `.env` erreichbar ist
+- fuehrt anschliessend den visuellen Vergleich aus
+- gibt danach eine kurze Summary mit HTML-Report-Pfad und eventuellen Fehlseiten aus
+
+### Baselines absichtlich aktualisieren
+
+```bash
+make visual-update
+```
+
+Das sollte nur nach einer bewusst akzeptierten Layout-Aenderung verwendet werden.
+
+### Nur Summary ausgeben
+
+```bash
+make visual-summary
+```
+
+Das ist nuetzlich, wenn du nach einem fehlgeschlagenen Lauf nur noch die Report-Datei und die betroffenen Seiten sehen willst.
+
+### Kompakte CI-Summary
+
+```bash
+make visual-summary-ci
+```
+
+Die Ausgabe ist absichtlich kurz und maschinenfreundlich, zum Beispiel mit `VISUAL_FAILURE_COUNT=` und einer Zeile pro fehlgeschlagener Seite.
+
+### Artefakte und Baselines
+
+- Baselines: `tests/visual/baselines/`
+- Laufzeit-Artefakte, Diffs, Traces: `artifacts/visual/test-results/`
+- HTML-Report: `artifacts/visual/report/`
+
+Die Baselines sind Teil des Repos. Laufzeit-Artefakte bleiben lokal.
 
 ## Projektstruktur
 
@@ -100,6 +188,10 @@ Uploads liegen lokal in einem Docker-Volume und werden nicht als Quellcode versi
   `docker compose run --rm wp-cli rewrite flush --hard`
 - WP-CLI-Verbindung zur Datenbank:
   `docker compose run --rm wp-cli db check`
+- Visual-Check meldet fehlende Abhaengigkeiten:
+  `npm install` und `npx playwright install chromium`
+- Visual-Check meldet unerreichbare Seite:
+  `docker compose up -d`, dann `curl http://localhost:8080` oder die konfigurierte `WORDPRESS_URL` pruefen
 
 ## Sicherheits- und Scope-Hinweise
 

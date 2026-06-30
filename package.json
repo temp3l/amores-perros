@@ -1,0 +1,13 @@
+{
+  "name": "beziehungssache-hund-visual-regression",
+  "private": true,
+  "scripts": {
+    "visual-check": "playwright test",
+    "visual-update": "playwright test --update-snapshots",
+    "visual-summary": "node scripts/visual-report-summary.mjs",
+    "visual-summary:ci": "node scripts/visual-report-summary.mjs --ci"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0"
+  }
+}

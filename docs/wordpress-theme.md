@@ -63,6 +63,10 @@ Die optische Grundstimmung orientiert sich am Legacy-Snapshot von `amores-perros
 - weisse und cremefarbene Typografie auf dunklen Zonen
 - echte Fotomotive und Logos aus dem Legacy-Material statt generischer Platzhalter
 
+Die Startseite darf eine bildstarke Hero-Fläche verwenden. Unterseiten wie Kontakt, Erstgespraech oder Preise bekommen dagegen eine ruhigere, dunkel gefasste Seiten-Hero ohne grossflächiges Hintergrundbild, damit der Inhalt schneller lesbar und klarer getrennt ist.
+
+Fuer grosse Fotos und Portraits wird AVIF als Primärformat mit WebP-Fallback genutzt. Logo- und Markenmotive werden ebenfalls in den zu ihrem sichtbaren Einsatz passenden Zielgroessen ausgeliefert, statt in den Originalabmessungen geladen zu werden.
+
 Die Umsetzung bleibt dennoch ein eigenes WordPress-Theme und keine 1:1-Kopie des alten Blocs-Layouts.
 
 ---

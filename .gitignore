@@ -2,6 +2,12 @@
 # Generated deployment packages
 /artifacts/*
 !/artifacts/.gitkeep
+/playwright-report/
+/node_modules/
+/test-results/
+/artifacts/visual/current/
+/artifacts/visual/report/
+/artifacts/visual/test-results/
 
 # Local secrets
 .env
