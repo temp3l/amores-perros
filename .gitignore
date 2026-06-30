@@ -10,10 +10,19 @@
 # Local WordPress runtime data
 backups/*.sql
 backups/*.sql.gz
+wordpress/wp-content/index.php
+wordpress/wp-content/languages/
+wordpress/wp-content/plugins/akismet/
+wordpress/wp-content/plugins/hello.php
+wordpress/wp-content/plugins/index.php
 wordpress/wp-content/uploads/
 wordpress/wp-content/cache/
 wordpress/wp-content/upgrade/
 wordpress/wp-content/debug.log
+wordpress/wp-content/themes/index.php
+wordpress/wp-content/themes/twentytwentythree/
+wordpress/wp-content/themes/twentytwentyfour/
+wordpress/wp-content/themes/twentytwentyfive/
 
 # OS files
 .DS_Store
