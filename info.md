@@ -1,24 +1,32 @@
 # amore perros 
 
-setup + downloads:
-* 5 min 
+## 26.06 ?
+* 20 min setup + downloads
 * 1h beratungs gepsräch + strato
 * 10 min domain findung
-* 1:30h analyse, aufbereitung + mailing (28.06)
+total: 1:30h analyse, aufbereitung + mailing (28.06)
 
 ## 28.06
+* 45 min
 * gpt chat finden und in tasks umsetzen
 * analyse aktuelle website
-    * start: 12:30
-    * end: 13:00
 * ergebnisse:
     * https://chatgpt.com/share/6a410622-48f0-83eb-80f2-9477edb74a9c
 
-* local wordpress:
-    * 6:15
+## 29.06
+* 45min - local wordpress: 6:15 - 7:00
 
 
 
+
+## Blocs
+
+codex -m gpt-5.3-codex for prompts/03-analyze-blocs-package.md
+    * high reasoning
+./amores-perros/          # original Blocs project and assets
+./blocs-package/          # packaged editable project
+./blocs-export/           # newly generated output
+./production-ftp/         # actual deployed website snapshot
 
 
 ## prompts
