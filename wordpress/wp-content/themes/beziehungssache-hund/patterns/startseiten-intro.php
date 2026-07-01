@@ -24,26 +24,47 @@
 </section>
 <!-- /wp:group -->
 
-<!-- wp:group {"tagName":"section","className":"bsh-section bsh-page-intro","layout":{"type":"constrained"}} -->
-<section class="wp-block-group bsh-section bsh-page-intro">
-  <!-- wp:heading {"level":1,"className":"bsh-page-intro__title"} -->
-  <h1 class="wp-block-heading bsh-page-intro__title">Wilkommen</h1>
+<!-- wp:group {"tagName":"section","className":"bsh-section bsh-page-intro welcome-introduction","layout":{"type":"constrained"}} -->
+<section class="wp-block-group bsh-section bsh-page-intro welcome-introduction">
+  <!-- wp:paragraph {"className":"bsh-eyebrow"} -->
+  <p class="bsh-eyebrow">Mensch und Hund gemeinsam verstehen</p>
+  <!-- /wp:paragraph -->
+
+  <!-- wp:heading {"level":1,"className":"bsh-page-intro__title welcome-introduction__title"} -->
+  <h1 class="wp-block-heading bsh-page-intro__title welcome-introduction__title">Willkommen</h1>
   <!-- /wp:heading -->
 
-  <!-- wp:paragraph -->
-  <p>auf meiner Webseite - schön, dass du dich für meine Arbeitsweise interessierst.</p>
+  <!-- wp:paragraph {"className":"welcome-introduction__lead"} -->
+  <p class="welcome-introduction__lead">Auf meiner Webseite – schön, dass du dich für meine Arbeitsweise interessierst.</p>
   <!-- /wp:paragraph -->
 
+  <!-- wp:html -->
+  <div class="welcome-introduction__body">
+    <figure class="welcome-introduction__logo">
+      <img
+        src="<?php echo esc_url(get_theme_file_uri('assets/brand/log-cropped.jpg')); ?>"
+        alt="Logo von Beziehungssache Hund"
+        width="952"
+        height="1030"
+        loading="lazy"
+        decoding="async"
+      />
+    </figure>
+  <!-- /wp:html -->
+
   <!-- wp:paragraph -->
-  <p>In dem Buch "Hund und Mensch" von Kurt Kotrschal findet sich sinngemäß ein schöner Satz:</p>
+  <p>In dem Buch „Hund &amp; Mensch“ von Kurt Kotrschal findet sich sinngemäß ein schöner Satz:</p>
   <!-- /wp:paragraph -->
 
-  <!-- wp:quote -->
-  <blockquote class="wp-block-quote"><p>„Hunde erleichtern es, emotionale Beziehungen zu Menschen aufzubauen um mit den Herausforderungen des Lebens besser zurechtzukommen.“</p></blockquote>
+  <!-- wp:quote {"className":"welcome-introduction__quote"} -->
+  <blockquote class="wp-block-quote welcome-introduction__quote">
+    <p>„Hunde erleichtern es, emotionale Beziehungen zu Menschen aufzubauen, um mit den Herausforderungen des Lebens besser zurechtzukommen.“</p>
+    <cite>Kurt Kotrschal, <em>Hund &amp; Mensch – Das Geheimnis unserer Seelenverwandtschaft</em></cite>
+  </blockquote>
   <!-- /wp:quote -->
 
-  <!-- wp:paragraph -->
-  <p>Doch was, wenn der Hund in manchen Lebensbereichen keine Erleichterung oder Bereicherung darstellt, sondern zur Belastungsprobe wird?</p>
+  <!-- wp:paragraph {"className":"welcome-introduction__question"} -->
+  <p class="welcome-introduction__question"><strong>Doch was, wenn der Hund in manchen Lebensbereichen keine Erleichterung oder Bereicherung darstellt, sondern zur Belastungsprobe wird?</strong></p>
   <!-- /wp:paragraph -->
 
   <!-- wp:paragraph -->
@@ -54,20 +75,60 @@
   <p>Genau diese Möglichkeiten möchte ich gemeinsam mit dir herausfinden.</p>
   <!-- /wp:paragraph -->
 
-  <!-- wp:paragraph -->
-  <p>Am Anfang meiner Arbeit stehen deshalb: Zuhören, genaues Hinschauen, Beobachten und Analysieren. Ich stelle viele Fragen - und manche Antworten finden wir gemeinsam. Ich schaue auf Eure Werte, Einstellungen und Wünsche. Wo an welcher Stelle befindet ihre Euch, lassen sich zB. gemeinsame Hobbies entdecken und können wir einen Weg für eine verständliche Kommunikation finden.</p>
-  <!-- /wp:paragraph -->
+  <!-- wp:html -->
+  </div>
+  <div class="welcome-introduction__process">
+  <!-- /wp:html -->
 
-  <!-- wp:paragraph -->
-  <p>Daraus entsteht ein erstes Bild der Mensch-Hund-Beziehung. Auf dieser Grundlage entwickeln wir gemeinsam eine individuelle Trainingsmethode.</p>
-  <!-- /wp:paragraph -->
+  <!-- wp:group {"className":"welcome-introduction__steps","layout":{"type":"constrained"}} -->
+  <div class="wp-block-group welcome-introduction__steps">
+    <!-- wp:group {"className":"welcome-introduction__step","layout":{"type":"constrained"}} -->
+    <div class="wp-block-group welcome-introduction__step">
+      <!-- wp:paragraph {"className":"welcome-introduction__step-number"} -->
+      <p class="welcome-introduction__step-number">01</p>
+      <!-- /wp:paragraph -->
+      <!-- wp:heading {"level":3,"className":"welcome-introduction__step-title"} -->
+      <h3 class="wp-block-heading welcome-introduction__step-title">Verstehen</h3>
+      <!-- /wp:heading -->
+      <!-- wp:paragraph -->
+      <p>Am Anfang meiner Arbeit stehen Zuhören, genaues Hinschauen, Beobachten und Analysieren.</p>
+      <!-- /wp:paragraph -->
+    </div>
+    <!-- /wp:group -->
 
-  <!-- wp:paragraph -->
-  <p>Wir definieren ein realistisches Ziel, legen konkrete Schritte fest, anhand derer Fortschritte messbar sind, und bestimmen einen Zeitpunkt, bis wann dieses Ziel erreicht werden soll.</p>
-  <!-- /wp:paragraph -->
+    <!-- wp:group {"className":"welcome-introduction__step","layout":{"type":"constrained"}} -->
+    <div class="wp-block-group welcome-introduction__step">
+      <!-- wp:paragraph {"className":"welcome-introduction__step-number"} -->
+      <p class="welcome-introduction__step-number">02</p>
+      <!-- /wp:paragraph -->
+      <!-- wp:heading {"level":3,"className":"welcome-introduction__step-title"} -->
+      <h3 class="wp-block-heading welcome-introduction__step-title">Gemeinsam entwickeln</h3>
+      <!-- /wp:heading -->
+      <!-- wp:paragraph -->
+      <p>Daraus entsteht ein erstes Bild der Mensch-Hund-Beziehung. Auf dieser Grundlage entwickeln wir gemeinsam eine individuelle Trainingsmethode.</p>
+      <!-- /wp:paragraph -->
+    </div>
+    <!-- /wp:group -->
 
-  <!-- wp:paragraph -->
-  <p>Und ich werde euch so eng wie möglich begleiten.</p>
-  <!-- /wp:paragraph -->
+    <!-- wp:group {"className":"welcome-introduction__step","layout":{"type":"constrained"}} -->
+    <div class="wp-block-group welcome-introduction__step">
+      <!-- wp:paragraph {"className":"welcome-introduction__step-number"} -->
+      <p class="welcome-introduction__step-number">03</p>
+      <!-- /wp:paragraph -->
+      <!-- wp:heading {"level":3,"className":"welcome-introduction__step-title"} -->
+      <h3 class="wp-block-heading welcome-introduction__step-title">Begleiten</h3>
+      <!-- /wp:heading -->
+      <!-- wp:paragraph -->
+      <p>Wir definieren ein realistisches Ziel, legen konkrete Schritte fest, anhand derer Fortschritte nachvollziehbar sind, und bestimmen den Zeitraum für euer Ziel.</p>
+      <!-- /wp:paragraph -->
+    </div>
+    <!-- /wp:group -->
+  </div>
+  <!-- /wp:group -->
+
+  <!-- wp:html -->
+  </div>
+  <p class="welcome-introduction__closing">Und ich werde euch so eng wie möglich begleiten.</p>
+  <!-- /wp:html -->
 </section>
 <!-- /wp:group -->

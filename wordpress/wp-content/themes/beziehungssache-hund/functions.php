@@ -78,6 +78,19 @@ add_action(
             wp_script_add_data('beziehungssache-hund-image-slider', 'strategy', 'defer');
         }
 
+        if (bsh_page_uses_forminator()) {
+            $form_js = get_theme_file_path('assets/js/form.js');
+
+            wp_enqueue_script(
+                'beziehungssache-hund-form',
+                get_theme_file_uri('assets/js/form.js'),
+                ['jquery'],
+                file_exists($form_js) ? (string) filemtime($form_js) : wp_get_theme()->get('Version'),
+                true
+            );
+            wp_script_add_data('beziehungssache-hund-form', 'strategy', 'defer');
+        }
+
         if (! is_page('faq')) {
             return;
         }
@@ -126,4 +139,18 @@ function bsh_should_enqueue_image_slider(): bool
     }
 
     return str_contains($post->post_content, 'data-bsh-slider');
+}
+
+function bsh_page_uses_forminator(): bool
+{
+    if (! is_singular()) {
+        return false;
+    }
+
+    $post = get_post();
+    if (! $post instanceof WP_Post) {
+        return false;
+    }
+
+    return str_contains($post->post_content, '[forminator_form');
 }

@@ -380,72 +380,12 @@ function bsh_contact_form_shortcode_block(): string
 
 function bsh_seo_faq_section(string $keyphrase): string
 {
-    return <<<HTML
-<!-- wp:group {"tagName":"section","className":"bsh-section","layout":{"type":"constrained"}} -->
-<section class="wp-block-group bsh-section">
-  <!-- wp:heading {"level":2} -->
-  <h2 class="wp-block-heading">Häufige Fragen zu {$keyphrase}</h2>
-  <!-- /wp:heading -->
-
-  <!-- wp:heading {"level":3} -->
-  <h3 class="wp-block-heading">Muss ich schon genau wissen, was ich brauche?</h3>
-  <!-- /wp:heading -->
-  <!-- wp:paragraph -->
-  <p>Nein. Oft reicht es völlig aus, wenn du beschreiben kannst, was im Alltag gerade schwierig ist und was du dir stattdessen wünschst. {$keyphrase} ist gerade dafür gedacht, aus einer vagen Belastung eine klar benennbare Situation zu machen. Aus dieser Klarheit lässt sich dann leichter ableiten, ob ein Erstgespräch, ein direktes Training oder eine andere Form von Begleitung sinnvoll ist.</p>
-  <!-- /wp:paragraph -->
-
-  <!-- wp:heading {"level":3} -->
-  <h3 class="wp-block-heading">Wie schnell wird aus dem Thema ein nächster Schritt?</h3>
-  <!-- /wp:heading -->
-  <!-- wp:paragraph -->
-  <p>Das hängt davon ab, wie komplex eure Ausgangslage ist. Manchmal reicht ein klares Erstgespräch, um Richtung zu geben. Manchmal braucht es mehrere Termine, weil das Verhalten eures Hundes, eure Gewohnheiten und die Umgebung zusammenwirken. {$keyphrase} wird hier deshalb nicht als Schnelllösung verstanden, sondern als saubere Ausgangsbasis für eine vernünftige Entscheidung.</p>
-  <!-- /wp:paragraph -->
-
-  <!-- wp:heading {"level":3} -->
-  <h3 class="wp-block-heading">Was bringt mir die Seite im Vergleich zu allgemeinen Tipps?</h3>
-  <!-- /wp:heading -->
-  <!-- wp:paragraph -->
-  <p>Allgemeine Tipps können hilfreich sein, wenn es um Grundwissen geht. Sobald aber ein konkreter Alltag, eine konkrete Belastung oder eine konkrete Beziehung zwischen Mensch und Hund im Spiel ist, braucht es mehr Einordnung. {$keyphrase} hilft genau dabei, den Kontext mitzudenken. Das spart Zeit, verhindert Missverständnisse und macht spätere Schritte deutlich treffsicherer.</p>
-  <!-- /wp:paragraph -->
-
-  <!-- wp:heading {"level":3} -->
-  <h3 class="wp-block-heading">Woran erkenne ich, dass ich nach außen fragen sollte?</h3>
-  <!-- /wp:heading -->
-  <!-- wp:paragraph -->
-  <p>Spätestens dann, wenn du merkst, dass ihr im Kreis läuft, lohnt sich ein externer Blick. Auch wenn du schon einiges ausprobiert hast, kann eine ruhige, strukturierte Einschaetzung entscheidend sein. Die Seite soll dich genau an diesen Punkt führen: erst verstehen, dann entscheiden und erst danach den nächsten Schritt gehen. So bleibt {$keyphrase} nicht nur ein Suchbegriff, sondern wird zu einem brauchbaren Einstieg.</p>
-  <!-- /wp:paragraph -->
-</section>
-<!-- /wp:group -->
-HTML;
+    return '';
 }
 
 function bsh_seo_closing_section(string $keyphrase): string
 {
-    return <<<HTML
-<!-- wp:group {"tagName":"section","className":"bsh-section bsh-section--accent","layout":{"type":"constrained"}} -->
-<section class="wp-block-group bsh-section bsh-section--accent">
-  <!-- wp:heading {"level":2} -->
-  <h2 class="wp-block-heading">{$keyphrase} und die nächsten Schritte</h2>
-  <!-- /wp:heading -->
-
-  <!-- wp:paragraph -->
-  <p>Wenn du nach {$keyphrase} suchst, ist der nächste sinnvolle Schritt meist kein Sprung ins Blaue, sondern ein ruhiges Einordnen der Situation. Genau dafür ist diese Seite gebaut: Sie hilft dir, das Thema nicht nur zu benennen, sondern in Beziehung zu eurem Alltag, eurem Ziel und dem passenden Kontaktweg zu setzen. So wird aus einem Suchbegriff eine klare Entscheidungshilfe.</p>
-  <!-- /wp:paragraph -->
-
-  <!-- wp:paragraph -->
-  <p>Besonders hilfreich ist es, wenn du bei einer Anfrage kurz schreibst, was aktuell schwierig ist, wie sich das im Alltag zeigt und was ihr bis jetzt schon versucht habt. Dann lässt sich {$keyphrase} viel schneller einordnen und du bekommst eine Rückmeldung, die wirklich auf eure Lage passt. Das ist meist der beste Weg, um Zeit zu sparen und Fehlstarts zu vermeiden.</p>
-  <!-- /wp:paragraph -->
-
-  <!-- wp:paragraph -->
-  <p>Wenn du noch zwischen mehreren Angeboten schaust, nimm dir die Zeit für den Vergleich. {$keyphrase} ist nur dann sinnvoll, wenn es auch wirklich zu eurer Frage passt. Genau deshalb sind die Inhalte auf dieser Seite so gebaut, dass du die Richtung, den Nutzen und den nächsten Schritt ohne Umwege verstehen kannst. Danach fällt die Kontaktaufnahme deutlich leichter.</p>
-  <!-- /wp:paragraph -->
-
-  <!-- wp:paragraph -->
-  <p>So bleibt der Fokus auf dem Wesentlichen: ein klarer Einstieg, ein verständlicher Rahmen und eine ehrliche Einschätzung dessen, was euch nächst hilft. Wenn du soweit bist, kannst du direkt zum passenden Termin oder zur Kontaktseite wechseln und die Anfrage kurz und sachlich stellen.</p>
-  <!-- /wp:paragraph -->
-</section>
-<!-- /wp:group -->
-HTML;
+    return '';
 }
 
 function bsh_seo_legal_note_section(string $keyphrase): string
