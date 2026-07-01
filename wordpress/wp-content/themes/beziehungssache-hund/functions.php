@@ -51,6 +51,19 @@ add_action(
         );
         wp_script_add_data('beziehungssache-hund-header', 'strategy', 'defer');
 
+        if (is_front_page()) {
+            $landing_hero_js = get_theme_file_path('assets/js/landing-hero.js');
+
+            wp_enqueue_script(
+                'beziehungssache-hund-landing-hero',
+                get_theme_file_uri('assets/js/landing-hero.js'),
+                [],
+                file_exists($landing_hero_js) ? (string) filemtime($landing_hero_js) : wp_get_theme()->get('Version'),
+                true
+            );
+            wp_script_add_data('beziehungssache-hund-landing-hero', 'strategy', 'defer');
+        }
+
         if (bsh_should_enqueue_image_slider()) {
             $slider_js = get_theme_file_path('assets/js/image-slider.js');
 
@@ -92,30 +105,10 @@ add_action(
 add_action(
     'wp_head',
     static function (): void {
-        if (! is_singular()) {
-            return;
-        }
+        $favicon = get_theme_file_uri('assets/brand/log-cropped-favicon.png');
 
-        $post = get_post();
-        if (! $post instanceof WP_Post) {
-            return;
-        }
-
-        if (! preg_match('/--bsh-hero-image:\\s*url\\(\\x27([^\\x27]+)\\x27\\)/', $post->post_content, $matches)) {
-            return;
-        }
-
-        $hero_png_url = $matches[1];
-        $hero_avif_url = preg_replace('/\\.png$/i', '.avif', $hero_png_url);
-
-        if (! is_string($hero_avif_url) || $hero_avif_url === $hero_png_url) {
-            return;
-        }
-
-        printf(
-            '<link rel="preload" as="image" href="%s" type="image/avif" fetchpriority="high" />' . "\n",
-            esc_url($hero_avif_url)
-        );
+        echo '<link rel="icon" type="image/png" sizes="96x96" href="' . esc_url($favicon) . '">' . "\n";
+        echo '<link rel="shortcut icon" type="image/png" href="' . esc_url($favicon) . '">' . "\n";
     },
     1
 );

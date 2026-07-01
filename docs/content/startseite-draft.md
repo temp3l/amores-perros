@@ -14,12 +14,11 @@ Individuelles Hundetraining in Hamburg fuer Mensch-Hund-Teams, die alltagstaugli
 
 ## Empfohlene Struktur
 
-### Hero
+### Intro
 
 - Headline: Individuelles Hundetraining in Hamburg
 - Subline: Mit Fokus auf Beziehung, Alltag und klare naechste Schritte
-- CTA 1: Erstgespraech anfragen
-- CTA 2: Kontakt aufnehmen
+- Kurzüberblick: Erstgespräch, Einzeltraining, 5er-Karte, Coaching mit Hund
 
 ### Warum Beziehungssache Hund
 
@@ -30,9 +29,10 @@ Individuelles Hundetraining in Hamburg fuer Mensch-Hund-Teams, die alltagstaugli
 
 ### Angebote im Ueberblick
 
+- Produktgrid mit den aktiven Angeboten
 - Erstgespraech
 - Einzeltraining
-- DOGSpace
+- 5er-Karte
 - Coaching mit Hund
 
 ### So arbeite ich
@@ -59,3 +59,4 @@ Individuelles Hundetraining in Hamburg fuer Mensch-Hund-Teams, die alltagstaugli
 - nicht alle Details jeder Leistung ausfuehren
 - keine Preisliste aufblasen
 - keine unklaren oder vorlaeufigen Angebote in den Vordergrund stellen
+- keine heroartige Bildfläche aufbauen

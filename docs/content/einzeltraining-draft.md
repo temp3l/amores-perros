@@ -30,11 +30,11 @@ Individuelles Einzeltraining fuer Mensch und Hund, mit Fokus auf alltagstauglich
 
 ## Empfohlene Struktur
 
-### Hero
+### Intro
 
 - Headline: Einzeltraining fuer Hund und Mensch in Hamburg
 - Subline: Individuell, ruhig und alltagstauglich
-- CTA: Einzeltraining anfragen
+- Kurzüberblick: 45 Minuten 65 EUR, 90 Minuten 110 EUR, 5er-Karte 280 EUR
 
 ### Fuer wen das gedacht ist
 
@@ -72,3 +72,4 @@ Individuelles Einzeltraining fuer Mensch und Hund, mit Fokus auf alltagstauglich
 - nicht wie ein Kurskatalog wirken
 - keine Event- oder DOGSpace-Themen vermischen
 - keine Preisunsicherheit offenlassen
+- keine heroartige Bildfläche aufbauen

@@ -33,22 +33,146 @@ function bsh_upsert_page(array $definition)
     return wp_insert_post($postarr, true);
 }
 
-function bsh_page_hero(string $eyebrow, string $title, string $lead, string $hero_image = '', string $hero_position = 'center center'): string
+function bsh_page_intro_highlights(string $title, string $lead): array
 {
-    $hero_style = bsh_hero_image_style($hero_image, $hero_position);
+    if (str_contains($title, 'Erstgespräch')) {
+        return [
+            '60 Minuten',
+            '85 €',
+            'Orientierung für den nächsten sinnvollen Schritt',
+        ];
+    }
+
+    if (str_contains($title, 'Einzeltraining')) {
+        return [
+            '45 Minuten: 65 €',
+            '90 Minuten: 110 €',
+            '5er-Karte: 280 €',
+        ];
+    }
+
+    if (str_contains($title, 'Preise')) {
+        return [
+            'Erstgespräch: 85 € / 60 Minuten',
+            'Einzeltraining: 65 € / 45 Minuten',
+            'Einzeltraining: 110 € / 90 Minuten',
+            '5er-Karte: 280 € / 3 Jahre gültig',
+        ];
+    }
+
+    if (str_contains($title, 'Kontakt')) {
+        return [
+            'Telefon und E-Mail',
+            'Bundesstr. 74 in Hamburg',
+            'Anfrage für Erstgespräch, Einzeltraining oder weitere Angebote',
+        ];
+    }
+
+    if (str_contains($title, 'DOGSpace')) {
+        return [
+            'Hamburg',
+            'nur mit Anmeldung',
+            'Öffentliche Preise derzeit noch nicht verifiziert',
+        ];
+    }
+
+    if (str_contains($title, 'Workshops')) {
+        return [
+            'Orientierung statt Dauerkalender',
+            'Themen und Termine nach Bedarf',
+            'Besser geeignet für konkrete Fragen als für Sofortbuchung',
+        ];
+    }
+
+    if (str_contains($title, 'Coaching mit Hund')) {
+        return [
+            'Persönliche Zusatzlinie',
+            'Bezug zu Hund und Alltag',
+            'Preis derzeit noch offen',
+        ];
+    }
+
+    if (str_contains($title, 'Über Jacky') || str_contains($title, 'Über mich')) {
+        return [
+            'Jacky Rebien',
+            'Hundetrainerin nach § 11 TierSchG',
+            'Resilienz Coach, Mediatorin und Mensch-Hund-Beraterin',
+        ];
+    }
+
+    if (str_contains($title, 'Ratgeber')) {
+        return [
+            'Geplante Fachartikel',
+            'Alltagsthemen und Einordnungen',
+            'Aktuell noch im Aufbau',
+        ];
+    }
+
+    if (str_contains($title, 'Impressum')) {
+        return [
+            'Anbieterin und Kontakt',
+            'Rechtlich relevante Angaben',
+            'Vor dem Launch final prüfen',
+        ];
+    }
+
+    if (str_contains($title, 'Datenschutz')) {
+        return [
+            'Verantwortliche Stelle',
+            'Datenverarbeitung und Rechte',
+            'Vor dem Launch final prüfen',
+        ];
+    }
+
+    if (str_contains($title, 'Hundetraining in Hamburg')) {
+        return [
+            'Individuelle Begleitung',
+            'Alltag, Beziehung und klare Schritte',
+            'Erstgespräch, Einzeltraining und ergänzende Angebote',
+        ];
+    }
+
+    return [
+        'Klarer Einstieg',
+        'Kurz und relevant',
+        wp_strip_all_tags($lead),
+    ];
+}
+
+function bsh_page_intro(string $eyebrow, string $title, string $lead): string
+{
+    $highlights = array_map(
+        static fn(string $highlight): string => esc_html($highlight),
+        bsh_page_intro_highlights($title, $lead)
+    );
+    $outline_items = implode(
+        "\n    ",
+        array_map(
+            static fn(string $highlight): string => '<li>' . $highlight . '</li>',
+            array_filter($highlights, static fn(string $highlight): bool => $highlight !== '')
+        )
+    );
 
     return <<<HTML
-<!-- wp:group {"tagName":"section","className":"bsh-hero bsh-page-hero","layout":{"type":"constrained"}} -->
-<section class="wp-block-group bsh-hero bsh-page-hero"{$hero_style}>
+<!-- wp:group {"tagName":"section","className":"bsh-section bsh-page-intro","layout":{"type":"constrained"}} -->
+<section class="wp-block-group bsh-section bsh-page-intro">
   <!-- wp:html -->
   <div class="bsh-eyebrow">{$eyebrow}</div>
   <!-- /wp:html -->
-  <!-- wp:heading {"level":1,"className":"bsh-page-hero__title"} -->
-  <h1 class="wp-block-heading bsh-page-hero__title">{$title}</h1>
+
+  <!-- wp:heading {"level":1,"className":"bsh-page-intro__title"} -->
+  <h1 class="wp-block-heading bsh-page-intro__title">{$title}</h1>
   <!-- /wp:heading -->
-  <!-- wp:paragraph {"className":"bsh-page-hero__lead"} -->
-  <p class="bsh-page-hero__lead">{$lead}</p>
+
+  <!-- wp:paragraph {"className":"bsh-page-intro__lead"} -->
+  <p class="bsh-page-intro__lead">{$lead}</p>
   <!-- /wp:paragraph -->
+
+  <!-- wp:list {"className":"bsh-page-intro__outline"} -->
+  <ul class="wp-block-list bsh-page-intro__outline">
+    {$outline_items}
+  </ul>
+  <!-- /wp:list -->
 </section>
 <!-- /wp:group -->
 HTML;
@@ -451,27 +575,27 @@ function bsh_erstgespraech_page_content(): string
     $content = [];
 
     $content[] = str_replace(
-        '<section class="wp-block-group bsh-hero bsh-page-hero">',
-        '<section class="wp-block-group bsh-hero bsh-page-hero"' . bsh_hero_image_style('beziehung-hund/beziehung-hund-vertrauen-blickkontakt-hundetraining.png', '52% center') . '>',
+        '<section class="wp-block-group bsh-section bsh-page-intro">',
+        '<section class="wp-block-group bsh-section bsh-page-intro">',
         <<<'HTML'
-<!-- wp:group {"tagName":"section","className":"bsh-hero bsh-page-hero","layout":{"type":"constrained"}} -->
-<section class="wp-block-group bsh-hero bsh-page-hero">
+<!-- wp:group {"tagName":"section","className":"bsh-section bsh-page-intro","layout":{"type":"constrained"}} -->
+<section class="wp-block-group bsh-section bsh-page-intro">
   <!-- wp:html -->
   <div class="bsh-eyebrow">Einstieg</div>
   <!-- /wp:html -->
-  <!-- wp:heading {"level":1,"className":"bsh-page-hero__title"} -->
-  <h1 class="wp-block-heading bsh-page-hero__title">Erstgespräch für Hundetraining in Hamburg</h1>
+  <!-- wp:heading {"level":1,"className":"bsh-page-intro__title"} -->
+  <h1 class="wp-block-heading bsh-page-intro__title">Erstgespräch für Hundetraining in Hamburg</h1>
   <!-- /wp:heading -->
-  <!-- wp:paragraph {"className":"bsh-page-hero__lead"} -->
-  <p class="bsh-page-hero__lead">Wir schauen gemeinsam auf eure aktuelle Situation und klären, welcher nächste Schritt zu dir und deinem Hund passt.</p>
+  <!-- wp:paragraph {"className":"bsh-page-intro__lead"} -->
+  <p class="bsh-page-intro__lead">Wir schauen gemeinsam auf eure aktuelle Situation und klären, welcher nächste Schritt zu dir und deinem Hund passt.</p>
   <!-- /wp:paragraph -->
-  <!-- wp:group {"className":"bsh-hero__meta","layout":{"type":"flex","flexWrap":"wrap"}} -->
-  <div class="wp-block-group bsh-hero__meta">
-    <!-- wp:html -->
-    <span>60 Minuten</span><span>85 €</span><span>Termin und Ort nach individueller Absprache</span>
-    <!-- /wp:html -->
-  </div>
-  <!-- /wp:group -->
+  <!-- wp:list {"className":"bsh-page-intro__outline"} -->
+  <ul class="wp-block-list bsh-page-intro__outline">
+    <li>60 Minuten</li>
+    <li>85 €</li>
+    <li>Orientierung für den nächsten sinnvollen Schritt</li>
+  </ul>
+  <!-- /wp:list -->
 </section>
 <!-- /wp:group -->
 HTML
@@ -885,8 +1009,8 @@ $pages = [
         'slug' => 'startseite',
         'order' => 1,
         'content' => implode("\n\n", [
-            '<!-- wp:pattern {"slug":"beziehungssache-hund/startseiten-hero"} /-->',
-            '<!-- wp:group {"tagName":"section","className":"bsh-section","layout":{"type":"constrained"}} --><section class="wp-block-group bsh-section"><!-- wp:heading {"level":2} --><h2 class="wp-block-heading">Warum Beziehungssache Hund</h2><!-- /wp:heading --><!-- wp:paragraph --><p>Hundetraining Hamburg bedeutet bei Beziehungssache Hund keine laute Methode von der Stange, sondern persönliche Begleitung für Mensch-Hund-Teams, die im Alltag wirklich weiterkommen wollen. Der Blick richtet sich auf Beziehung, Kommunikation und die Frage, welche kleinen Schritte euch wirklich entlasten. So wird aus einer unklaren Situation ein klarer Weg, der zu euch passt.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Wenn du gerade erst beginnst, ist oft das <a href="/erstgespraech/">Erstgespräch</a> der beste Einstieg. Wenn dein Thema schon konkreter ist, kann direktes <a href="/einzeltraining/">Einzeltraining</a> sinnvoll sein. Für Formate mit Begegnung oder Austausch lohnt sich ein Blick auf den <a href="/dogspace-hamburg/">DOGSpace</a>. Auf <a href="https://instagram.com/cazoobi">Instagram</a> gibt es zusätzlich punktuelle Einblicke in Haltung und Arbeitsweise.</p><!-- /wp:paragraph --></section><!-- /wp:group -->',
+            '<!-- wp:pattern {"slug":"beziehungssache-hund/startseiten-intro"} /-->',
+            '<!-- wp:pattern {"slug":"beziehungssache-hund/angebotsuebersicht"} /-->',
             bsh_image_slider_section(
                 'Bilder aus eurem Alltag',
                 'Hamburger Alltag ist selten glatt oder ruhig. Darum zeigen die Seiten hier keine generischen Platzhalter, sondern echte Szenen, die zu Beziehung, Vertrauen und gemeinsamer Entwicklung passen.',
@@ -896,10 +1020,8 @@ $pages = [
                     ['slug' => 'entspannung-mit-hund-ruhe-und-vertrauen', 'alt' => 'Ruhe und Entspannung mit Hund'],
                 ]
             ),
-            '<!-- wp:group {"tagName":"section","className":"bsh-section bsh-section--soft","layout":{"type":"constrained"}} --><section class="wp-block-group bsh-section bsh-section--soft"><!-- wp:image {"sizeSlug":"full","linkDestination":"none"} --><figure class="wp-block-image size-full"><img src="/wp-content/themes/beziehungssache-hund/assets/optimized/hero-pack-1600.webp" alt="Hundetraining Hamburg bei Beziehungssache Hund" /></figure><!-- /wp:image --><!-- wp:heading {"level":2} --><h2 class="wp-block-heading">So findest du den passenden Einstieg</h2><!-- /wp:heading --><!-- wp:paragraph --><p>Die Startseite führt bewusst nicht alles bis ins Detail aus. Sie soll dir vor allem zeigen, wie Beziehungssache Hund denkt: ruhig, persönlich und ohne unnötigen Druck. Wenn du Leinenführigkeit, Alleinbleiben, Grenzen oder unsichere Begegnungen besser verstehen willst, findest du auf den einzelnen Leistungsseiten die passenden Informationen. So kannst du in Ruhe entscheiden, welcher nächste Schritt für dich und deinen Hund sinnvoll ist.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Die Seite ist damit kein bloßer Werbeauftakt, sondern ein echter Orientierungspunkt. Sie verbindet die wichtigsten Einstiege, verweist auf die Kernangebote und macht sichtbar, dass Hundetraining in Hamburg hier immer aus der konkreten Situation heraus gedacht wird.</p><!-- /wp:paragraph --></section><!-- /wp:group -->',
             '<!-- wp:pattern {"slug":"beziehungssache-hund/problemkarten"} /-->',
             '<!-- wp:pattern {"slug":"beziehungssache-hund/prozessschritte"} /-->',
-            '<!-- wp:pattern {"slug":"beziehungssache-hund/angebotsübersicht"} /-->',
             '<!-- wp:pattern {"slug":"beziehungssache-hund/trainerprofil"} /-->',
             '<!-- wp:pattern {"slug":"beziehungssache-hund/preiskarten"} /-->',
             bsh_seo_faq_section('Hundetraining Hamburg'),
@@ -912,12 +1034,10 @@ $pages = [
         'slug' => 'hundetraining-hamburg',
         'order' => 2,
         'content' => implode("\n\n", [
-            bsh_page_hero(
+            bsh_page_intro(
                 'Pillar Page',
                 'Hundetraining in Hamburg',
-                'Individuelles Hundetraining in Hamburg für Mensch-Hund-Teams, die alltagstaugliche Lösungen, Klarheit und eine ruhige Begleitung suchen.',
-                'beziehung-hund/hund-und-mensch-gemeinsam-im-regen.png',
-                '50% center'
+                'Individuelles Hundetraining in Hamburg für Mensch-Hund-Teams, die alltagstaugliche Lösungen, Klarheit und eine ruhige Begleitung suchen.'
             ),
             '<!-- wp:group {"tagName":"section","className":"bsh-section","layout":{"type":"constrained"}} --><section class="wp-block-group bsh-section"><!-- wp:heading {"level":2} --><h2 class="wp-block-heading">Warum individuelles Hundetraining in Hamburg sinnvoll ist</h2><!-- /wp:heading --><!-- wp:paragraph --><p>Individuelles Hundetraining in Hamburg passt besonders dann, wenn du keine allgemeine Gruppenstunde suchst, sondern einen klaren Blick auf euren konkreten Alltag brauchst. Beziehungssache Hund begleitet Mensch-Hund-Teams individuell statt pauschal. Im Fokus stehen Alltag, Kommunikation und realistische nächste Schritte, nicht ein lauter Kurskatalog. So entsteht Hundetraining in Hamburg, das zu deinem Hund, zu deinem Tempo und zu eurer Lebensrealität passt.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Viele Themen wirken von außen ähnlich, haben aber in Wirklichkeit sehr unterschiedliche Ursachen. Darum beginnt individuelles Hundetraining in Hamburg nicht mit schnellen Rezepten, sondern mit einer genauen Einordnung. Ob Leinenführigkeit, Alleinbleiben, Begegnungsstress oder wiederkehrende Unsicherheit: Entscheidend ist, was in eurem Fall wirklich hilft.</p><!-- /wp:paragraph --><!-- wp:list --><ul class="wp-block-list"><li>Leinenführigkeit</li><li>Alleinbleiben</li><li>Grenzen und Regeln im Alltag</li><li>Unsicherheit oder Stress in Begegnungen</li><li>aggressive Hunde nur nach Absprache</li></ul><!-- /wp:list --></section><!-- /wp:group -->',
             bsh_image_gallery_section(
@@ -929,7 +1049,7 @@ $pages = [
                 ]
             ),
             '<!-- wp:group {"tagName":"section","className":"bsh-section bsh-section--soft","layout":{"type":"constrained"}} --><section class="wp-block-group bsh-section bsh-section--soft"><!-- wp:image {"sizeSlug":"full","linkDestination":"none"} --><figure class="wp-block-image size-full"><img src="/wp-content/themes/beziehungssache-hund/assets/optimized/hero-pack-960.webp" alt="Individuelles Hundetraining in Hamburg mit Mensch und Hund" /></figure><!-- /wp:image --><!-- wp:heading {"level":2} --><h2 class="wp-block-heading">So läuft Hundetraining in Hamburg bei Beziehungssache Hund ab</h2><!-- /wp:heading --><!-- wp:paragraph --><p>Im ersten Schritt klären wir, wo ihr gerade steht und welches Ziel für euch sinnvoll ist. Danach entscheiden wir, ob ein <a href="/erstgespraech/">Erstgespräch</a>, direktes <a href="/einzeltraining/">Einzeltraining</a> oder ein passender Rahmen wie der <a href="/dogspace-hamburg/">DOGSpace</a> der richtige Einstieg ist. Hundetraining in Hamburg soll euch im Alltag helfen, nicht nur für eine einzelne Stunde funktionieren.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Wenn du vorab mehr Einblicke in meine Arbeit möchtest, findest du aktuelle Eindrücke auch auf <a href="https://instagram.com/cazoobi">Instagram</a>. Die eigentliche Anfrage sollte aber immer von eurer konkreten Situation ausgehen, damit der nächste Schritt wirklich sinnvoll ist.</p><!-- /wp:paragraph --></section><!-- /wp:group -->',
-            '<!-- wp:group {"tagName":"section","className":"bsh-section","layout":{"type":"constrained"}} --><section class="wp-block-group bsh-section"><!-- wp:heading {"level":2} --><h2 class="wp-block-heading">Passende Einstiege</h2><!-- /wp:heading --><!-- wp:columns {"className":"bsh-card-grid"} --><div class="wp-block-columns bsh-card-grid"><!-- wp:column --><div class="wp-block-column"><!-- wp:group {"className":"bsh-card","layout":{"type":"constrained"}} --><div class="wp-block-group bsh-card"><!-- wp:heading {"level":3} --><h3 class="wp-block-heading">Erstgespräch</h3><!-- /wp:heading --><!-- wp:paragraph --><p>Wenn du zuerst einordnen möchtest, was für euch sinnvoll ist.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p><a href="/erstgespraech/">Zur Seite</a></p><!-- /wp:paragraph --></div><!-- /wp:group --></div><!-- /wp:column --><!-- wp:column --><div class="wp-block-column"><!-- wp:group {"className":"bsh-card","layout":{"type":"constrained"}} --><div class="wp-block-group bsh-card"><!-- wp:heading {"level":3} --><h3 class="wp-block-heading">Einzeltraining</h3><!-- /wp:heading --><!-- wp:paragraph --><p>Wenn ihr bereits wisst, dass eine individuelle Begleitung gebraucht wird.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p><a href="/einzeltraining/">Zur Seite</a></p><!-- /wp:paragraph --></div><!-- /wp:group --></div><!-- /wp:column --><!-- wp:column --><div class="wp-block-column"><!-- wp:group {"className":"bsh-card","layout":{"type":"constrained"}} --><div class="wp-block-group bsh-card"><!-- wp:heading {"level":3} --><h3 class="wp-block-heading">DOGSpace</h3><!-- /wp:heading --><!-- wp:paragraph --><p>Wenn ein geschützter Raum für Begegnung, Austausch oder Formate sinnvoll ist.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p><a href="/dogspace-hamburg/">Zur Seite</a></p><!-- /wp:paragraph --></div><!-- /wp:group --></div><!-- /wp:column --></div><!-- /wp:columns --></section><!-- /wp:group -->',
+            '<!-- wp:pattern {"slug":"beziehungssache-hund/angebotsuebersicht"} /-->',
             bsh_seo_faq_section('individuelles Hundetraining in Hamburg'),
             bsh_seo_closing_section('individuelles Hundetraining in Hamburg'),
             '<!-- wp:pattern {"slug":"beziehungssache-hund/abschluss-cta"} /-->',
@@ -946,12 +1066,10 @@ $pages = [
         'slug' => 'einzeltraining',
         'order' => 4,
         'content' => implode("\n\n", [
-            bsh_page_hero(
+            bsh_page_intro(
                 'Kernangebot',
                 'Einzeltraining für Hund und Mensch in Hamburg',
-                'Einzeltraining in Hamburg bedeutet bei Beziehungssache Hund eine individuelle, ruhige und alltagstaugliche Begleitung mit nachvollziehbaren Entwicklungsschritten.',
-                'einzeltraining-photorealistisch-02.png',
-                '62% center'
+                'Einzeltraining in Hamburg bedeutet bei Beziehungssache Hund eine individuelle, ruhige und alltagstaugliche Begleitung mit nachvollziehbaren Entwicklungsschritten.'
             ),
             '<!-- wp:group {"tagName":"section","className":"bsh-section","layout":{"type":"constrained"}} --><section class="wp-block-group bsh-section"><!-- wp:heading {"level":2} --><h2 class="wp-block-heading">Einzeltraining mit Hund in Hamburg – nah an eurem Alltag</h2><!-- /wp:heading --><!-- wp:paragraph --><p>Wer mit einem Hund in Hamburg lebt, kennt die kleinen Herausforderungen des Alltags. Auf dem Gehweg ist wenig Platz, an der nächsten Ecke kommt plötzlich ein anderer Hund entgegen und im Park sind Fahrräder, Kinder, Jogger und freilaufende Hunde gleichzeitig unterwegs. Selbst ein kurzer Spaziergang durch den Kiez kann schnell anstrengend werden, wenn der eigene Hund unsicher ist, stark an der Leine zieht oder bei Hundebegegnungen kaum noch ansprechbar ist.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Genau deshalb ist Einzeltraining mit Hund in Hamburg sinnvoll, wenn allgemeine Tipps nicht mehr weiterhelfen. Denn es macht einen Unterschied, ob eine Übung auf einer ruhigen Wiese funktioniert oder morgens zwischen Haustür, Straßenverkehr und der ersten Begegnung vor dem Café bestehen muss.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Im Einzeltraining geht es nicht darum, möglichst viele Kommandos zu üben. Viel wichtiger ist die Frage: Was braucht dieses Mensch-Hund-Team, damit der Alltag wieder entspannter wird?</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Vielleicht möchtest du mit deinem Hund ruhiger durch den Kiez laufen. Vielleicht wird jede Begegnung auf einem engen Gehweg zum Kraftakt. Oder dein Hund ist draußen so aufgeregt, dass er dich kaum noch wahrnimmt. Solche Situationen lassen sich am besten dort anschauen, wo sie tatsächlich entstehen.</p><!-- /wp:paragraph --></section><!-- /wp:group -->',
             bsh_image_gallery_section(
@@ -965,7 +1083,7 @@ $pages = [
             ),
             '<!-- wp:group {"tagName":"section","className":"bsh-section bsh-section--soft","layout":{"type":"constrained"}} --><section class="wp-block-group bsh-section bsh-section--soft"><!-- wp:heading {"level":2} --><h2 class="wp-block-heading">Hundetraining dort, wo das Problem auftritt</h2><!-- /wp:heading --><!-- wp:paragraph --><p>Das individuelle Hundetraining kann an unterschiedlichen Orten in Hamburg stattfinden. Je nach Thema kann das eure gewohnte Spazierstrecke, das Wohnumfeld, ein Park, ein ruhigerer Trainingsort oder der DOGSpace sein.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Wenn dein Hund beispielsweise bei <a href="/faq/#hundebegegnungen">Hundebegegnungen</a> an der Leine reagiert, hilft es wenig, ausschließlich in einer abgeschirmten Umgebung zu trainieren. Dann sollte das Training schrittweise auf echte Alltagssituationen vorbereiten. Dabei geht es nicht darum, deinen Hund sofort in schwierige Begegnungen zu führen. Zuerst schauen wir, bei welchem Abstand er noch ansprechbar ist und wie du ihm Sicherheit und Orientierung geben kannst.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Auch bei <a href="/faq/#leinenfuehrigkeit">Leinenführigkeit</a> in Hamburg spielen die Bedingungen vor Ort eine große Rolle. Ein Hund läuft auf einer breiten, ruhigen Strecke oft ganz anders als auf einem schmalen Gehweg mit vielen Gerüchen und Ablenkungen. Deshalb müssen die Übungen zu eurem tatsächlichen Alltag passen.</p><!-- /wp:paragraph --></section><!-- /wp:group -->',
             '<!-- wp:group {"tagName":"section","className":"bsh-section","layout":{"type":"constrained"}} --><section class="wp-block-group bsh-section"><!-- wp:heading {"level":2} --><h2 class="wp-block-heading">Was mir bei gutem Einzeltraining wichtig ist</h2><!-- /wp:heading --><!-- wp:paragraph --><p>Als Hundetrainerin möchte ich nicht nur sagen, was du anders machen sollst. Ich möchte, dass du verstehst, warum dein Hund in einer bestimmten Situation so reagiert und woran du erkennst, dass wir Fortschritte machen.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Gutes Einzeltraining sollte deshalb:</p><!-- /wp:paragraph --><!-- wp:list --><ul class="wp-block-list"><li>das Verhalten des Hundes verständlich erklären,</li><li>konkrete Übungen für den Alltag vermitteln,</li><li>das Tempo an Hund und Halter anpassen,</li><li>auch kleine Fortschritte sichtbar machen,</li><li>ohne Druck und pauschale Lösungen auskommen.</li></ul><!-- /wp:list --><!-- wp:paragraph --><p>Nicht jeder Spaziergang wird nach einer Trainingsstunde sofort entspannt sein. Aber es hilft, einen klaren Plan zu haben und zu wissen, was man in schwierigen Momenten tun kann.</p><!-- /wp:paragraph --></section><!-- /wp:group -->',
-            '<!-- wp:group {"tagName":"section","className":"bsh-section bsh-section--soft","layout":{"type":"constrained"}} --><section class="wp-block-group bsh-section bsh-section--soft"><!-- wp:heading {"level":2} --><h2 class="wp-block-heading">Typische Themen im Einzeltraining</h2><!-- /wp:heading --><!-- wp:paragraph --><p>Ein persönliches Hundetraining in Hamburg kann unter anderem sinnvoll sein, wenn:</p><!-- /wp:paragraph --><!-- wp:list --><ul class="wp-block-list"><li>dein Hund bei <a href="/faq/#hundebegegnungen">Hundebegegnungen</a> bellt oder in die Leine springt,</li><li>entspannte <a href="/faq/#angespannte-Spaziergänge">Spaziergänge kaum noch möglich</a> sind,</li><li>dein Hund draußen <a href="/faq/#leinenfuehrigkeit">stark zieht</a>,</li><li>er in <a href="/faq/#stress-belebte-umgebung">belebter Umgebung schnell gestresst</a> ist,</li><li>der <a href="/faq/#rueckruf-unter-ablenkung">Rückruf unter Ablenkung</a> nicht funktioniert,</li><li>du im Umgang mit deinem Hund <a href="/faq/#unsicherheit-hundehalter">unsicher geworden</a> bist,</li><li>ihr bereits <a href="/faq/#trainingsansaetze-ohne-erfolg">verschiedene Trainingsansätze ohne Erfolg</a> ausprobiert habt,</li><li>du einen <a href="/faq/#alltagstauglicher-trainingsplan">alltagstauglichen Trainingsplan für deinen Hund</a> suchst.</li></ul><!-- /wp:list --></section><!-- /wp:group -->',
+            '<!-- wp:group {"tagName":"section","className":"bsh-section bsh-section--soft","layout":{"type":"constrained"}} --><section class="wp-block-group bsh-section bsh-section--soft"><!-- wp:heading {"level":2} --><h2 class="wp-block-heading">Typische Themen im Einzeltraining</h2><!-- /wp:heading --><!-- wp:paragraph --><p>Ein persönliches Hundetraining in Hamburg kann unter anderem sinnvoll sein, wenn:</p><!-- /wp:paragraph --><!-- wp:list --><ul class="wp-block-list"><li>dein Hund bei <a href="/faq/#hundebegegnungen">Hundebegegnungen</a> bellt oder in die Leine springt,</li><li>entspannte <a href="/faq/#angespannte-spaziergaenge">Spaziergaenge kaum noch moeglich</a> sind,</li><li>dein Hund draußen <a href="/faq/#leinenfuehrigkeit">stark zieht</a>,</li><li>er in <a href="/faq/#stress-belebte-umgebung">belebter Umgebung schnell gestresst</a> ist,</li><li>der <a href="/faq/#rueckruf-unter-ablenkung">Rueckruf unter Ablenkung</a> nicht funktioniert,</li><li>du im Umgang mit deinem Hund <a href="/faq/#unsicherheit-hundehalter">unsicher geworden</a> bist,</li><li>ihr bereits <a href="/faq/#trainingsansaetze-ohne-erfolg">verschiedene Trainingsansaetze ohne Erfolg</a> ausprobiert habt,</li><li>du einen <a href="/faq/#alltagstauglicher-trainingsplan">alltagstauglichen Trainingsplan fuer deinen Hund</a> suchst.</li></ul><!-- /wp:list --></section><!-- /wp:group -->',
             '<!-- wp:group {"tagName":"section","className":"bsh-section bsh-section--accent","layout":{"type":"constrained"}} --><section class="wp-block-group bsh-section bsh-section--accent"><!-- wp:heading {"level":2} --><h2 class="wp-block-heading">Schritt für Schritt zu mehr Sicherheit im Kiez</h2><!-- /wp:heading --><!-- wp:paragraph --><p>Ein gutes Ergebnis bedeutet nicht, dass dein Hund plötzlich perfekt funktioniert. Viel wichtiger ist, wieder entspannter aus der Haustür gehen zu können, Begegnungen früher einzuschätzen und in schwierigen Situationen einen klaren nächsten Schritt zu kennen.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Genau dabei kann individuelles Hundetraining helfen: nicht mit einem allgemeinen Rezept, sondern mit Übungen, die zu deinem Hund, deinem Wohnumfeld und eurem gemeinsamen Alltag in Hamburg passen.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Wenn du noch nicht weißt, ob Einzeltraining für euch der richtige Einstieg ist, kann zunächst ein Erstgespräch sinnvoll sein. Dort klären wir, worum es konkret geht, welche Unterstützung ihr benötigt und an welchem Ort das Training am meisten Sinn ergibt.</p><!-- /wp:paragraph --></section><!-- /wp:group -->',
             bsh_image_gallery_section(
                 'Fortschritt sichtbar machen',
@@ -988,12 +1106,10 @@ $pages = [
         'slug' => 'dogspace-hamburg',
         'order' => 5,
         'content' => implode("\n\n", [
-            bsh_page_hero(
+            bsh_page_intro(
                 'Sekundaeres Angebot',
                 'DOGSpace in Hamburg',
-                'DOGSpace Hamburg ist ein begleiteter Lern- und Begegnungsraum für Austausch, Training und passende Formate.',
-                'dogspace-hamburg-photorealistisch-02.png',
-                '55% center'
+                'DOGSpace Hamburg ist ein begleiteter Lern- und Begegnungsraum für Austausch, Training und passende Formate.'
             ),
             '<!-- wp:group {"tagName":"section","className":"bsh-section","layout":{"type":"constrained"}} --><section class="wp-block-group bsh-section"><!-- wp:heading {"level":2} --><h2 class="wp-block-heading">Was DOGSpace Hamburg besonders macht</h2><!-- /wp:heading --><!-- wp:paragraph --><p>DOGSpace Hamburg ist kein Toberaum und kein Ersatz für individuelles Einzeltraining. Er schafft einen geschützten Rahmen für bewusste Begegnung, kleine Trainingsformate und fachlichen Austausch. Gerade für Mensch-Hund-Teams, die Struktur, klare Regeln und einen ruhigen Rahmen brauchen, kann DOGSpace Hamburg eine sinnvolle Ergänzung zum Einzeltraining sein.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Im Mittelpunkt stehen nicht möglichst viele Reize, sondern passende Bedingungen. Darum werden Formate, Teilnehmerzahl und Zielgruppe bewusst eingegrenzt. So bleibt der Rahmen übersichtlich und für die Beteiligten gut einschätzbar. Wenn du unsicher bist, ob DOGSpace Hamburg für euch passt, ist ein kurzer Einstieg über die <a href="/kontakt/">Kontaktseite</a> oder das <a href="/erstgespraech/">Erstgespräch</a> sinnvoll.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>DOGSpace kann für Teams interessant sein, die erst einmal ankommen, beobachten und in einem kontrollierten Umfeld Erfahrungen sammeln möchten. Das Format ist bewusst nicht auf Schaustücke oder laute Gruppen ausgelegt, sondern auf ruhige Entwicklung, klaren Umgang miteinander und eine Atmosphäre, in der Hunde und Menschen aufmerksamer wahrnehmen können.</p><!-- /wp:paragraph --><!-- wp:list --><ul class="wp-block-list"><li>begleitete Begegnung</li><li>Austausch</li><li>Hundecafé und Stammtisch im passenden Rahmen</li><li>Workshops und Seminare</li></ul><!-- /wp:list --></section><!-- /wp:group -->',
             bsh_image_gallery_section(
@@ -1015,12 +1131,10 @@ $pages = [
         'slug' => 'workshops-seminare',
         'order' => 6,
         'content' => implode("\n\n", [
-            bsh_page_hero(
+            bsh_page_intro(
                 'Weitere Angebote',
                 'Workshops und Seminare',
-                'Workshops in Hamburg ergänzen das Einzeltraining mit bedarfsorientierten Formaten für Mensch-Hund-Teams und passende Themen rund um Alltag, Kommunikation und Lernen.',
-                'beziehung-hund/hundetraining-teamwork-pfote-geben.png',
-                '50% center'
+                'Workshops in Hamburg ergänzen das Einzeltraining mit bedarfsorientierten Formaten für Mensch-Hund-Teams und passende Themen rund um Alltag, Kommunikation und Lernen.'
             ),
             '<!-- wp:group {"tagName":"section","className":"bsh-section","layout":{"type":"constrained"}} --><section class="wp-block-group bsh-section"><!-- wp:heading {"level":2} --><h2 class="wp-block-heading">Wie Workshops in Hamburg bei Beziehungssache Hund gedacht sind</h2><!-- /wp:heading --><!-- wp:paragraph --><p>Workshops in Hamburg sollen bei Beziehungssache Hund keine beliebige Eventliste füllen, sondern ein klares Thema in einem passenden Rahmen vertiefen. Wenn Formate angeboten werden, stehen Thema, Zielgruppe und Ablauf deutlich im Vordergrund. So entsteht kein Bauchladen, sondern ein Angebot, das für Mensch-Hund-Teams nachvollziehbar und hilfreich bleibt.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Je nach Thema können Workshops in Hamburg im DOGSpace oder an einem anderen geeigneten Ort stattfinden. Die Entscheidung hängt davon ab, ob mehr Beobachtung, mehr Ruhe oder mehr Raum für praktische Übungen gebraucht wird. Wenn du wissen möchtest, ob ein geplanter Workshop zu eurer Situation passt, kannst du vorab über die <a href="/kontakt/">Kontaktseite</a> anfragen. Das reduziert Missverständnisse und hilft dabei, nur passende Teilnehmer:innen einzuladen.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Für mich ist wichtig, dass Workshops nicht nur Inhalte liefern, sondern zu einem besseren Verständnis zwischen Mensch und Hund beitragen. Darum sind Zielgruppe, Erwartung und praktische Umsetzbarkeit Teil der Beschreibung, nicht bloß ein Randhinweis.</p><!-- /wp:paragraph --><!-- wp:list --><ul class="wp-block-list"><li>klare Themenfokusse statt Bauchladen</li><li>Durchführung im DOGSpace oder an einem passenden Ort</li><li>kommunizierte Zielgruppe und Anforderungen vorab</li></ul><!-- /wp:list --></section><!-- /wp:group -->',
             bsh_image_slider_section(
@@ -1043,12 +1157,10 @@ $pages = [
         'slug' => 'coaching-mit-hund',
         'order' => 7,
         'content' => implode("\n\n", [
-            bsh_page_hero(
+            bsh_page_intro(
                 'Weitere Angebote',
                 'Coaching mit Hund',
-                'Coaching mit Hund in Hamburg ist eine eigenständige Angebotslinie, klar getrennt vom klassischen Hundetraining.',
-                'beziehung-hund/mensch-hund-beziehung-naehe-zuhause.png',
-                '50% center'
+                'Coaching mit Hund in Hamburg ist eine eigenständige Angebotslinie, klar getrennt vom klassischen Hundetraining.'
             ),
             '<!-- wp:group {"tagName":"section","className":"bsh-section","layout":{"type":"constrained"}} --><section class="wp-block-group bsh-section"><!-- wp:heading {"level":2} --><h2 class="wp-block-heading">Worum es beim Coaching mit Hund in Hamburg geht</h2><!-- /wp:heading --><!-- wp:paragraph --><p>Coaching mit Hund in Hamburg ist kein allgemeines Business-Coaching und kein pauschales Führungskräfteprogramm. Im Mittelpunkt stehen Klarheit, Präsenz und erlebbare Rückmeldung im passenden Rahmen. Der Hund wird dabei nicht als Dekoration eingesetzt, sondern als Teil eines Settings, das Wahrnehmung, Körpersprache und Verhalten sichtbar machen kann.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Die Arbeit ist auf Reflexion und unmittelbare Erfahrung ausgerichtet. Das kann für Menschen interessant sein, die mit ihrem Hund nicht nur ein Verhalten beobachten, sondern auch die eigene Wirkung, Haltung und Kommunikation besser verstehen wollen. Weil Coaching mit Hund in Hamburg eine eigene Angebotslinie ist, wird es bewusst vom klassischen Hundetraining getrennt kommuniziert.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Wenn du unsicher bist, ob dieses Format oder eher <a href="/einzeltraining/">Einzeltraining</a> für dich sinnvoll ist, lässt sich das vorab über die <a href="/kontakt/">Kontaktseite</a> klären. So wird schnell sichtbar, ob eher praktische Trainingsarbeit oder ein reflektierenderes Setting besser zu eurem Ziel passt.</p><!-- /wp:paragraph --></section><!-- /wp:group -->',
             bsh_image_gallery_section(
@@ -1070,12 +1182,10 @@ $pages = [
         'slug' => 'ueber-jacky-rebien',
         'order' => 8,
         'content' => implode("\n\n", [
-            bsh_page_hero(
+            bsh_page_intro(
                 'Vertrauen',
                 'Jacky Rebien',
-                'Jacky Rebien in Hamburg steht für eine ruhige, klare und alltagstaugliche Begleitung von Mensch-Hund-Teams mit Blick auf Beziehung und Entwicklung.',
-                'beziehung-hund/mensch-hund-bindung-gemeinsam-sonnenuntergang.png',
-                '50% center'
+                'Jacky Rebien in Hamburg steht für eine ruhige, klare und alltagstaugliche Begleitung von Mensch-Hund-Teams mit Blick auf Beziehung und Entwicklung.'
             ),
             '<!-- wp:group {"tagName":"section","className":"bsh-section","layout":{"type":"constrained"}} --><section class="wp-block-group bsh-section"><!-- wp:image {"sizeSlug":"full","linkDestination":"none"} --><figure class="wp-block-image size-full"><img src="/wp-content/themes/beziehungssache-hund/assets/optimized/portrait-720.webp" alt="Jacky Rebien in Hamburg" /></figure><!-- /wp:image --><!-- wp:heading {"level":2} --><h2 class="wp-block-heading">Wer Jacky Rebien in Hamburg in die Arbeit mitbringt</h2><!-- /wp:heading --><!-- wp:paragraph --><p>Jacky Rebien in Hamburg arbeitet ruhig, zugewandt und mit einem hohen Anspruch an alltagstaugliche Lösungen. Statt pauschaler Rezepte geht es darum, eure Situation zu verstehen und daraus einen realistischen Weg zu entwickeln. Mir ist wichtig, dass Hundetraining nicht einschüchtert, sondern Orientierung gibt und zu euch als Mensch-Hund-Team passt.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Diese Haltung zeigt sich nicht nur in einzelnen Übungen, sondern auch in der Art, wie Ziele gesetzt und Erwartungen geklärt werden. Ich arbeite lieber mit klaren Prioritäten als mit zu vielen gleichzeitigen Anforderungen. Das hilft besonders dann, wenn ein Hund unsicher, angespannt oder sehr reaktiv ist und Menschen schnell den Überblick verlieren können.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Wenn du zuerst die Arbeitsweise kennenlernen möchtest, findest du über das <a href="/erstgespraech/">Erstgespräch</a> einen guten Einstieg. Zusätzliche Einblicke in meine Arbeit gibt es punktuell auch auf <a href="https://instagram.com/cazoobi">Instagram</a>. So kannst du dir vorab ein Bild machen, ohne direkt in eine verbindliche Trainingssituation einzusteigen.</p><!-- /wp:paragraph --><!-- wp:heading {"level":2} --><h2 class="wp-block-heading">Qualifikationen</h2><!-- /wp:heading --><!-- wp:list --><ul class="wp-block-list"><li>Hundetrainerin nach § 11 TierSchG</li><li>Resilienz Coach</li><li>Mensch-Hund-Beraterin</li><li>Mediatorin</li></ul><!-- /wp:list --></section><!-- /wp:group -->',
             bsh_image_slider_section(
@@ -1096,12 +1206,10 @@ $pages = [
         'slug' => 'preise',
         'order' => 9,
         'content' => implode("\n\n", [
-            bsh_page_hero(
+            bsh_page_intro(
                 'Transparenz',
                 'Preise für Hundetraining in Hamburg',
-                'Preise für Hundetraining in Hamburg sollen dir bei Beziehungssache Hund von Anfang an Klarheit geben, ohne versteckte Bedingungen und ohne widersprüchliche Altwerte.',
-                'beziehung-hund/alte-hunde-treue-freundschaft-mensch-hund.png',
-                '56% center'
+                'Preise für Hundetraining in Hamburg sollen dir bei Beziehungssache Hund von Anfang an Klarheit geben, ohne versteckte Bedingungen und ohne widersprüchliche Altwerte.'
             ),
             '<!-- wp:group {"tagName":"section","className":"bsh-section","layout":{"type":"constrained"}} --><section class="wp-block-group bsh-section"><!-- wp:heading {"level":2} --><h2 class="wp-block-heading">Wie du die Preise für Hundetraining in Hamburg einordnen kannst</h2><!-- /wp:heading --><!-- wp:paragraph --><p>Preise für Hundetraining in Hamburg sollen bei Beziehungssache Hund nicht verwirren, sondern dir einen klaren Überblick geben. Darum stehen hier nur die Leistungen, die aktuell verifiziert sind. So kannst du besser einschätzen, ob für euch eher ein Einstieg über das <a href="/erstgespraech/">Erstgespräch</a>, direktes <a href="/einzeltraining/">Einzeltraining</a> oder eine wiederholte Begleitung mit der 5er-Karte sinnvoll ist.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Die Preisübersicht ist absichtlich schlank gehalten: Sie soll Orientierung geben, nicht neue Fragen erzeugen. Wenn du zum Beispiel erst einmal klären möchtest, wie ernst euer Thema wirklich ist und welcher Ansatz sinnvoll erscheint, ist das Erstgespräch die passende erste Stufe. Wenn du hingegen schon weißt, dass ihr regelmäßige Begleitung braucht, ist die 5er-Karte oft der bessere Rahmen.</p><!-- /wp:paragraph --><!-- wp:image {"sizeSlug":"full","linkDestination":"none"} --><figure class="wp-block-image size-full"><img src="/wp-content/themes/beziehungssache-hund/assets/optimized/logo-full-640.webp" alt="Preise für Hundetraining in Hamburg" /></figure><!-- /wp:image --><!-- wp:table --><figure class="wp-block-table"><table><thead><tr><th>Angebot</th><th>Preis</th><th>Dauer oder Hinweis</th></tr></thead><tbody><tr><td>Erstgespräch</td><td>85 EUR</td><td>60 Minuten</td></tr><tr><td>Einzeltraining</td><td>65 EUR</td><td>45 Minuten</td></tr><tr><td>Einzeltraining</td><td>110 EUR</td><td>90 Minuten</td></tr><tr><td>5er-Karte</td><td>280 EUR</td><td>gültig für 3 Jahre</td></tr></tbody></table></figure><!-- /wp:table --><!-- wp:paragraph --><p>Die 5er-Karte ist vor allem dann sinnvoll, wenn bereits klar ist, dass ihr wiederholte Begleitung braucht. Für DOGSpace, Workshops und Coaching mit Hund werden noch keine verifizierten öffentlichen Preise dargestellt. Wenn du Einblicke in Haltung und Arbeitsweise suchst, findest du punktuell auch etwas auf <a href="https://instagram.com/cazoobi">Instagram</a>. Für eine erste Einordnung hilft dir außerdem das <a href="/erstgespraech/">Erstgespräch</a>.</p><!-- /wp:paragraph --></section><!-- /wp:group -->',
             bsh_image_gallery_section(
@@ -1122,12 +1230,10 @@ $pages = [
         'slug' => 'kontakt',
         'order' => 10,
         'content' => implode("\n\n", [
-            bsh_page_hero(
+            bsh_page_intro(
                 'Kontakt',
                 'Kontakt zu Beziehungssache Hund',
-                'Kontakt für Hundetraining in Hamburg ist bei Beziehungssache Hund direkt per E-Mail, Telefon oder Anfrageformular möglich.',
-                'beziehung-hund/mensch-hund-spielen-gemeinsame-zeit.png',
-                '50% center'
+                'Kontakt für Hundetraining in Hamburg ist bei Beziehungssache Hund direkt per E-Mail, Telefon oder Anfrageformular möglich.'
             ),
             '<!-- wp:group {"tagName":"section","className":"bsh-section bsh-section--soft","layout":{"type":"constrained"}} --><section class="wp-block-group bsh-section bsh-section--soft"><!-- wp:image {"sizeSlug":"full","linkDestination":"none"} --><figure class="wp-block-image size-full"><img src="/wp-content/themes/beziehungssache-hund/assets/optimized/portrait-720.webp" alt="Kontakt für Hundetraining in Hamburg" /></figure><!-- /wp:image --><!-- wp:list {"className":"bsh-contact-list"} --><ul class="wp-block-list bsh-contact-list"><li>Beziehungssache Hund</li><li>Jacky Rebien</li><li>Bundesstr. 74, 20144 Hamburg</li><li><a href="mailto:info@beziehungssache-hund.de">info@beziehungssache-hund.de</a></li><li><a href="tel:+4915228385291">01522 8385291</a></li><li>Hamburg und Umgebung</li></ul><!-- /wp:list --></section><!-- /wp:group -->',
             '<!-- wp:group {"tagName":"section","anchor":"erstgespraech-anfragen","className":"bsh-section","layout":{"type":"constrained"}} --><section id="erstgespraech-anfragen" class="wp-block-group bsh-section"><!-- wp:heading {"level":2} --><h2 class="wp-block-heading">Wie Kontakt für Hundetraining in Hamburg am einfachsten funktioniert</h2><!-- /wp:heading --><!-- wp:paragraph --><p>Kontakt für Hundetraining in Hamburg soll dir bei Beziehungssache Hund möglichst wenig Hürden machen. Wenn du ein <a href="/erstgespraech/">Erstgespräch</a>, <a href="/einzeltraining/">Einzeltraining</a> oder eine Rückfrage zu DOGSpace, Workshops oder Coaching mit Hund hast, kannst du direkt per E-Mail, Telefon oder Anfrageformular schreiben. Hilfreich ist, wenn du kurz beschreibst, worum es geht und welcher Alltag euch gerade herausfordert.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Ich antworte am liebsten mit einem kurzen, klaren Blick auf deine Situation, damit wir nicht aneinander vorbeireden. Je genauer du dein Thema beschreibst, desto besser kann ich einschätzen, ob ein Erstgespräch, direktes Einzeltraining oder eine andere Form der Begleitung zu euch passt. Auf diese Weise bleibt Kontakt bei Beziehungssache Hund kein unpersönlicher Posteingang, sondern der Startpunkt für eine echte Einordnung.</p><!-- /wp:paragraph --><!-- wp:heading {"level":2} --><h2 class="wp-block-heading">Was du anfragen kannst</h2><!-- /wp:heading --><!-- wp:list --><ul class="wp-block-list"><li>Erstgespräch</li><li>Einzeltraining</li><li>DOGSpace</li><li>Workshops oder Seminare</li><li>Coaching mit Hund</li></ul><!-- /wp:list --><!-- wp:paragraph --><p>Wenn du vorab einen kleinen Eindruck von Haltung und Stil bekommen möchtest, findest du einzelne Einblicke auch auf <a href="https://instagram.com/cazoobi">Instagram</a>. Für verbindliche Absprachen nutze bitte immer die direkten Kontaktwege auf dieser Seite. So landen deine Fragen nicht in einem allgemeinen Formular-Template, sondern bei den Informationen, die für eine gute Antwort wirklich wichtig sind.</p><!-- /wp:paragraph --></section><!-- /wp:group -->',
@@ -1157,12 +1263,10 @@ $pages = [
         'slug' => 'ratgeber',
         'order' => 12,
         'content' => implode("\n\n", [
-            bsh_page_hero(
+            bsh_page_intro(
                 'Ratgeber',
                 'Ratgeber rund um Hundetraining und Alltag',
-                'Der Ratgeber für Hundetraining in Hamburg bündelt später Fachartikel, Einordnungen und hilfreiche Inhalte für Mensch-Hund-Teams.',
-                'beziehung-hund/vertrauensaufbau-hund-mensch-tierheim.png',
-                '48% center'
+                'Der Ratgeber für Hundetraining in Hamburg bündelt später Fachartikel, Einordnungen und hilfreiche Inhalte für Mensch-Hund-Teams.'
             ),
             '<!-- wp:group {"tagName":"section","className":"bsh-section","layout":{"type":"constrained"}} --><section class="wp-block-group bsh-section"><!-- wp:heading {"level":2} --><h2 class="wp-block-heading">Wofür der Ratgeber für Hundetraining in Hamburg gedacht ist</h2><!-- /wp:heading --><!-- wp:paragraph --><p>Der Ratgeber für Hundetraining in Hamburg ist als Beitragsübersicht vorgesehen. Hier sollen später Fachartikel, Einordnungen und hilfreiche Inhalte erscheinen, die typische Alltagsthemen für Mensch-Hund-Teams verständlich aufgreifen. Dazu können Themen wie Leinenführigkeit, Alleinbleiben, Grenzen, Orientierung im Alltag oder die Einordnung verschiedener Trainingswege gehören. Die Seite ist damit kein theoretischer Lückenfüller, sondern ein geplanter Ort für konkrete, alltagsnahe Inhalte.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Die Seite ist bewusst nicht als fertiges Wissensportal behauptet, solange diese Inhalte noch nicht redaktionell gepflegt sind. Wenn du aktuell eher direkte Unterstützung brauchst, ist das <a href="/erstgespraech/">Erstgespräch</a> oder <a href="/einzeltraining/">Einzeltraining</a> sinnvoller. Neue Artikel können in WordPress später als Beiträge gepflegt werden. So bleibt die Struktur schon jetzt klar, ohne Inhalte vorzutäuschen, die noch gar nicht veröffentlicht sind.</p><!-- /wp:paragraph --></section><!-- /wp:group -->',
             bsh_image_slider_section(
@@ -1183,12 +1287,10 @@ $pages = [
         'slug' => 'impressum',
         'order' => 13,
         'content' => implode("\n\n", [
-            bsh_page_hero(
+            bsh_page_intro(
                 'Recht',
                 'Impressum',
-                'Hier stehen die rechtlich relevanten Anbieterangaben und Kontaktinformationen für Beziehungssache Hund.',
-                'beziehung-hund/entspannung-mit-hund-ruhe-und-vertrauen.png',
-                '50% center'
+                'Hier stehen die rechtlich relevanten Anbieterangaben und Kontaktinformationen für Beziehungssache Hund.'
             ),
             '<!-- wp:group {"tagName":"section","className":"bsh-section bsh-section--soft","layout":{"type":"constrained"}} --><section class="wp-block-group bsh-section bsh-section--soft"><!-- wp:heading {"level":2} --><h2 class="wp-block-heading">Anbieterin und Kontakt</h2><!-- /wp:heading --><!-- wp:paragraph --><p><strong>Beziehungssache Hund</strong><br />Jacqueline Rebien<br />Bundesstr. 74, 20144 Hamburg</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Telefon: <a href="tel:+4915228385291">01522 8385291</a><br />E-Mail: <a href="mailto:info@beziehungssache-hund.de">info@beziehungssache-hund.de</a><br />Website: <a href="https://beziehungssache-hund.de">beziehungssache-hund.de</a></p><!-- /wp:paragraph --></section><!-- /wp:group -->',
             '<!-- wp:group {"tagName":"section","className":"bsh-section","layout":{"type":"constrained"}} --><section class="wp-block-group bsh-section"><!-- wp:heading {"level":2} --><h2 class="wp-block-heading">Hinweis zum Stand</h2><!-- /wp:heading --><!-- wp:paragraph --><p>Diese Seite ist so aufgebaut, dass die rechtlich geprüften Angaben vor dem Launch ergänzt und bei Bedarf ohne Umbau der Struktur aktualisiert werden können. Die finale Fassung muss vor der Veröffentlichung nochmals juristisch geprüft und mit den übrigen Kontaktangaben der Website abgeglichen werden.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>So bleibt das Impressum ein sauberer, eigenständiger Pflichtbereich und keine lose Platzhalterseite mehr. Die Ziel-URL bleibt dabei unverändert, damit spätere Verweise und Weiterleitungen nicht angepasst werden müssen.</p><!-- /wp:paragraph --></section><!-- /wp:group -->',
@@ -1200,12 +1302,10 @@ $pages = [
         'slug' => 'datenschutz',
         'order' => 14,
         'content' => implode("\n\n", [
-            bsh_page_hero(
+            bsh_page_intro(
                 'Recht',
                 'Datenschutz',
-                'Hier wird beschrieben, welche personenbezogenen Daten auf dieser Website verarbeitet werden und wofür sie genutzt werden.',
-                'beziehung-hund/alte-hunde-treue-freundschaft-mensch-hund.png',
-                '50% center'
+                'Hier wird beschrieben, welche personenbezogenen Daten auf dieser Website verarbeitet werden und wofür sie genutzt werden.'
             ),
             '<!-- wp:group {"tagName":"section","className":"bsh-section bsh-section--soft","layout":{"type":"constrained"}} --><section class="wp-block-group bsh-section bsh-section--soft"><!-- wp:heading {"level":2} --><h2 class="wp-block-heading">Verantwortliche Stelle</h2><!-- /wp:heading --><!-- wp:paragraph --><p><strong>Beziehungssache Hund</strong><br />Jacqueline Rebien<br />Bundesstr. 74, 20144 Hamburg</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Telefon: <a href="tel:+4915228385291">01522 8385291</a><br />E-Mail: <a href="mailto:info@beziehungssache-hund.de">info@beziehungssache-hund.de</a><br />Website: <a href="https://beziehungssache-hund.de">beziehungssache-hund.de</a></p><!-- /wp:paragraph --></section><!-- /wp:group -->',
             '<!-- wp:group {"tagName":"section","className":"bsh-section","layout":{"type":"constrained"}} --><section class="wp-block-group bsh-section"><!-- wp:heading {"level":2} --><h2 class="wp-block-heading">Welche Daten anfallen können</h2><!-- /wp:heading --><!-- wp:paragraph --><p>Je nach Nutzung der Website können vor allem Daten aus Kontaktanfragen, Formularen, E-Mails, Telefonaten und extern geöffneten Links anfallen. Dazu kommen technisch notwendige Verbindungsdaten, die beim Aufruf der Website verarbeitet werden können.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Wenn du das Kontaktformular nutzt, speichern wir die dafür erforderlichen Angaben, um deine Anfrage zu bearbeiten und eine Antwort zu ermöglichen. Wenn du über WhatsApp kontaktierst, verlässt du die Website und nutzt den Dienst des jeweiligen Anbieters; seine Datenschutzregeln gelten dann zusätzlich.</p><!-- /wp:paragraph --></section><!-- /wp:group -->',

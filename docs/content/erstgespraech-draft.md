@@ -23,12 +23,11 @@ Im Erstgespräch ordne ich die Situation gemeinsam mit dir ein, damit daraus ein
 
 ## Empfohlene Struktur
 
-### Hero
+### Intro
 
 - Headline: Erstgespräch für Hundetraining in Hamburg
 - Subline: Wir schauen gemeinsam auf eure aktuelle Situation und klären, welcher nächste Schritt zu dir und deinem Hund passt.
-- Meta: 60 Minuten, 85 €, Termin und Ort nach individueller Absprache
-- CTA: Erstgespräch anfragen
+- Kurzüberblick: 60 Minuten, 85 €, Orientierung für den nächsten Schritt
 
 ### Wann ein Erstgespräch hilfreich ist
 
@@ -84,3 +83,4 @@ Im Erstgespräch ordne ich die Situation gemeinsam mit dir ein, damit daraus ein
 - nicht wie ein allgemeiner SEO-Text wirken
 - keine direkte Terminbuchung versprechen
 - keine Themen der anderen Seiten doppeln
+- keine heroartige Bildfläche aufbauen

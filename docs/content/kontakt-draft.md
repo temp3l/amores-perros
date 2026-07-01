@@ -23,10 +23,11 @@ Wenn du Fragen hast oder ein Erstgespraech anfragen moechtest, erreichst du Bezi
 
 ## Empfohlene Struktur
 
-### Hero
+### Intro
 
 - Headline: Kontakt zu Beziehungssache Hund
-- Subline: Schreibe mir oder ruf an, wenn du ein Erstgespraech oder ein passendes Training anfragen moechtest
+- Subline: Schreibe mir oder ruf an, wenn du ein Erstgespräch oder ein passendes Training anfragen moechtest
+- Kurzüberblick: Telefon, E-Mail, Adresse, Anfrage zu Erstgespräch, Einzeltraining oder ergänzenden Angeboten
 
 ### Kontaktblock
 
@@ -59,3 +60,4 @@ Wenn du Fragen hast oder ein Erstgespraech anfragen moechtest, erreichst du Bezi
 - nicht wie eine generische Kontaktseite wirken
 - keine Platzhaltertexte enthalten
 - keine widerspruechlichen Oeffnungszeiten zeigen
+- keine heroartige Bildfläche aufbauen

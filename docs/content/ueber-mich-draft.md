@@ -24,10 +24,11 @@ Jacky Rebien arbeitet mit Blick auf die Mensch-Hund-Beziehung, mit ruhiger, klar
 
 ## Empfohlene Struktur
 
-### Hero
+### Intro
 
 - Headline: Jacky Rebien
 - Subline: Hundetrainerin in Hamburg mit Blick auf Beziehung, Alltag und klare Schritte
+- Kurzüberblick: Jacky Rebien, Hundetrainerin nach § 11 TierSchG, Resilienz Coach und Mediatorin
 
 ### Wer ich bin
 
@@ -66,3 +67,4 @@ Jacky Rebien arbeitet mit Blick auf die Mensch-Hund-Beziehung, mit ruhiger, klar
 - nicht in eine Lebenslauf-Sammlung ausufern
 - keine Widersprueche zu anderen Seiten erzeugen
 - keine ungeklaerten oder alten Angebotsbezeichnungen benutzen
+- keine heroartige Bildfläche aufbauen

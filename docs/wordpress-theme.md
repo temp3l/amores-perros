@@ -63,8 +63,9 @@ Die optische Grundstimmung orientiert sich am Legacy-Snapshot von `amores-perros
 - weisse und cremefarbene Typografie auf dunklen Zonen
 - echte Fotomotive und Logos aus dem Legacy-Material statt generischer Platzhalter
 - sparsam eingesetzte, manuell bedienbare Bild-Slider sind als contentnahe Ausnahme erlaubt, solange sie nicht autoplayen oder die Lesbarkeit stoeren
+- das Cropped-Logo aus `images/logos/log-cropped.jpg` wird in angepassten Zielgroessen fuer Startseiten-Hero, Header-Logo und Favicon wiederverwendet
 
-Die Startseite darf eine bildstarke Hero-Fläche verwenden. Unterseiten wie Kontakt, Erstgespraech oder Preise bekommen dagegen eine ruhigere, dunkel gefasste Seiten-Hero ohne grossflächiges Hintergrundbild, damit der Inhalt schneller lesbar und klarer getrennt ist.
+Seiten starten mit einem kompakten Intro-Bereich aus H1, Subheading und kurzer Übersicht statt mit einer heroartigen Bildfläche. Die Startseite ist die definierte Ausnahme und beginnt mit einer full-width Hero-Visualisierung des Logos, bevor der kompakte Intro-Bereich folgt. Produktseiten ergänzen dort ihre Preisangaben direkt im Einstieg, damit der wichtigste Nutzwert sofort sichtbar ist.
 
 Fuer grosse Fotos und Portraits wird AVIF als Primärformat mit WebP-Fallback genutzt. Logo- und Markenmotive werden ebenfalls in den zu ihrem sichtbaren Einsatz passenden Zielgroessen ausgeliefert, statt in den Originalabmessungen geladen zu werden.
 
@@ -408,7 +409,7 @@ Für die erste Entwicklungsphase werden Dummy-Fotos verwendet.
 
 ### Benötigte Platzhalter
 
-* Hero-Foto Mensch und Hund
+* Intro-Foto Mensch und Hund
 * Portrait von Jacky
 * Trainingssituation
 * DOGSpace
@@ -472,7 +473,7 @@ Die Templates müssen auch funktionieren, wenn noch kein finales Bild hinterlegt
 
 ## 18. Startseitenstruktur
 
-### 1. Hero
+### 1. Intro
 
 **Headline:**
 
@@ -519,11 +520,12 @@ Hervorgehoben:
 
 * Erstgespräch
 * Einzeltraining
+* 5er-Karte
+* Coaching mit Hund
 
 Ergänzend:
 
 * DOGSpace
-* Coaching mit Hund
 * Workshops und Seminare
 
 ### 5. Über Jacky
@@ -765,9 +767,9 @@ Ein Event-Custom-Post-Type kann später ergänzt werden, sobald tatsächlich reg
 
 ## 24. Benötigte Patterns
 
-* Startseiten-Hero
-* Service-Hero
-* Hero ohne Bild
+* Startseiten-Intro
+* Service-Intro
+* Intro ohne Bild
 * Problemkarten
 * Angebotsübersicht
 * Prozessschritte

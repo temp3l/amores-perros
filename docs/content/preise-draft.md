@@ -23,10 +23,11 @@ Klare Preise fuer die wichtigsten Leistungen, ohne versteckte Bedingungen oder u
 
 ## Empfohlene Struktur
 
-### Hero
+### Intro
 
 - Headline: Preise fuer Hundetraining in Hamburg
 - Subline: Transparent, nachvollziehbar und auf die naechsten Schritte ausgerichtet
+- Kurzüberblick: Erstgespräch 85 EUR, Einzeltraining 65 EUR / 45 Minuten, 110 EUR / 90 Minuten, 5er-Karte 280 EUR
 
 ### Preisuebersicht
 
@@ -56,4 +57,4 @@ Klare Preise fuer die wichtigsten Leistungen, ohne versteckte Bedingungen oder u
 - keine unbestaetigten Preise aufnehmen
 - keine alten Konfliktwerte sichtbar lassen
 - keine langen Verkaufstexte statt klarer Uebersicht
-
+- keine heroartige Bildfläche aufbauen

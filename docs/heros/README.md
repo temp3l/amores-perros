@@ -28,7 +28,7 @@ Dieses Verzeichnis enthält die aktuell extrahierten Hero-Köpfe aus dem Theme u
 
 ## Aktuelle Hero-Bildzuordnung
 
-- Startseite: `erstgespraech-photorealistisch-01.png`
+- Startseite: `log-cropped.jpg` als full-width Logo-Hero
 - Hundetraining Hamburg: `einzeltraining-photorealistisch-01.png`
 - Erstgespräch: `erstgespraech-photorealistisch-02.png`
 - Einzeltraining: `einzeltraining-photorealistisch-02.png`

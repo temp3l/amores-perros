@@ -2,8 +2,6 @@
 
 declare(strict_types=1);
 
-require_once __DIR__ . '/hero-images.php';
-
 if (! function_exists('bsh_faq_topics')) {
     function bsh_faq_topics(): array
     {
@@ -675,20 +673,25 @@ if (! function_exists('bsh_faq_page_content')) {
         $topics = bsh_faq_topics();
         $schema = bsh_faq_schema_json($topics);
         $content = [];
-        $hero_style = bsh_hero_image_style($hero_image, $hero_position);
-
         $content[] = '<div class="bsh-faq-page">';
-        $content[] = '<!-- wp:group {"tagName":"section","className":"bsh-hero bsh-page-hero bsh-faq-hero","layout":{"type":"constrained"}} -->';
-        $content[] = '<section class="wp-block-group bsh-hero bsh-page-hero bsh-faq-hero"' . $hero_style . '>';
+        $content[] = '<!-- wp:group {"tagName":"section","className":"bsh-section bsh-page-intro bsh-faq-intro","layout":{"type":"constrained"}} -->';
+        $content[] = '<section class="wp-block-group bsh-section bsh-page-intro bsh-faq-intro">';
         $content[] = '<!-- wp:html -->';
         $content[] = '<div class="bsh-eyebrow">FAQ</div>';
         $content[] = '<!-- /wp:html -->';
-        $content[] = '<!-- wp:heading {"level":1,"className":"bsh-page-hero__title"} -->';
-        $content[] = '<h1 class="wp-block-heading bsh-page-hero__title">Häufige Fragen</h1>';
+        $content[] = '<!-- wp:heading {"level":1,"className":"bsh-page-intro__title"} -->';
+        $content[] = '<h1 class="wp-block-heading bsh-page-intro__title">Häufige Fragen</h1>';
         $content[] = '<!-- /wp:heading -->';
-        $content[] = '<!-- wp:paragraph {"className":"bsh-page-hero__lead"} -->';
-        $content[] = '<p class="bsh-page-hero__lead">Jeder Hund und jedes Mensch-Hund-Team bringt eigene Erfahrungen, Bedürfnisse und Herausforderungen mit. Deshalb gibt es im Training selten eine Lösung, die für alle gleichermaßen funktioniert.</p>';
+        $content[] = '<!-- wp:paragraph {"className":"bsh-page-intro__lead"} -->';
+        $content[] = '<p class="bsh-page-intro__lead">Jeder Hund und jedes Mensch-Hund-Team bringt eigene Erfahrungen, Bedürfnisse und Herausforderungen mit. Deshalb gibt es im Training selten eine Lösung, die für alle gleichermaßen funktioniert.</p>';
         $content[] = '<!-- /wp:paragraph -->';
+        $content[] = '<!-- wp:list {"className":"bsh-page-intro__outline"} -->';
+        $content[] = '<ul class="wp-block-list bsh-page-intro__outline">';
+        $content[] = '<li>Typische Fragen rund um Einstieg und Ablauf</li>';
+        $content[] = '<li>Einordnung von Alltag, Verhalten und Trainingsweg</li>';
+        $content[] = '<li>Klarer nächster Schritt statt allgemeiner Floskeln</li>';
+        $content[] = '</ul>';
+        $content[] = '<!-- /wp:list -->';
         $content[] = '</section>';
         $content[] = '<!-- /wp:group -->';
 

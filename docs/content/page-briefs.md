@@ -4,21 +4,21 @@
 
 - Ziel: Marke erklären und auf das Erstgespräch führen.
 - Primärer Intent: Hundetraining in Hamburg.
-- Muss enthalten: klares Nutzenversprechen, kurze Angebotsübersicht, Vertrauen, CTA.
-- Nicht machen: alle Services komplett auf der Startseite erklären.
+- Muss enthalten: klares Nutzenversprechen, kurzes Produktgrid, Vertrauen, kompakter Intro-Bereich statt Hero.
+- Nicht machen: alle Services im Detail erklären oder eine Preisliste aufblasen.
 
 ## Erstgespräch
 
 - Ziel: den passenden Einstieg klären und qualifizierte Anfragen auslösen.
 - Primärer Intent: Erstgespräch für Hundetraining in Hamburg.
-- Muss enthalten: Preis, Dauer, Ablauf, Ergebnis, CTA zum Kontaktformular.
+- Muss enthalten: Preis, Dauer, Ablauf, Ergebnis, klarer Intro-Bereich mit Kurzüberblick.
 - Nicht machen: wie eine allgemeine Info-Seite oder direkte Buchungsseite wirken.
 
 ## Einzeltraining
 
 - Ziel: Kernleistung erklären und Anfragen auslösen.
 - Primärer Intent: Einzeltraining für Hund und Mensch.
-- Muss enthalten: typische Themen, Vorgehen, Erwartungsmanagement, Preislogik, CTA.
+- Muss enthalten: typische Themen, Vorgehen, Erwartungsmanagement, Preislogik, klarer Intro-Bereich mit Preisen.
 - Nicht machen: wie ein Standardkurs wirken.
 
 ## Über mich
@@ -32,7 +32,7 @@
 
 - Ziel: Transparenz schaffen.
 - Primärer Intent: Preise für Hundetraining.
-- Muss enthalten: Erstgespräch, Einzeltraining, 5er-Karte, Hinweise zu Zahlung.
+- Muss enthalten: Erstgespräch, Einzeltraining, 5er-Karte, Hinweise zu Zahlung, Preisangaben direkt im Intro.
 - Nicht machen: versteckte oder widersprüchliche Preisangaben.
 
 ## Kontakt

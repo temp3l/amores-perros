@@ -22,10 +22,11 @@ Coaching mit Hund ist eine eigene öffentliche Seite und richtet sich an Mensche
 
 ## Empfohlene Struktur
 
-### Hero
+### Intro
 
 - Headline: Coaching mit Hund
 - Subline: Eine eigene Linie fuer persoenliche Entwicklung mit Hund
+- Kurzüberblick: Persönliche Zusatzlinie, Bezug zu Hund und Alltag, Preis derzeit offen
 
 ### Worum es geht
 
@@ -54,4 +55,4 @@ Coaching mit Hund ist eine eigene öffentliche Seite und richtet sich an Mensche
 - nicht mit Führungskräfte-Coaching in alter Form arbeiten
 - keine unklaren Zielgruppen vermischen
 - keine unbestaetigten Leistungsversprechen formulieren
-
+- keine heroartige Bildfläche aufbauen

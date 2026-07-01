@@ -78,9 +78,9 @@ Die visuelle und technische Leitlinie für das WordPress-Theme ist in [wordpress
 - [Workshops und Seminare](content/workshops-seminare-draft.md)
 - [Coaching mit Hund](content/coaching-mit-hund-draft.md)
 
-## Hero-Content
+## Intro-Content
 
-- [Hero-Übersicht](heros/README.md)
+- [Intro-Übersicht](heros/README.md)
 - [Bild-Prompts](heros/image-prompts.md)
 
 ## Sprachregel für diese Dokumentation

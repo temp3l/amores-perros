@@ -23,10 +23,11 @@ DOGSpace ist ein gemeinsamer, begleiteter Rahmen fuer Stammtisch, Hundecafe und 
 
 ## Empfohlene Struktur
 
-### Hero
+### Intro
 
 - Headline: DOGSpace in Hamburg
 - Subline: Begleiteter Raum fuer Begegnung, Austausch und Training
+- Kurzüberblick: Hamburg, nur mit Anmeldung, Preise derzeit noch nicht verifiziert
 
 ### Was DOGSpace ist
 
@@ -60,4 +61,4 @@ DOGSpace ist ein gemeinsamer, begleiteter Rahmen fuer Stammtisch, Hundecafe und 
 - nicht mit Einzeltraining vermischen
 - keine Eventtermine ohne echte Daten erfinden
 - kein Freilauf- oder Hundepark-Versprechen machen
-
+- keine heroartige Bildfläche aufbauen

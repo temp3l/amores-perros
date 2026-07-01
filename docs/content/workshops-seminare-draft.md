@@ -22,10 +22,11 @@ Workshops und Seminare finden bei Bedarf statt und nutzen den DOGSpace als gemei
 
 ## Empfohlene Struktur
 
-### Hero
+### Intro
 
 - Headline: Workshops und Seminare fuer Hund und Mensch
 - Subline: Auf Bedarf, mit klarem Rahmen und passendem Thema
+- Kurzüberblick: Bedarfsthema, DOGSpace als Rahmen, Termine nur bei echter Planung
 
 ### Worum es geht
 
@@ -60,4 +61,4 @@ Workshops und Seminare finden bei Bedarf statt und nutzen den DOGSpace als gemei
 - keine Termine erfinden
 - keine falsche Regelmaessigkeit behaupten
 - nicht mit Trainer-Austausch oder Supervision vermischen
-
+- keine heroartige Bildfläche aufbauen
