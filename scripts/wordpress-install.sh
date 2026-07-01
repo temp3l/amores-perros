@@ -126,6 +126,9 @@ wp option update WPLANG de_DE >/dev/null
 echo "Installiere Kontaktformular-Plugin ..."
 ensure_plugin_installed forminator
 
+echo "Installiere Max Mega Menu ..."
+ensure_plugin_installed megamenu
+
 echo "Setze lokale Optionen ..."
 wp option update timezone_string Europe/Berlin >/dev/null
 wp option update date_format 'j. F Y' >/dev/null

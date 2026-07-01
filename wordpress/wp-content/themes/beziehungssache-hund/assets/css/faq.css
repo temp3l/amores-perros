@@ -182,8 +182,7 @@
 .faq-answer {
   height: 0;
   overflow: hidden;
-  opacity: 0;
-  will-change: height, opacity;
+  will-change: height;
 }
 
 .faq-answer__inner {

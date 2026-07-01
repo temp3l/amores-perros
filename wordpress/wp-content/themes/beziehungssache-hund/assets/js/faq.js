@@ -72,7 +72,6 @@
 
     panel.style.transition = '';
     panel.style.height = '';
-    panel.style.opacity = '';
     panel.style.overflow = '';
   }
 
@@ -89,19 +88,16 @@
 
     if (instant || reducedMotion.matches) {
       panel.style.height = 'auto';
-      panel.style.opacity = '1';
       return;
     }
 
     panel.style.overflow = 'hidden';
     panel.style.height = '0px';
-    panel.style.opacity = '0';
     panel.getBoundingClientRect();
 
     requestAnimationFrame(function () {
-      panel.style.transition = 'height 280ms ease, opacity 220ms ease';
+      panel.style.transition = 'height 280ms ease';
       panel.style.height = panel.scrollHeight + 'px';
-      panel.style.opacity = '1';
     });
 
     panel.__bshFaqTransitionEndHandler = function onTransitionEnd(event) {
@@ -114,7 +110,6 @@
       panel.style.height = 'auto';
       panel.style.overflow = '';
       panel.style.transition = '';
-      panel.style.opacity = '';
     };
 
     panel.addEventListener('transitionend', panel.__bshFaqTransitionEndHandler);
@@ -138,13 +133,11 @@
     details.open = true;
     panel.style.overflow = 'hidden';
     panel.style.height = panel.scrollHeight + 'px';
-    panel.style.opacity = '1';
     panel.getBoundingClientRect();
 
     requestAnimationFrame(function () {
-      panel.style.transition = 'height 260ms ease, opacity 200ms ease';
+      panel.style.transition = 'height 260ms ease';
       panel.style.height = '0px';
-      panel.style.opacity = '0';
     });
 
     panel.__bshFaqTransitionEndHandler = function onTransitionEnd(event) {
@@ -158,7 +151,6 @@
       panel.style.height = '';
       panel.style.overflow = '';
       panel.style.transition = '';
-      panel.style.opacity = '';
     };
 
     panel.addEventListener('transitionend', panel.__bshFaqTransitionEndHandler);

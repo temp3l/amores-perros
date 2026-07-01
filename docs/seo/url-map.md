@@ -11,8 +11,8 @@
 | `/dogspace-hamburg/` | DOGSpace | Raum- und Formatseite |
 | `/workshops-seminare/` | Workshops und Seminare | Event-Übersicht |
 | `/coaching-mit-hund/` | Coaching mit Hund | Sekundaere Linie |
-| `/faq/` | FAQ | Haeufige Fragen und Deep Links |
-| `/ueber-jacky-rebien/` | Ueber mich | Vertrauen und Kompetenz |
+| `/faq/` | FAQ | Häufige Fragen und Deep Links |
+| `/ueber-jacky-rebien/` | Über mich | Vertrauen und Kompetenz |
 | `/preise/` | Preise | Transparenz |
 | `/kontakt/` | Kontakt | Anfrage und Telefon |
 | `/impressum/` | Impressum | Recht |

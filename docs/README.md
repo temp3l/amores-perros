@@ -45,7 +45,8 @@ Die visuelle und technische Leitlinie fuer das WordPress-Theme ist in [wordpress
 - ruhig, persoenlich, klar und hochwertig
 - visuell an `amores-perros.de` angelehnt mit dunklen Flaechen, warmem Terrakotta und viel Weissraum
 - keine dominanten Pfotenmuster, Comic-Hunde oder aggressive Animationen
-- keine Slider, Autoplay-Videos oder ueberladene Kartenlayouts
+- keine dominanten Slider, Autoplay-Videos oder ueberladene Kartenlayouts
+- sparsam eingesetzte, manuell bedienbare Bild-Slider sind als Ausnahme erlaubt
 
 ### Vorlaeufige Gestaltung
 
@@ -76,6 +77,11 @@ Die visuelle und technische Leitlinie fuer das WordPress-Theme ist in [wordpress
 - [DOGSpace](content/dogspace-draft.md)
 - [Workshops und Seminare](content/workshops-seminare-draft.md)
 - [Coaching mit Hund](content/coaching-mit-hund-draft.md)
+
+## Hero-Content
+
+- [Hero-Übersicht](heros/README.md)
+- [Bild-Prompts](heros/image-prompts.md)
 
 ## Sprachregel fuer diese Dokumentation
 

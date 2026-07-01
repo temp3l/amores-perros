@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+require_once __DIR__ . '/inc/hero-images.php';
 require_once __DIR__ . '/inc/faq.php';
 
 add_action(
@@ -15,6 +16,12 @@ add_action(
         add_theme_support('custom-spacing');
         add_theme_support('custom-line-height');
         add_editor_style('style.css');
+
+        register_nav_menus(
+            [
+                'primary' => __('Hauptnavigation', 'beziehungssache-hund'),
+            ]
+        );
 
         register_block_pattern_category(
             'beziehungssache-hund',
@@ -40,6 +47,16 @@ add_action(
             get_template_directory_uri() . '/assets/js/header.js',
             [],
             wp_get_theme()->get('Version'),
+            true
+        );
+
+        $slider_js = get_theme_file_path('assets/js/image-slider.js');
+
+        wp_enqueue_script(
+            'beziehungssache-hund-image-slider',
+            get_theme_file_uri('assets/js/image-slider.js'),
+            [],
+            file_exists($slider_js) ? (string) filemtime($slider_js) : wp_get_theme()->get('Version'),
             true
         );
 

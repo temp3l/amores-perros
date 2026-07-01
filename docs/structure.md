@@ -25,6 +25,8 @@ Diese Dateien sind die aktuelle Arbeitsgrundlage fuer den Rebuild.
 - [content/dogspace-draft.md](/home/box/workspace/fehmarn-seo/jacky/docs/content/dogspace-draft.md)
 - [content/workshops-seminare-draft.md](/home/box/workspace/fehmarn-seo/jacky/docs/content/workshops-seminare-draft.md)
 - [content/coaching-mit-hund-draft.md](/home/box/workspace/fehmarn-seo/jacky/docs/content/coaching-mit-hund-draft.md)
+- [heros/README.md](/home/box/workspace/fehmarn-seo/jacky/docs/heros/README.md)
+- [heros/image-prompts.md](/home/box/workspace/fehmarn-seo/jacky/docs/heros/image-prompts.md)
 
 ### SEO und Struktur
 

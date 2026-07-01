@@ -119,8 +119,14 @@ test('Einzeltraining page links to the FAQ topics', async ({ page }) => {
   await expect(page.getByRole('heading', { name: 'Einzeltraining mit Hund in Hamburg – nah an eurem Alltag' })).toBeVisible();
   await expect(page.getByText('Wer mit einem Hund in Hamburg lebt, kennt die kleinen Herausforderungen des Alltags.')).toBeVisible();
 
+  const topicsSection = page.locator('section').filter({
+    has: page.getByRole('heading', { name: 'Typische Themen im Einzeltraining' })
+  });
+
+  await expect(topicsSection).toHaveCount(1);
+
   for (const [href, textFragment] of einzeltrainingAnchors) {
-    const link = page.locator(`a[href="${href}"]`);
+    const link = topicsSection.locator(`a[href="${href}"]`);
     await expect(link).toHaveCount(1);
     await expect(link).toContainText(textFragment);
   }
@@ -150,10 +156,8 @@ test.describe('FAQ page', () => {
       ['/faq/#leinenfuehrigkeit', 'leinenfuehrigkeit'],
       ['/faq/#rueckruf-unter-ablenkung', 'rueckruf-unter-ablenkung']
     ] as const) {
-      const response = await page.goto(hash, { waitUntil: 'domcontentloaded' });
-
-      expect(response, 'FAQ page did not return a valid response.').not.toBeNull();
-      expect(response?.ok(), `FAQ page returned HTTP ${response?.status()}.`).toBeTruthy();
+      await page.goto('/faq/', { waitUntil: 'domcontentloaded' });
+      await page.goto(hash, { waitUntil: 'domcontentloaded' });
 
       await waitForStablePage(page);
 

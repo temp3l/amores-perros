@@ -7,7 +7,7 @@
  */
 ?>
 <!-- wp:group {"tagName":"section","className":"bsh-hero","layout":{"type":"constrained"}} -->
-<section class="wp-block-group bsh-hero">
+<section class="wp-block-group bsh-hero"<?php echo bsh_hero_image_style('erstgespraech-photorealistisch-01.png', '58% center'); ?>>
   <!-- wp:html -->
   <div class="bsh-eyebrow">Beziehungssache Hund</div>
   <!-- /wp:html -->
@@ -17,7 +17,7 @@
   <!-- /wp:heading -->
 
   <!-- wp:paragraph {"className":"bsh-hero__lead"} -->
-  <p class="bsh-hero__lead">Hundetraining Hamburg fuer Mensch-Hund-Teams, die alltagstaugliche Loesungen, Klarheit und eine ruhigere gemeinsame Basis suchen.</p>
+  <p class="bsh-hero__lead">Hundetraining Hamburg für Mensch-Hund-Teams, die alltagstaugliche Lösungen, Klarheit und eine ruhigere gemeinsame Basis suchen.</p>
   <!-- /wp:paragraph -->
 
   <!-- wp:group {"className":"bsh-hero__meta","layout":{"type":"flex","flexWrap":"wrap"}} -->
@@ -31,7 +31,7 @@
   <!-- wp:buttons -->
   <div class="wp-block-buttons">
     <!-- wp:button {"className":"is-style-fill"} -->
-    <div class="wp-block-button is-style-fill"><a class="wp-block-button__link wp-element-button" href="/erstgespraech/">Erstgespraech anfragen</a></div>
+    <div class="wp-block-button is-style-fill"><a class="wp-block-button__link wp-element-button" href="/erstgespraech/">Erstgespräch anfragen</a></div>
     <!-- /wp:button -->
 
     <!-- wp:button {"className":"is-style-outline"} -->

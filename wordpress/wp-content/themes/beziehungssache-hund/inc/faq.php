@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+require_once __DIR__ . '/hero-images.php';
+
 if (! function_exists('bsh_faq_topics')) {
     function bsh_faq_topics(): array
     {
@@ -668,15 +670,16 @@ if (! function_exists('bsh_faq_schema_json')) {
 }
 
 if (! function_exists('bsh_faq_page_content')) {
-    function bsh_faq_page_content(): string
+    function bsh_faq_page_content(string $hero_image = 'erstgespraech-photorealistisch-01.png', string $hero_position = '52% center'): string
     {
         $topics = bsh_faq_topics();
         $schema = bsh_faq_schema_json($topics);
         $content = [];
+        $hero_style = bsh_hero_image_style($hero_image, $hero_position);
 
         $content[] = '<div class="bsh-faq-page">';
         $content[] = '<!-- wp:group {"tagName":"section","className":"bsh-hero bsh-page-hero bsh-faq-hero","layout":{"type":"constrained"}} -->';
-        $content[] = '<section class="wp-block-group bsh-hero bsh-page-hero bsh-faq-hero">';
+        $content[] = '<section class="wp-block-group bsh-hero bsh-page-hero bsh-faq-hero"' . $hero_style . '>';
         $content[] = '<!-- wp:html -->';
         $content[] = '<div class="bsh-eyebrow">FAQ</div>';
         $content[] = '<!-- /wp:html -->';
@@ -696,6 +699,14 @@ if (! function_exists('bsh_faq_page_content')) {
         $content[] = '<!-- /wp:paragraph -->';
         $content[] = '</section>';
         $content[] = '<!-- /wp:group -->';
+
+        $content[] = bsh_image_gallery_section(
+            'Fragen mit Kontext',
+            'Die FAQ-Seite bekommt bewusst ein ruhiges Bild zwischen Einordnung und Fragekatalog, damit der Uebergang nicht nur aus Text besteht.',
+            [
+                ['slug' => 'beziehung-hund-vertrauen-blickkontakt-hundetraining', 'alt' => 'Blickkontakt und Vertrauen zwischen Mensch und Hund', 'eager' => true],
+            ]
+        );
 
         $content[] = bsh_faq_render_navigation($topics);
 
