@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 require_once __DIR__ . '/inc/hero-images.php';
+require_once __DIR__ . '/inc/price-cards.php';
 require_once __DIR__ . '/inc/faq.php';
 
 add_action(

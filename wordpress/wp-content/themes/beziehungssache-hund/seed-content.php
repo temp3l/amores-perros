@@ -5,6 +5,7 @@ if (! defined('ABSPATH')) {
 }
 
 require_once __DIR__ . '/inc/hero-images.php';
+require_once __DIR__ . '/inc/price-cards.php';
 require_once __DIR__ . '/inc/faq.php';
 
 /**
@@ -717,40 +718,21 @@ HTML;
         ]
     );
 
+    $content[] = bsh_price_cards_section(
+        'Preis und Rahmen',
+        [
+            [
+                'title' => 'Erstgespräch',
+                'price' => '85 EUR',
+                'detail' => '60 Minuten',
+                'description' => 'Der Einstieg für neue Mensch-Hund-Teams.',
+            ],
+        ]
+    );
+
     $content[] = <<<'HTML'
 <!-- wp:group {"tagName":"section","className":"bsh-section","layout":{"type":"constrained"}} -->
 <section class="wp-block-group bsh-section">
-  <!-- wp:heading {"level":2} -->
-  <h2 class="wp-block-heading">Preis und Rahmen</h2>
-  <!-- /wp:heading -->
-
-  <!-- wp:table -->
-  <figure class="wp-block-table">
-    <table>
-      <thead>
-        <tr>
-          <th>Leistung</th>
-          <th>Umfang</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Erstgespräch</td>
-          <td>60 Minuten</td>
-        </tr>
-        <tr>
-          <td>Preis</td>
-          <td>85 €</td>
-        </tr>
-        <tr>
-          <td>Ort</td>
-          <td>individuell nach Situation vereinbart</td>
-        </tr>
-      </tbody>
-    </table>
-  </figure>
-  <!-- /wp:table -->
-
   <!-- wp:paragraph -->
   <p>Trainingsort und mögliche Anfahrtskosten stimmen wir vor dem Termin individuell ab. Ob dein Hund beim Erstgespräch dabei ist und welcher Ort sinnvoll ist, klären wir vorab anhand eurer Situation.</p>
   <!-- /wp:paragraph -->
@@ -1095,7 +1077,30 @@ $pages = [
             ),
             '<!-- wp:group {"tagName":"section","className":"bsh-section bsh-section--soft","layout":{"type":"constrained"}} --><section class="wp-block-group bsh-section bsh-section--soft"><!-- wp:image {"sizeSlug":"full","linkDestination":"none"} --><figure class="wp-block-image size-full"><img src="/wp-content/themes/beziehungssache-hund/assets/optimized/portrait-720.webp" alt="Einzeltraining in Hamburg mit Hundetrainerin" /></figure><!-- /wp:image --><!-- wp:heading {"level":2} --><h2 class="wp-block-heading">So sieht Einzeltraining in Hamburg aus</h2><!-- /wp:heading --><!-- wp:paragraph --><p>Im Einzeltraining beobachten wir zuerst die Situation, ordnen Verhalten und Auslöser ein und entwickeln daraus umsetzbare Schritte für euren Alltag. Du bekommst keine abstrakten Ratschläge, sondern eine Begleitung, die zu eurem Tempo, euren Möglichkeiten und eurem Ziel passt. Wenn der Einstieg über ein <a href="/erstgespraech/">Erstgespräch</a> sinnvoller ist, kannst du auch dort beginnen.</p><!-- /wp:paragraph --><!-- wp:list {"ordered":true,"className":"bsh-step-list"} --><ol class="wp-block-list bsh-step-list"><li>Situation beobachten</li><li>Verhalten und Zusammenhänge einordnen</li><li>realistisches Ziel definieren</li><li>konkrete Schritte für den Alltag entwickeln</li><li>Fortschritte und Rückschritte gemeinsam auswerten</li></ol><!-- /wp:list --></section><!-- /wp:group -->',
             '<!-- wp:group {"tagName":"section","className":"bsh-section bsh-section--soft","layout":{"type":"constrained"}} --><section class="wp-block-group bsh-section bsh-section--soft"><!-- wp:paragraph --><p>Mehr zum Ablauf des Einzeltrainings findest du auch in den <a href="/faq/#ablauf-einzeltraining">häufigen Fragen</a>.</p><!-- /wp:paragraph --></section><!-- /wp:group -->',
-            '<!-- wp:group {"tagName":"section","className":"bsh-section","layout":{"type":"constrained"}} --><section class="wp-block-group bsh-section"><!-- wp:heading {"level":2} --><h2 class="wp-block-heading">Preislogik und nächste Schritte</h2><!-- /wp:heading --><!-- wp:table --><figure class="wp-block-table"><table><thead><tr><th>Angebot</th><th>Preis</th><th>Hinweis</th></tr></thead><tbody><tr><td>Einzeltraining</td><td>65 EUR</td><td>45 Minuten</td></tr><tr><td>Einzeltraining</td><td>110 EUR</td><td>90 Minuten</td></tr><tr><td>5er-Karte</td><td>280 EUR</td><td>gültig für 3 Jahre</td></tr></tbody></table></figure><!-- /wp:table --><!-- wp:paragraph --><p>Trainingsort und mögliche Anfahrtskosten stimmen wir vor dem Termin individuell ab. Wenn du vorab einen persönlicheren Eindruck von meiner Arbeit bekommen möchtest, findest du einzelne Einblicke auch auf <a href="https://instagram.com/cazoobi">Instagram</a>. Für die eigentliche Anfrage ist aber die <a href="/kontakt/">Kontaktseite</a> oder das <a href="/erstgespraech/">Erstgespräch</a> der beste Weg.</p><!-- /wp:paragraph --></section><!-- /wp:group -->',
+            bsh_price_cards_section(
+                'Preislogik und nächste Schritte',
+                [
+                    [
+                        'title' => 'Einzeltraining',
+                        'price' => '65 EUR',
+                        'detail' => '45 Minuten',
+                        'description' => 'Für den kompakten Einstieg ins Training.',
+                    ],
+                    [
+                        'title' => 'Einzeltraining',
+                        'price' => '110 EUR',
+                        'detail' => '90 Minuten',
+                        'description' => 'Für mehr Zeit bei komplexeren Themen.',
+                    ],
+                    [
+                        'title' => '5er-Karte',
+                        'price' => '280 EUR',
+                        'detail' => 'gültig für 3 Jahre',
+                        'description' => 'Für Teams mit wiederkehrendem Begleitbedarf.',
+                    ],
+                ]
+            ),
+            '<!-- wp:group {"tagName":"section","className":"bsh-section","layout":{"type":"constrained"}} --><section class="wp-block-group bsh-section"><!-- wp:paragraph --><p>Trainingsort und mögliche Anfahrtskosten stimmen wir vor dem Termin individuell ab. Wenn du vorab einen persönlicheren Eindruck von meiner Arbeit bekommen möchtest, findest du einzelne Einblicke auch auf <a href="https://instagram.com/cazoobi">Instagram</a>. Für die eigentliche Anfrage ist aber die <a href="/kontakt/">Kontaktseite</a> oder das <a href="/erstgespraech/">Erstgespräch</a> der beste Weg.</p><!-- /wp:paragraph --></section><!-- /wp:group -->',
             bsh_seo_faq_section('Einzeltraining in Hamburg'),
             bsh_seo_closing_section('Einzeltraining in Hamburg'),
             '<!-- wp:pattern {"slug":"beziehungssache-hund/abschluss-cta"} /-->',
@@ -1211,7 +1216,36 @@ $pages = [
                 'Preise für Hundetraining in Hamburg',
                 'Preise für Hundetraining in Hamburg sollen dir bei Beziehungssache Hund von Anfang an Klarheit geben, ohne versteckte Bedingungen und ohne widersprüchliche Altwerte.'
             ),
-            '<!-- wp:group {"tagName":"section","className":"bsh-section","layout":{"type":"constrained"}} --><section class="wp-block-group bsh-section"><!-- wp:heading {"level":2} --><h2 class="wp-block-heading">Wie du die Preise für Hundetraining in Hamburg einordnen kannst</h2><!-- /wp:heading --><!-- wp:paragraph --><p>Preise für Hundetraining in Hamburg sollen bei Beziehungssache Hund nicht verwirren, sondern dir einen klaren Überblick geben. Darum stehen hier nur die Leistungen, die aktuell verifiziert sind. So kannst du besser einschätzen, ob für euch eher ein Einstieg über das <a href="/erstgespraech/">Erstgespräch</a>, direktes <a href="/einzeltraining/">Einzeltraining</a> oder eine wiederholte Begleitung mit der 5er-Karte sinnvoll ist.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Die Preisübersicht ist absichtlich schlank gehalten: Sie soll Orientierung geben, nicht neue Fragen erzeugen. Wenn du zum Beispiel erst einmal klären möchtest, wie ernst euer Thema wirklich ist und welcher Ansatz sinnvoll erscheint, ist das Erstgespräch die passende erste Stufe. Wenn du hingegen schon weißt, dass ihr regelmäßige Begleitung braucht, ist die 5er-Karte oft der bessere Rahmen.</p><!-- /wp:paragraph --><!-- wp:image {"sizeSlug":"full","linkDestination":"none"} --><figure class="wp-block-image size-full"><img src="/wp-content/themes/beziehungssache-hund/assets/optimized/logo-full-640.webp" alt="Preise für Hundetraining in Hamburg" /></figure><!-- /wp:image --><!-- wp:table --><figure class="wp-block-table"><table><thead><tr><th>Angebot</th><th>Preis</th><th>Dauer oder Hinweis</th></tr></thead><tbody><tr><td>Erstgespräch</td><td>85 EUR</td><td>60 Minuten</td></tr><tr><td>Einzeltraining</td><td>65 EUR</td><td>45 Minuten</td></tr><tr><td>Einzeltraining</td><td>110 EUR</td><td>90 Minuten</td></tr><tr><td>5er-Karte</td><td>280 EUR</td><td>gültig für 3 Jahre</td></tr></tbody></table></figure><!-- /wp:table --><!-- wp:paragraph --><p>Die 5er-Karte ist vor allem dann sinnvoll, wenn bereits klar ist, dass ihr wiederholte Begleitung braucht. Für DOGSpace, Workshops und Coaching mit Hund werden noch keine verifizierten öffentlichen Preise dargestellt. Wenn du Einblicke in Haltung und Arbeitsweise suchst, findest du punktuell auch etwas auf <a href="https://instagram.com/cazoobi">Instagram</a>. Für eine erste Einordnung hilft dir außerdem das <a href="/erstgespraech/">Erstgespräch</a>.</p><!-- /wp:paragraph --></section><!-- /wp:group -->',
+            bsh_price_cards_section(
+                'Wie du die Preise für Hundetraining in Hamburg einordnen kannst',
+                [
+                    [
+                        'title' => 'Erstgespräch',
+                        'price' => '85 EUR',
+                        'detail' => '60 Minuten',
+                        'description' => 'Der erste Schritt, wenn ihr Orientierung braucht.',
+                    ],
+                    [
+                        'title' => 'Einzeltraining',
+                        'price' => '65 EUR',
+                        'detail' => '45 Minuten',
+                        'description' => 'Für den praktischen Einstieg in euer Training.',
+                    ],
+                    [
+                        'title' => 'Einzeltraining',
+                        'price' => '110 EUR',
+                        'detail' => '90 Minuten',
+                        'description' => 'Für mehr Zeit bei komplexeren Themen.',
+                    ],
+                    [
+                        'title' => '5er-Karte',
+                        'price' => '280 EUR',
+                        'detail' => 'gültig für 3 Jahre',
+                        'description' => 'Für wiederholte Begleitung mit etwas mehr Planungsspielraum.',
+                    ],
+                ]
+            ),
+            '<!-- wp:group {"tagName":"section","className":"bsh-section","layout":{"type":"constrained"}} --><section class="wp-block-group bsh-section"><!-- wp:paragraph --><p>Die 5er-Karte ist vor allem dann sinnvoll, wenn bereits klar ist, dass ihr wiederholte Begleitung braucht. Für DOGSpace, Workshops und Coaching mit Hund werden noch keine verifizierten öffentlichen Preise dargestellt. Wenn du Einblicke in Haltung und Arbeitsweise suchst, findest du punktuell auch etwas auf <a href="https://instagram.com/cazoobi">Instagram</a>. Für eine erste Einordnung hilft dir außerdem das <a href="/erstgespraech/">Erstgespräch</a>.</p><!-- /wp:paragraph --></section><!-- /wp:group -->',
             bsh_image_gallery_section(
                 'Preise mit Kontext',
                 'Die Preisseite soll nicht trocken wirken. Bilder helfen hier, den Einstieg als persönliche, ruhig abgestimmte Leistung zu verstehen.',
