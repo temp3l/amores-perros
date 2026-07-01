@@ -18,6 +18,7 @@
 - Store business facts separately from theme code
 - Keep contact data, prices, hours and credentials in source-of-truth docs
 - Use one form system with SMTP delivery
+- Use `Forminator` for the first contact form and route local mail through `Mailpit`
 - Add structured data for LocalBusiness, Service, FAQ, Event and ContactPage where relevant
 
 ## Launch Requirements
@@ -27,4 +28,3 @@
 - Add Impressum and Datenschutz
 - Add redirects for all legacy URLs
 - Verify forms, mobile layout, titles, descriptions and schema before launch
-

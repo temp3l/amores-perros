@@ -25,23 +25,17 @@ total: 1:30h analyse, aufbereitung + mailing (28.06)
 
 
 
+## TODO:
+- Starte Codex anschließend mit dem Inhalt aus `docs/prompts/implement-faq-page.md`.
+- Den Codex-Prompt aus `docs/prompts/wire-faq-einzeltraining-extension.md` ausführen.
+- fix the german umlaute! erstgepraech should be erstgespräch, but keep the umlaut version whenever using hrefs,links,ids,url-paths or safe identifiers
+
+
+
 ## Domains 22:05
     * amores-perros.berlin, zum 23.06.2027
     * amores-perros.hamburg
 
-
-
-i want the plugin: "yoast seo" to be installed and to be configured with relevant settings for all pages.
-
-which plugin do you recommend for a simple contact form.
-the contact form should allow visitors to:
- - enter their name
- - enter their email address
- - select a topic from a dropdown
- - enter some text
-the form data should be safed and all details should be send via email to me.
-
-do you have any questions or recommendations regarding that?
 
 
 ## Blocs
@@ -69,4 +63,20 @@ the current website has a lot of issues, bad SEO reach and marketing issues.
 
 it should extend the existing documentation under ./docs
 
+
+
+
+# Prompts
+
+create an FAQ page.
+add the following topics:
+Erstgespraech
+Einzeltraining
+DOGSpace
+Workshops oder Seminare
+Coaching mit Hund
+
+
+
+    Leinenfuehrigkeit
 

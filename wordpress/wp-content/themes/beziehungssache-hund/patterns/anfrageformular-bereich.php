@@ -13,21 +13,14 @@
   <!-- /wp:paragraph -->
 
   <!-- wp:heading {"level":2} -->
-  <h2 class="wp-block-heading">Anfrageformular</h2>
+  <h2 class="wp-block-heading">Nachricht senden</h2>
   <!-- /wp:heading -->
 
   <!-- wp:paragraph -->
-  <p>Hier wird in der finalen Umsetzung genau ein gepflegtes Formularsystem eingebunden. In der lokalen Entwicklungsphase dient dieser Bereich als klarer Einbindungspunkt.</p>
+  <p>Bitte nenne deinen Namen, deine E-Mail-Adresse, das passende Thema und beschreibe kurz, worum es geht. Die Anfrage wird gespeichert und per E-Mail an mich weitergeleitet.</p>
   <!-- /wp:paragraph -->
   <!-- wp:paragraph -->
-  <p>Bevor ein Formular live geht, muessen SMTP, Spam-Schutz, serverseitige Validierung und die Datenschutzhinweise verbindlich umgesetzt werden.</p>
+  <p>Die Daten landen in einer gepflegten WordPress-Formularstruktur mit lokaler SMTP-Zustellung ueber Mailpit.</p>
   <!-- /wp:paragraph -->
-  <!-- wp:group {"className":"bsh-card","layout":{"type":"constrained"}} -->
-  <div class="wp-block-group bsh-card">
-    <!-- wp:paragraph -->
-    <p>Empfohlen fuer die erste Version: ein kurzes, ruhiges Formular mit Name, Kontaktweg, Thema und einer kleinen Freitextfrage.</p>
-    <!-- /wp:paragraph -->
-  </div>
-  <!-- /wp:group -->
 </section>
 <!-- /wp:group -->

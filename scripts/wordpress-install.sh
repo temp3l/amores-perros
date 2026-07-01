@@ -86,6 +86,19 @@ activate_theme_if_available() {
   fi
 }
 
+ensure_plugin_installed() {
+  local plugin_slug="$1"
+
+  if ! wp plugin is-installed "${plugin_slug}" >/dev/null 2>&1; then
+    wp plugin install "${plugin_slug}" --activate >/dev/null
+    return 0
+  fi
+
+  if ! wp plugin is-active "${plugin_slug}" >/dev/null 2>&1; then
+    wp plugin activate "${plugin_slug}" >/dev/null
+  fi
+}
+
 echo "Pruefe Docker-Services ..."
 wait_for_health database 180
 wait_for_health wordpress 180
@@ -109,6 +122,9 @@ echo "Aktiviere deutsche Spracheinstellungen ..."
 wp language core install de_DE --activate >/dev/null
 wp site switch-language de_DE >/dev/null
 wp option update WPLANG de_DE >/dev/null
+
+echo "Installiere Kontaktformular-Plugin ..."
+ensure_plugin_installed forminator
 
 echo "Setze lokale Optionen ..."
 wp option update timezone_string Europe/Berlin >/dev/null

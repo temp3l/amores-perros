@@ -23,11 +23,14 @@
 
 | Seite | Draft Description |
 | --- | --- |
-| Startseite | Individuelles Hundetraining in Hamburg mit ruhiger, persoenlicher Begleitung, klaren naechsten Schritten und Fokus auf die Mensch-Hund-Beziehung. |
-| Erstgespraech | Im Erstgespraech klaeren wir eure Situation, euer Ziel und die sinnvollen naechsten Schritte fuer euch und euren Hund. |
-| Einzeltraining | Massgeschneidertes Einzeltraining fuer Alltag, Leinenfuehrigkeit, Alleinbleiben und mehr. |
-| DOGSpace | Geschuetzter Raum fuer begleitete Begegnungen, Workshops und Gemeinschaft mit klaren Regeln. |
-| Workshops | Workshops und Seminare rund um Hundetraining, Beziehung und Alltag in Hamburg. |
-| Ueber mich | Erfahre mehr ueber Jacky Rebien, ihre Haltung, Qualifikationen und ihren Weg im Hundetraining. |
-| Preise | Uebersicht zu Preisen, Paketen und naechsten Schritten im Hundetraining. |
-| Kontakt | Nimm Kontakt auf, wenn du ein Erstgespraech oder ein passendes Angebot fuer euch anfragen moechtest. |
+| Startseite | Hundetraining in Hamburg fuer Mensch-Hund-Teams, die Ruhe, Klarheit und alltagstaugliche naechste Schritte suchen. |
+| Erstgespraech | Im Erstgespraech klaeren wir eure Situation, Ziele und den naechsten sinnvollen Schritt fuer euch. |
+| Einzeltraining | Einzeltraining in Hamburg fuer Leinenfuehrigkeit, Alleinbleiben und andere konkrete Alltagsthemen. |
+| DOGSpace | DOGSpace Hamburg: begleiteter Raum fuer Begegnung, Austausch und passende Formate. |
+| Workshops | Workshops in Hamburg fuer Hund und Mensch, bedarfsorientiert und mit klarem Rahmen. |
+| Ueber mich | Jacky Rebien in Hamburg: Haltung, Qualifikationen und Arbeitsweise auf einen Blick. |
+| Preise | Preise fuer Hundetraining in Hamburg: Erstgespraech, Einzeltraining und 5er-Karte. |
+| Kontakt | Kontakt zu Beziehungssache Hund per E-Mail, Telefon oder Formular fuer Anfragen. |
+| Ratgeber | Ratgeber fuer Hundetraining in Hamburg mit Einordnungen, Fachartikeln und Alltagshilfe. |
+| Impressum | Impressum von Beziehungssache Hund mit den rechtlich erforderlichen Angaben. |
+| Datenschutz | Datenschutzhinweise von Beziehungssache Hund zu Website, Kommunikation und Formularen. |

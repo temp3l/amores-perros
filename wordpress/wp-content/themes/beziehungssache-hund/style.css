@@ -22,6 +22,12 @@ Text Domain: beziehungssache-hund
   --bsh-border: 1px solid rgba(15, 15, 15, 0.12);
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -661,8 +667,9 @@ body.bsh-header-condensed .site-header .wp-block-navigation {
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
-    padding: 0.7rem 0.85rem;
-    gap: 0.5rem;
+    width: min(1200px, calc(100% - 1rem));
+    padding: 0.65rem 0.7rem;
+    gap: 0.35rem;
   }
 
   .site-header__brand {
@@ -670,10 +677,11 @@ body.bsh-header-condensed .site-header .wp-block-navigation {
   }
 
   .site-header .wp-block-navigation {
-    width: auto;
     margin-left: auto;
-    padding: 0.45rem 0.55rem;
-    border-radius: 0.8rem;
+    padding: 0;
+    border-radius: 999px;
+    background: transparent;
+    border: 0;
   }
 
   .site-header .wp-block-navigation__responsive-container-open,
@@ -681,18 +689,27 @@ body.bsh-header-condensed .site-header .wp-block-navigation {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 2.75rem;
-    min-height: 2.75rem;
-    padding: 0.35rem 0.5rem;
+    min-width: 4.5rem;
+    min-height: 2.5rem;
+    padding: 0.28rem 0.45rem;
     border-radius: 999px;
     border: 1px solid rgba(250, 248, 243, 0.16);
     background: rgba(255, 255, 255, 0.04);
+    white-space: nowrap;
+  }
+
+  .site-header .wp-block-navigation__responsive-container-open::after {
+    content: "Menü";
+    margin-left: 0.32rem;
+    font-size: 0.88rem;
+    line-height: 1;
+    letter-spacing: 0.01em;
   }
 
   .site-header .wp-block-navigation__responsive-container-open svg,
   .site-header .wp-block-navigation__responsive-container-close svg {
-    width: 1.15rem;
-    height: 1.15rem;
+    width: 1rem;
+    height: 1rem;
   }
 
   .site-header .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content {
