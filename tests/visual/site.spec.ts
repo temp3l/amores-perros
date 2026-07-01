@@ -30,6 +30,30 @@ const stabilityStyles = `
   }
 `;
 
+const faqTopicIds = [
+  'ablauf-einzeltraining',
+  'hundebegegnungen',
+  'angespannte-spaziergaenge',
+  'leinenfuehrigkeit',
+  'stress-belebte-umgebung',
+  'rueckruf-unter-ablenkung',
+  'unsicherheit-hundehalter',
+  'trainingsansaetze-ohne-erfolg',
+  'alltagstauglicher-trainingsplan',
+  'aggressives-verhalten'
+];
+
+const einzeltrainingAnchors = [
+  ['/faq/#hundebegegnungen', 'Hundebegegnungen'],
+  ['/faq/#angespannte-spaziergaenge', 'Spaziergaenge kaum noch moeglich'],
+  ['/faq/#leinenfuehrigkeit', 'stark zieht'],
+  ['/faq/#stress-belebte-umgebung', 'belebter Umgebung schnell gestresst'],
+  ['/faq/#rueckruf-unter-ablenkung', 'Rueckruf unter Ablenkung'],
+  ['/faq/#unsicherheit-hundehalter', 'unsicher geworden'],
+  ['/faq/#trainingsansaetze-ohne-erfolg', 'verschiedene Trainingsansaetze ohne Erfolg'],
+  ['/faq/#alltagstauglicher-trainingsplan', 'alltagstauglichen Trainingsplan fuer deinen Hund']
+];
+
 async function waitForStablePage(page: Parameters<typeof test>[0]['page']) {
   await page.waitForLoadState('domcontentloaded');
   await page.waitForLoadState('networkidle');
@@ -82,4 +106,141 @@ test.describe('Visual regressions', () => {
       });
     });
   }
+});
+
+test('Einzeltraining page links to the FAQ topics', async ({ page }) => {
+  const response = await page.goto('/einzeltraining/', { waitUntil: 'domcontentloaded' });
+
+  expect(response, '/einzeltraining/ did not return a valid response.').not.toBeNull();
+  expect(response?.ok(), `/einzeltraining/ returned HTTP ${response?.status()}.`).toBeTruthy();
+
+  await waitForStablePage(page);
+
+  await expect(page.getByRole('heading', { name: 'Einzeltraining mit Hund in Hamburg – nah an eurem Alltag' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Einzeltraining in Hamburg genauer betrachtet' })).toHaveCount(0);
+
+  for (const [href, textFragment] of einzeltrainingAnchors) {
+    const link = page.locator(`a[href="${href}"]`);
+    await expect(link).toHaveCount(1);
+    await expect(link).toContainText(textFragment);
+  }
+});
+
+test.describe('FAQ page', () => {
+  test('all expected FAQ topic ids are unique', async ({ page }) => {
+    const response = await page.goto('/faq/', { waitUntil: 'domcontentloaded' });
+
+    expect(response, 'FAQ page did not return a valid response.').not.toBeNull();
+    expect(response?.ok(), `FAQ page returned HTTP ${response?.status()}.`).toBeTruthy();
+
+    await waitForStablePage(page);
+
+    for (const id of faqTopicIds) {
+      await expect(page.locator(`#${id}`)).toHaveCount(1);
+    }
+
+    const questionTexts = await page.locator('.faq-item .faq-question').allTextContents();
+    expect(new Set(questionTexts).size).toBe(questionTexts.length);
+  });
+
+  test('deep links open the requested section and focus the heading', async ({ page }) => {
+    for (const [hash, id] of [
+      ['/faq/#ablauf-einzeltraining', 'ablauf-einzeltraining'],
+      ['/faq/#hundebegegnungen', 'hundebegegnungen'],
+      ['/faq/#leinenfuehrigkeit', 'leinenfuehrigkeit'],
+      ['/faq/#rueckruf-unter-ablenkung', 'rueckruf-unter-ablenkung']
+    ] as const) {
+      const response = await page.goto(hash, { waitUntil: 'domcontentloaded' });
+
+      expect(response, 'FAQ page did not return a valid response.').not.toBeNull();
+      expect(response?.ok(), `FAQ page returned HTTP ${response?.status()}.`).toBeTruthy();
+
+      await waitForStablePage(page);
+
+      await expect(page.locator(`#${id}`)).toHaveCount(1);
+      await expect(page.locator(`#${id} details`).first()).toHaveAttribute('open', '');
+      await expect(page.locator(`#faq-topic-${id}`)).toBeFocused();
+
+      const anchorPositionIsSafe = await page.locator(`#${id}`).evaluate((element) => {
+        const rect = element.getBoundingClientRect();
+        const header = document.querySelector('.site-header');
+        const headerRect = header ? header.getBoundingClientRect() : { bottom: 0 };
+
+        return rect.top >= headerRect.bottom - 8;
+      });
+
+      expect(anchorPositionIsSafe).toBeTruthy();
+    }
+  });
+
+  test('hash navigation updates the URL and keeps multiple FAQ items open', async ({ page }) => {
+    const response = await page.goto('/faq/', { waitUntil: 'domcontentloaded' });
+
+    expect(response, 'FAQ page did not return a valid response.').not.toBeNull();
+    expect(response?.ok(), `FAQ page returned HTTP ${response?.status()}.`).toBeTruthy();
+
+    await waitForStablePage(page);
+
+    await page.locator('.faq-topics-nav__link[href="#alleinbleiben"]').click();
+    await expect(page).toHaveURL(/#alleinbleiben$/);
+    await expect(page.locator('#alleinbleiben details').first()).toHaveAttribute('open', '');
+
+    await page.locator('#grenzen-setzen details summary').first().click();
+    await expect(page.locator('#grenzen-setzen details').first()).toHaveAttribute('open', '');
+    await expect(page.locator('#alleinbleiben details').first()).toHaveAttribute('open', '');
+  });
+
+  test('browser history works with hash navigation', async ({ page }) => {
+    const response = await page.goto('/faq/', { waitUntil: 'domcontentloaded' });
+
+    expect(response, 'FAQ page did not return a valid response.').not.toBeNull();
+    expect(response?.ok(), `FAQ page returned HTTP ${response?.status()}.`).toBeTruthy();
+
+    await waitForStablePage(page);
+
+    await page.locator('.faq-topics-nav__link[href="#rueckruf-unter-ablenkung"]').click();
+    await expect(page).toHaveURL(/#rueckruf-unter-ablenkung$/);
+
+    await page.goBack();
+    await expect(page).toHaveURL(/\/faq\/$/);
+
+    await page.goForward();
+    await expect(page).toHaveURL(/#rueckruf-unter-ablenkung$/);
+    await expect(page.locator('#rueckruf-unter-ablenkung details').first()).toHaveAttribute('open', '');
+  });
+
+  test('reduced motion keeps animations disabled', async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+
+    const response = await page.goto('/faq/#grenzen-setzen', { waitUntil: 'domcontentloaded' });
+
+    expect(response, 'FAQ page did not return a valid response.').not.toBeNull();
+    expect(response?.ok(), `FAQ page returned HTTP ${response?.status()}.`).toBeTruthy();
+
+    await waitForStablePage(page);
+
+    const transitionDuration = await page.locator('#grenzen-setzen .faq-answer').evaluate((element) => {
+      return getComputedStyle(element).transitionDuration;
+    });
+
+    expect(transitionDuration).toBe('0s');
+  });
+
+  test('FAQ remains accessible without JavaScript', async ({ browser }, testInfo) => {
+    const context = await browser.newContext({
+      baseURL: testInfo.project.use.baseURL,
+      javaScriptEnabled: false
+    });
+    const page = await context.newPage();
+
+    const response = await page.goto('/faq/#aggressives-verhalten', { waitUntil: 'load' });
+
+    expect(response, 'FAQ page did not return a valid response.').not.toBeNull();
+    expect(response?.ok(), `FAQ page returned HTTP ${response?.status()}.`).toBeTruthy();
+
+    await expect(page.locator('h1')).toHaveText('Häufige Fragen');
+    await expect(page.locator('#aggressives-verhalten')).toBeVisible();
+
+    await context.close();
+  });
 });

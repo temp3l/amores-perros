@@ -49,6 +49,7 @@ Individuelles Einzeltraining fuer Mensch und Hund, mit Fokus auf alltagstauglich
 - Zieldefinition
 - Uebung im Alltag
 - Anpassung an Fortschritte und Rueckschritte
+- Der Ablauf wird bei Bedarf auch in den FAQ verlinkt
 
 ### Preislogik
 
@@ -71,4 +72,3 @@ Individuelles Einzeltraining fuer Mensch und Hund, mit Fokus auf alltagstauglich
 - nicht wie ein Kurskatalog wirken
 - keine Event- oder DOGSpace-Themen vermischen
 - keine Preisunsicherheit offenlassen
-

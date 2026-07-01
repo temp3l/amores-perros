@@ -15,6 +15,20 @@ Jeder Hund und jedes Mensch-Hund-Team bringt eigene Erfahrungen, Bedürfnisse un
 
 In einem persönlichen Erstgespräch schauen wir uns eure Situation genau an und entwickeln einen Trainingsweg, der zu eurem Alltag, eurem Hund und euren Zielen passt.
 
+## Öffentliche Deep Links
+
+| Thema | Section-ID | Öffentliche URL |
+|---|---|---|
+| Ablauf des Einzeltrainings | `ablauf-einzeltraining` | `/faq/#ablauf-einzeltraining` |
+| Hundebegegnungen | `hundebegegnungen` | `/faq/#hundebegegnungen` |
+| Angespannte Spaziergänge | `angespannte-spaziergaenge` | `/faq/#angespannte-spaziergaenge` |
+| Leinenführigkeit | `leinenfuehrigkeit` | `/faq/#leinenfuehrigkeit` |
+| Stress in belebter Umgebung | `stress-belebte-umgebung` | `/faq/#stress-belebte-umgebung` |
+| Rückruf unter Ablenkung | `rueckruf-unter-ablenkung` | `/faq/#rueckruf-unter-ablenkung` |
+| Unsicherheit als Hundehalter | `unsicherheit-hundehalter` | `/faq/#unsicherheit-hundehalter` |
+| Verschiedene Trainingsansätze ohne Erfolg | `trainingsansaetze-ohne-erfolg` | `/faq/#trainingsansaetze-ohne-erfolg` |
+| Alltagstauglicher Trainingsplan | `alltagstauglicher-trainingsplan` | `/faq/#alltagstauglicher-trainingsplan` |
+
 ---
 
 ## Leinenführigkeit
@@ -31,11 +45,17 @@ Leinenführigkeit bedeutet nicht, dass dein Hund während des gesamten Spazierga
 
 Das Ziel ist ein entspannter Spaziergang, bei dem sowohl dein Hund als auch du genügend Raum haben, ohne dass dauerhaft Zug auf der Leine entsteht.
 
-### Warum zieht mein Hund an der Leine?
+### Warum zieht mein Hund draußen stärker als in ruhiger Umgebung?
 
-Das Ziehen kann viele unterschiedliche Ursachen haben. Manche Hunde möchten möglichst schnell zu einem interessanten Geruch, einem anderen Hund oder einem bestimmten Ort gelangen. Andere sind aufgeregt, unsicher, überfordert oder haben schlicht noch nicht gelernt, welches Verhalten an der Leine erwünscht ist.
+Auf einer ruhigen Fläche kann dein Hund sich leichter orientieren. Im Kiez wirken Gerüche, Menschen, Verkehr, andere Hunde und enge Wege gleichzeitig auf ihn ein. Dadurch steigt häufig die Erregung und bereits gelerntes Verhalten ist schwerer abrufbar.
 
-Auch das individuelle Lauftempo spielt eine Rolle: Hunde bewegen sich häufig schneller als Menschen. Deshalb betrachten wir nicht nur das Ziehen selbst, sondern auch die Situation, die Umgebung und die Motivation deines Hundes.
+Das Ziehen an der Leine kann dann viele Ursachen haben. Manche Hunde wollen schnell zu einem Reiz, andere sind aufgeregt, unsicher, überfordert oder haben noch nicht verstanden, welches Verhalten an der Leine erwünscht ist.
+
+### Bedeutet Leinenführigkeit, dass mein Hund ständig neben mir laufen muss?
+
+Nein. Ein entspannter Spaziergang braucht Bewegungsfreiheit. Dein Hund darf schnüffeln, die Umgebung wahrnehmen und sich in einem vereinbarten Rahmen bewegen.
+
+Das Ziel ist eine lockere Leine und eine verlässliche Orientierung - nicht dauerhaftes Fußlaufen.
 
 ### Wie wird Leinenführigkeit trainiert?
 
@@ -168,33 +188,17 @@ Technische Section-ID:
 angespannte-spaziergaenge
 ```
 
-### Warum sind Spaziergänge mit meinem Hund so anstrengend?
+### Warum fühlen sich Spaziergänge mit meinem Hund so anstrengend an?
 
-Angespannte Spaziergänge können durch viele Faktoren entstehen. Dazu gehören unter anderem:
+Oft ist nicht nur ein einzelnes Verhalten das Problem. Ziehen an der Leine, ständige Wachsamkeit, viele Umweltreize und die Sorge vor der nächsten Begegnung können sich gegenseitig verstärken.
 
-- starkes Ziehen an der Leine,
-- Unsicherheit oder Angst,
-- häufige Hundebegegnungen,
-- Jagdverhalten,
-- territoriales Verhalten,
-- hohe Erregung,
-- schlechte Erfahrungen,
-- Schmerzen oder körperliches Unwohlsein,
-- eine für den Hund zu reizintensive Umgebung.
+Gerade in Hamburg treffen auf einer kurzen Runde häufig Fahrräder, Kinder, Lieferverkehr, enge Wege und andere Hunde zusammen. Deshalb schauen wir im Training auf Route, Tageszeit, Erregungsniveau, Pausen, Abstände und deine Handlungsmöglichkeiten.
 
-Im Training betrachten wir deshalb den gesamten Spaziergang und nicht nur einzelne unerwünschte Verhaltensweisen.
+### Helfen kürzere oder ruhigere Runden?
 
-### Was kann ich tun, wenn mein Hund bei Begegnungen ausrastet?
+Ja. Eine kürzere Runde zu einer ruhigeren Zeit kann vorübergehend deutlich sinnvoller sein als ein langer Spaziergang mit zu vielen schwierigen Situationen.
 
-Zunächst sollte genügend Abstand zum Auslöser geschaffen werden. Abstand ist kein Scheitern, sondern häufig eine wichtige Voraussetzung dafür, dass der Hund wieder ansprechbar und lernfähig wird.
-
-Anschließend können Orientierung, ruhiges Beobachten, alternative Bewegungsmuster und kontrollierte Begegnungen trainiert werden. Die Distanz wird nur dann reduziert, wenn der Hund die Situation bewältigen kann.
-
-### Soll mein Hund jeden anderen Hund begrüßen dürfen?
-
-Nein. Nicht jeder Hund möchte Kontakt, und nicht jede Begegnung ist für beide Seiten angenehm oder sicher.
-
-Ein Hund sollte lernen dürfen, andere Hunde wahrzunehmen, ohne automatisch zu ihnen laufen zu müssen. Kontrollierte Kontakte können sinnvoll sein, sollten aber zur Situation und zu den beteiligten Hunden passen.
+Das bedeutet nicht, problematischen Situationen für immer auszuweichen. Zunächst wird der Alltag so gestaltet, dass dein Hund wieder lernen und sich erholen kann. Anschließend können Anforderungen kontrolliert aufgebaut werden.
 
 ### Hilft mehr Auslastung gegen Aufregung beim Spaziergang?
 
@@ -213,6 +217,168 @@ Im Training entwickeln wir konkrete Strategien für typische Auslöser und bauen
 Ja. Schmerzen oder andere körperliche Beschwerden können dazu führen, dass Hunde schneller gereizt, unsicher oder abwehrend reagieren.
 
 Wenn sich das Verhalten plötzlich verändert, ungewöhnlich stark wird oder ohne erkennbaren Grund auftritt, sollte der Hund tierärztlich untersucht werden.
+
+### Wie erkenne ich erste Fortschritte?
+
+Fortschritt bedeutet nicht nur, dass dein Hund sofort ruhig an jedem Auslöser vorbeigeht. Frühe Veränderungen können sein: dein Hund bleibt länger ansprechbar, er beruhigt sich schneller, du erkennst Anspannung früher, ihr könnt mehr Abstand halten oder schwierige Situationen treten seltener auf.
+
+Im Training entwickeln wir darauf aufbauend die nächsten Schritte so, dass der Alltag wieder planbarer und sicherer wird.
+
+## Hundebegegnungen
+
+Technische Section-ID:
+
+```text
+hundebegegnungen
+```
+
+### Warum reagiert mein Hund bei Begegnungen so stark?
+
+Bellen, Fixieren, in die Leine springen oder hektisches Ausweichen können unterschiedliche Ursachen haben. Manche Hunde sind unsicher, andere frustriert oder bereits so aufgeregt, dass sie kaum noch ansprechbar sind.
+
+Auch schlechte Erfahrungen, Schmerzen oder ein zu geringer Abstand können eine Rolle spielen. Im Einzeltraining schauen wir deshalb nicht nur auf das sichtbare Verhalten, sondern auf Auslöser, Anspannung und Trainingsbedingungen.
+
+### Was mache ich auf einem engen Gehweg im Hamburger Kiez?
+
+Auf schmalen Gehwegen lässt sich eine Begegnung nicht immer in Ruhe vorbereiten. Dann ist gutes Management wichtiger als eine perfekte Trainingsübung.
+
+Je nach Situation kann es sinnvoll sein, frühzeitig die Straßenseite zu wechseln, in eine Einfahrt oder einen Hauseingang auszuweichen, einen Bogen zu laufen, Sichtschutz zu nutzen oder umzudrehen, bevor dein Hund überfordert ist.
+
+### Muss mein Hund lernen, direkt an anderen Hunden vorbeizugehen?
+
+Nicht sofort. Das erste Ziel kann sein, einen anderen Hund aus größerer Entfernung wahrzunehmen und trotzdem ansprechbar zu bleiben. Erst wenn das zuverlässig gelingt, wird der Abstand schrittweise verringert.
+
+Ein realistischer Trainingsweg orientiert sich am aktuellen Stand deines Hundes und nicht daran, wie eine Begegnung idealerweise aussehen sollte.
+
+## Stress in belebter Umgebung
+
+Technische Section-ID:
+
+```text
+stress-belebte-umgebung
+```
+
+### Woran erkenne ich, dass mein Hund draußen überfordert ist?
+
+Überforderung zeigt sich nicht bei jedem Hund gleich. Mögliche Signale sind starkes Hecheln ohne körperliche Anstrengung, hektisches Scannen der Umgebung, dauerhaftes Ziehen, häufiges Schütteln oder Kratzen, Futterverweigerung, Erstarren, plötzliches Bellen oder Anspringen sowie kaum mögliche Kontaktaufnahme.
+
+Ein einzelnes Signal ist nicht immer eindeutig. Wichtig sind Häufigkeit, Situation und die gesamte Körpersprache.
+
+### Kann ein Hund lernen, mit Stadtlärm und vielen Reizen besser umzugehen?
+
+Häufig ja, allerdings nicht durch möglichst viel Konfrontation. Lernen gelingt besser, wenn die Reize dosiert werden und dein Hund zwischendurch ausreichend Ruhe bekommt.
+
+Wir wählen einen Abstand und eine Umgebung, in der dein Hund die Situation wahrnehmen kann, ohne dauerhaft überfordert zu sein. Von dort aus wird die Schwierigkeit langsam gesteigert.
+
+### Muss das Training mitten in der Innenstadt stattfinden?
+
+Nicht zu Beginn. Ein Training startet dort, wo dein Hund noch ansprechbar ist. Das kann eine ruhigere Seitenstraße, ein größerer Abstand oder eine weniger belebte Uhrzeit sein.
+
+Das Ziel ist nicht, deinen Hund sofort der schwierigsten Umgebung auszusetzen, sondern ihn schrittweise darauf vorzubereiten.
+
+## Rückruf unter Ablenkung
+
+Technische Section-ID:
+
+```text
+rueckruf-unter-ablenkung
+```
+
+### Warum funktioniert der Rückruf zu Hause, aber draußen nicht?
+
+Zu Hause konkurriert dein Signal mit wenigen Ablenkungen. Draußen können Gerüche, Wildspuren, andere Hunde oder Bewegungsreize deutlich interessanter sein.
+
+Ein Rückruf muss deshalb in verschiedenen Schwierigkeitsstufen aufgebaut werden. Erst wenn er unter leichter Ablenkung zuverlässig funktioniert, wird die Situation anspruchsvoller.
+
+### Wie trainiere ich den Rückruf sicher?
+
+Für den Aufbau kann eine Schleppleine sinnvoll sein. Sie verhindert, dass dein Hund sich durch Weglaufen selbst belohnt, und ermöglicht kontrollierte Wiederholungen.
+
+Dabei muss die Schleppleine passend verwendet und an einem gut sitzenden Geschirr befestigt werden. Im Einzeltraining klären wir, welche Sicherung zu deinem Hund und eurem Umfeld passt.
+
+### Wann kann mein Hund wieder frei laufen?
+
+Freilauf sollte erst dann erfolgen, wenn der Rückruf unter den zu erwartenden Ablenkungen ausreichend zuverlässig ist und die Umgebung es erlaubt.
+
+Auch mit gutem Training bleibt verantwortungsvolles Management wichtig. In unübersichtlichen Gebieten, bei starkem Jagdverhalten oder in der Nähe von Straßen kann eine Schleppleine weiterhin die bessere Lösung sein.
+
+## Unsicherheit als Hundehalter
+
+Technische Section-ID:
+
+```text
+unsicherheit-hundehalter
+```
+
+### Was kann ich tun, wenn ich meinem eigenen Verhalten nicht mehr vertraue?
+
+Unsicherheit entsteht häufig, wenn Situationen wiederholt schwierig waren oder viele widersprüchliche Ratschläge zusammenkommen. Dann wird selbst eine kleine Entscheidung auf dem Spaziergang anstrengend.
+
+Im Einzeltraining sortieren wir zunächst, was tatsächlich relevant ist. Du bekommst wenige, klare Handlungsschritte und Kriterien, an denen du dich orientieren kannst.
+
+### Muss ich immer ruhig und souverän sein?
+
+Nein. Niemand reagiert in jeder Situation perfekt. Entscheidend ist nicht, Unsicherheit zu verstecken, sondern einen Plan zu haben, der auch unter Stress umsetzbar bleibt.
+
+Dazu gehören einfache Signale, rechtzeitiges Ausweichen und realistische Erwartungen an dich und deinen Hund.
+
+### Werde ich im Training bewertet?
+
+Nein. Schwierigkeiten mit einem Hund sind kein persönliches Versagen. Wir schauen sachlich darauf, was bisher passiert ist, was bereits funktioniert und wo eine Veränderung hilfreich wäre.
+
+Gute Begleitung soll dir Sicherheit geben, nicht zusätzlichen Druck erzeugen.
+
+## Verschiedene Trainingsansätze ohne Erfolg
+
+Technische Section-ID:
+
+```text
+trainingsansaetze-ohne-erfolg
+```
+
+### Warum haben bisherige Tipps bei uns nicht funktioniert?
+
+Ein Tipp kann grundsätzlich sinnvoll sein und trotzdem nicht zu eurer Situation passen. Häufig fehlen wichtige Informationen über Auslöser, Abstand, Erregungsniveau, Timing oder die Funktion des Verhaltens.
+
+Manchmal waren die Trainingsschritte zu groß, die Umgebung zu schwierig oder die Übung im Alltag nicht konsequent umsetzbar. Deshalb prüfen wir nicht nur, was du versucht hast, sondern auch wie und unter welchen Bedingungen.
+
+### Muss ich im Einzeltraining wieder ganz von vorne anfangen?
+
+Nicht unbedingt. Wir übernehmen, was bereits funktioniert, und verändern nur die Teile, die euch nicht weiterbringen.
+
+Vorhandene Signale, Routinen und Erfahrungen sind wichtige Informationen. Ziel ist kein kompletter Neustart, sondern ein verständlicher und konsistenter Trainingsweg.
+
+### Was sollte ich zum ersten Termin mitbringen?
+
+Hilfreich sind kurze Notizen zu bisherigen Trainingsansätzen: Welche Methode oder Übung wurde ausprobiert, wie lange wurde sie angewendet, in welchen Situationen funktionierte sie und wann funktionierte sie nicht?
+
+Auch hilfreich ist, wie dein Hund reagierte und was für dich schwer umsetzbar war. So lässt sich schneller erkennen, wo der bisherige Ansatz angepasst werden sollte.
+
+## Alltagstauglicher Trainingsplan
+
+Technische Section-ID:
+
+```text
+alltagstauglicher-trainingsplan
+```
+
+### Wie sieht ein alltagstauglicher Trainingsplan aus?
+
+Ein guter Trainingsplan enthält keine lange Sammlung allgemeiner Übungen. Er beschreibt wenige konkrete Schritte: welches Verhalten trainiert wird, in welcher Umgebung geübt wird, wie häufig und wie lange, woran du einen passenden Schwierigkeitsgrad erkennst und wann der nächste Schritt möglich ist.
+
+Der Plan muss zu deinem Tagesablauf, deinem Wohnumfeld und den Möglichkeiten deines Hundes passen.
+
+### Muss ich jeden Tag lange trainieren?
+
+Nein. Kurze, gut vorbereitete Einheiten sind häufig wirksamer als seltene, lange Trainingseinheiten. Viele Übungen lassen sich direkt in Spaziergänge oder tägliche Abläufe integrieren.
+
+Regelmäßigkeit ist wichtig, aber Erholung gehört ebenfalls zum Trainingsplan.
+
+### Was passiert, wenn der Plan im Alltag nicht funktioniert?
+
+Dann wird er angepasst. Ein Trainingsplan ist kein starres Programm. Wenn eine Übung zu kompliziert ist, dein Hund regelmäßig überfordert wird oder die Umsetzung im Alltag nicht realistisch ist, verändern wir Bedingungen oder Zwischenschritte.
+
+Der Plan soll euch unterstützen und nicht zu einer zusätzlichen Belastung werden.
 
 ---
 

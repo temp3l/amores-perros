@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+require_once __DIR__ . '/inc/faq.php';
+
 add_action(
     'after_setup_theme',
     static function (): void {
@@ -38,6 +40,28 @@ add_action(
             get_template_directory_uri() . '/assets/js/header.js',
             [],
             wp_get_theme()->get('Version'),
+            true
+        );
+
+        if (! is_page('faq')) {
+            return;
+        }
+
+        $faq_css = get_theme_file_path('assets/css/faq.css');
+        $faq_js = get_theme_file_path('assets/js/faq.js');
+
+        wp_enqueue_style(
+            'beziehungssache-hund-faq',
+            get_theme_file_uri('assets/css/faq.css'),
+            [],
+            file_exists($faq_css) ? (string) filemtime($faq_css) : wp_get_theme()->get('Version')
+        );
+
+        wp_enqueue_script(
+            'beziehungssache-hund-faq',
+            get_theme_file_uri('assets/js/faq.js'),
+            [],
+            file_exists($faq_js) ? (string) filemtime($faq_js) : wp_get_theme()->get('Version'),
             true
         );
     }

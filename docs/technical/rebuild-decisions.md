@@ -10,6 +10,7 @@
 ## Content Model
 
 - Standard pages for core services
+- FAQ als Standardseite mit stabilen Deep Links und einem zentralen Inhaltsblock
 - Event content only if workshops and seminars are actually maintained
 - No services CPT at launch unless repeated structured content becomes necessary
 

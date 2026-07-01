@@ -8,6 +8,7 @@
 - DOGSpace
 - Workshops und Seminare
 - Coaching mit Hund
+- FAQ
 - Ueber mich
 - Preise
 - Kontakt
@@ -25,8 +26,9 @@
 7. DOGSpace
 8. Workshops und Seminare
 9. Coaching mit Hund
-10. Impressum
-11. Datenschutz
+10. FAQ
+11. Impressum
+12. Datenschutz
 
 ## Inhaltliche Zuordnung
 
@@ -36,6 +38,7 @@
 - DOGSpace: gemeinsamer Rahmen fuer Begegnung und Training
 - Workshops und Seminare: Bedarfsthemen und Termine
 - Coaching mit Hund: eigenstaendige Zusatzlinie
+- FAQ: zentrale Fragen und Deep Links
 - Ueber mich: Vertrauen und Kompetenz
 - Preise: Transparenz
 - Kontakt: Anfrage und Erreichbarkeit

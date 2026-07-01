@@ -18,6 +18,7 @@
 | Ueber mich | Jacky Rebien | Hundetrainerin in Hamburg |
 | Preise | Preise fuer Hundetraining in Hamburg | Beziehungssache Hund |
 | Kontakt | Kontakt fuer Hundetraining in Hamburg | Beziehungssache Hund |
+| FAQ | Haeufige Fragen zum Hundetraining in Hamburg | Beziehungssache Hund |
 
 ## Draft Descriptions
 
@@ -31,6 +32,7 @@
 | Ueber mich | Jacky Rebien in Hamburg: Haltung, Qualifikationen und Arbeitsweise auf einen Blick. |
 | Preise | Preise fuer Hundetraining in Hamburg: Erstgespraech, Einzeltraining und 5er-Karte. |
 | Kontakt | Kontakt zu Beziehungssache Hund per E-Mail, Telefon oder Formular fuer Anfragen. |
+| FAQ | Antworten zu Leinenfuehrigkeit, Alleinbleiben, Grenzen setzen, angespannten Spaziergaengen, aggressivem Verhalten und dem Ablauf des Einzeltrainings. |
 | Ratgeber | Ratgeber fuer Hundetraining in Hamburg mit Einordnungen, Fachartikeln und Alltagshilfe. |
 | Impressum | Impressum von Beziehungssache Hund mit den rechtlich erforderlichen Angaben. |
 | Datenschutz | Datenschutzhinweise von Beziehungssache Hund zu Website, Kommunikation und Formularen. |

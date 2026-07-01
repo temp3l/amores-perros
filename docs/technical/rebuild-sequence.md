@@ -20,7 +20,7 @@ Die Website wird in einer festen Reihenfolge aufgebaut, damit zuerst die geschä
 1. DOGSpace
 2. Workshops und Seminare
 3. Coaching mit Hund
-4. FAQ-Bausteine
+4. FAQ
 5. Trust- und Credential-Module
 
 ## Phase 3: Optional / später
@@ -36,4 +36,3 @@ Die Website wird in einer festen Reihenfolge aufgebaut, damit zuerst die geschä
 - Preise, Zeiten und Kontaktinfos kommen ausschliesslich aus der Business-Faktenbasis.
 - Sekundaere Angebote bleiben getrennt von den Kernangeboten.
 - Alte Export-Artefakte werden per Redirect abgefangen, nicht weiterverwendet.
-

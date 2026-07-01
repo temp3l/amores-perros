@@ -94,6 +94,11 @@ if (! function_exists('bsh_sync_yoast_seo')) {
                 'description' => 'Kontakt zu Beziehungssache Hund per E-Mail, Telefon oder Formular fuer Anfragen.',
                 'focus_keyphrase' => 'Kontakt fuer Hundetraining in Hamburg',
             ],
+            'faq' => [
+                'title' => 'Häufige Fragen zum Hundetraining in Hamburg | Beziehungssache Hund',
+                'description' => 'Antworten zu Leinenfuehrigkeit, Alleinbleiben, Grenzen setzen, angespannten Spaziergängen, aggressivem Verhalten und dem Ablauf des Einzeltrainings.',
+                'focus_keyphrase' => 'Häufige Fragen Hundetraining Hamburg',
+            ],
             'ratgeber' => [
                 'title' => 'Ratgeber Hundetraining Hamburg | Beziehungssache Hund',
                 'description' => 'Ratgeber fuer Hundetraining in Hamburg mit Einordnungen, Fachartikeln und Alltagshilfe.',
