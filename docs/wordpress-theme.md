@@ -72,6 +72,8 @@ Die Hauptnavigation im Header wird ueber Max Mega Menu an einer registrierten Th
 
 Die Umsetzung bleibt dennoch ein eigenes WordPress-Theme und keine 1:1-Kopie des alten Blocs-Layouts.
 
+Interne Seitenwechsel duerfen mit einer dezenten Fade-und-Shift-Transition umgesetzt werden, sofern `prefers-reduced-motion` respektiert wird und keine SPA-Abhaengigkeit entsteht.
+
 ---
 
 ## 3. Zielgruppen

@@ -13,11 +13,22 @@ if (! function_exists('bsh_hero_image_style')) {
             return '';
         }
 
-        $hero_image_uri = get_theme_file_uri('assets/hero-images/' . ltrim($asset_filename, '/'));
+        $asset_filename = ltrim($asset_filename, '/');
+        $hero_image_uri = get_theme_file_uri('assets/hero-images/' . $asset_filename);
+        $asset_base = preg_replace('/\.[^.]+$/', '', $asset_filename);
+        $hero_avif_uri = get_theme_file_uri('assets/hero-images/' . $asset_base . '.avif');
+        $hero_webp_uri = get_theme_file_uri('assets/hero-images/' . $asset_base . '.webp');
+        $hero_image_set = sprintf(
+            'image-set(url(\'%1$s\') type("image/avif") 1x, url(\'%2$s\') type("image/webp") 1x, url(\'%3$s\') type("image/png") 1x)',
+            esc_url($hero_avif_uri),
+            esc_url($hero_webp_uri),
+            esc_url($hero_image_uri)
+        );
 
         return sprintf(
-            ' style="--bsh-hero-image: url(\'%s\'); --bsh-hero-image-position: %s;"',
+            ' style="--bsh-hero-image: url(\'%1$s\'); --bsh-hero-image-set: %2$s; --bsh-hero-image-position: %3$s;"',
             esc_url($hero_image_uri),
+            esc_attr($hero_image_set),
             esc_attr($position)
         );
     }

@@ -7,7 +7,7 @@
  */
 ?>
 <!-- wp:group {"tagName":"section","className":"bsh-hero","layout":{"type":"constrained"}} -->
-<section class="wp-block-group bsh-hero"<?php echo bsh_hero_image_style('erstgespraech-photorealistisch-01.png', '58% center'); ?>>
+<section class="wp-block-group bsh-hero"<?php echo bsh_hero_image_style('startseite-photorealistisch-02.png', '52% center'); ?>>
   <!-- wp:html -->
   <div class="bsh-eyebrow">Beziehungssache Hund</div>
   <!-- /wp:html -->
@@ -27,17 +27,5 @@
     <!-- /wp:html -->
   </div>
   <!-- /wp:group -->
-
-  <!-- wp:buttons -->
-  <div class="wp-block-buttons">
-    <!-- wp:button {"className":"is-style-fill"} -->
-    <div class="wp-block-button is-style-fill"><a class="wp-block-button__link wp-element-button" href="/erstgespraech/">Erstgespräch anfragen</a></div>
-    <!-- /wp:button -->
-
-    <!-- wp:button {"className":"is-style-outline"} -->
-    <div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/kontakt/">Kontakt aufnehmen</a></div>
-    <!-- /wp:button -->
-  </div>
-  <!-- /wp:buttons -->
 </section>
 <!-- /wp:group -->

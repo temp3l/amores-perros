@@ -49,16 +49,20 @@ add_action(
             wp_get_theme()->get('Version'),
             true
         );
+        wp_script_add_data('beziehungssache-hund-header', 'strategy', 'defer');
 
-        $slider_js = get_theme_file_path('assets/js/image-slider.js');
+        if (bsh_should_enqueue_image_slider()) {
+            $slider_js = get_theme_file_path('assets/js/image-slider.js');
 
-        wp_enqueue_script(
-            'beziehungssache-hund-image-slider',
-            get_theme_file_uri('assets/js/image-slider.js'),
-            [],
-            file_exists($slider_js) ? (string) filemtime($slider_js) : wp_get_theme()->get('Version'),
-            true
-        );
+            wp_enqueue_script(
+                'beziehungssache-hund-image-slider',
+                get_theme_file_uri('assets/js/image-slider.js'),
+                [],
+                file_exists($slider_js) ? (string) filemtime($slider_js) : wp_get_theme()->get('Version'),
+                true
+            );
+            wp_script_add_data('beziehungssache-hund-image-slider', 'strategy', 'defer');
+        }
 
         if (! is_page('faq')) {
             return;
@@ -81,5 +85,51 @@ add_action(
             file_exists($faq_js) ? (string) filemtime($faq_js) : wp_get_theme()->get('Version'),
             true
         );
+        wp_script_add_data('beziehungssache-hund-faq', 'strategy', 'defer');
     }
 );
+
+add_action(
+    'wp_head',
+    static function (): void {
+        if (! is_singular()) {
+            return;
+        }
+
+        $post = get_post();
+        if (! $post instanceof WP_Post) {
+            return;
+        }
+
+        if (! preg_match('/--bsh-hero-image:\\s*url\\(\\x27([^\\x27]+)\\x27\\)/', $post->post_content, $matches)) {
+            return;
+        }
+
+        $hero_png_url = $matches[1];
+        $hero_avif_url = preg_replace('/\\.png$/i', '.avif', $hero_png_url);
+
+        if (! is_string($hero_avif_url) || $hero_avif_url === $hero_png_url) {
+            return;
+        }
+
+        printf(
+            '<link rel="preload" as="image" href="%s" type="image/avif" fetchpriority="high" />' . "\n",
+            esc_url($hero_avif_url)
+        );
+    },
+    1
+);
+
+function bsh_should_enqueue_image_slider(): bool
+{
+    if (! is_singular()) {
+        return false;
+    }
+
+    $post = get_post();
+    if (! $post instanceof WP_Post) {
+        return false;
+    }
+
+    return str_contains($post->post_content, 'data-bsh-slider');
+}

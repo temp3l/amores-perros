@@ -1,6 +1,6 @@
 <?php
 /**
- * Title: Angebotsuebersicht
+ * Title: Angebotsübersicht
  * Slug: beziehungssache-hund/angebotsuebersicht
  * Categories: beziehungssache-hund
  * Inserter: yes

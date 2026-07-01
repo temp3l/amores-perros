@@ -21,7 +21,7 @@ total: 1:30h analyse, aufbereitung + mailing (28.06)
 ## 30.06
 * 75 min Gespraech (Domain + Fragen)
 * chatgpt init 18:36
-    * 
+* 300 min 
 
 
 

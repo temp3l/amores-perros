@@ -1,8 +1,8 @@
-# Dokumentation Uebersicht
+# Dokumentation Übersicht
 
-Diese Dokumentation ist die Arbeitsgrundlage fuer den Rebuild von `Beziehungssache Hund`.
+Diese Dokumentation ist die Arbeitsgrundlage für den Rebuild von `Beziehungssache Hund`.
 
-Die hierarchische Uebersicht findest du in [docs/structure.md](structure.md).
+Die hierarchische Übersicht findest du in [docs/structure.md](structure.md).
 
 ## Kanonische Fakten
 
@@ -20,7 +20,7 @@ Die hierarchische Uebersicht findest du in [docs/structure.md](structure.md).
 - [Kontakt](business/contact-details.yaml)
 - [Leistungen](business/services.yaml)
 - [Preise](business/pricing.yaml)
-- [Oeffnungszeiten](business/opening-hours.yaml)
+- [Öffnungszeiten](business/opening-hours.yaml)
 - [Positionierung](brand/positioning.md)
 
 ## SEO und Struktur
@@ -32,30 +32,30 @@ Die hierarchische Uebersicht findest du in [docs/structure.md](structure.md).
 
 ## Theme und Stil
 
-Die visuelle und technische Leitlinie fuer das WordPress-Theme ist in [wordpress-theme.md](wordpress-theme.md) beschrieben. Die wichtigsten Vorgaben sind:
+Die visuelle und technische Leitlinie für das WordPress-Theme ist in [wordpress-theme.md](wordpress-theme.md) beschrieben. Die wichtigsten Vorgaben sind:
 
 - eigenes, leichtgewichtiges WordPress Block Theme
 - Gutenberg und Full Site Editing statt Page Builder
-- zentrale Designsteuerung ueber `theme.json`
-- wiederverwendbare Block Patterns fuer Hero, Angebote, Prozess, Preise, CTA und Trust-Bereiche
-- keine harten Theme-Abhaengigkeiten fuer Business-Daten
+- zentrale Designsteuerung über `theme.json`
+- wiederverwendbare Block Patterns für Hero, Angebote, Prozess, Preise, CTA und Trust-Bereiche
+- keine harten Theme-Abhängigkeiten für Business-Daten
 
 ### Stilrichtung
 
-- ruhig, persoenlich, klar und hochwertig
-- visuell an `amores-perros.de` angelehnt mit dunklen Flaechen, warmem Terrakotta und viel Weissraum
+- ruhig, persönlich, klar und hochwertig
+- visuell an `amores-perros.de` angelehnt mit dunklen Flächen, warmem Terrakotta und viel Weißraum
 - keine dominanten Pfotenmuster, Comic-Hunde oder aggressive Animationen
-- keine dominanten Slider, Autoplay-Videos oder ueberladene Kartenlayouts
+- keine dominanten Slider, Autoplay-Videos oder überladene Kartenlayouts
 - sparsam eingesetzte, manuell bedienbare Bild-Slider sind als Ausnahme erlaubt
 
-### Vorlaeufige Gestaltung
+### Vorläufige Gestaltung
 
 - Farben: Schwarz/Anthrazit, Terrakotta, Cremeweiss, warmes Beige und gedecktes Grau
-- Typografie: Lora fuer Ueberschriften, Inter fuer Fliesstext und Navigation
+- Typografie: Lora für Überschriften, Inter für Fließtext und Navigation
 - Fonts sollen lokal eingebunden werden
 - Header und Footer greifen die dunkle, reduzierte Legacy-Anmutung auf
-- Cremeweiss und Beige fuer Flaechen und abgesetzte Bereiche
-- Terrakotta fuer primaere Buttons und Akzente
+- Cremeweiß und Beige für Flächen und abgesetzte Bereiche
+- Terrakotta für primäre Buttons und Akzente
 - Legacy-Bilder und Logos aus `amores-perros/` werden als lokale Theme-Assets genutzt
 
 ## Rebuild und Umsetzung
@@ -69,9 +69,9 @@ Die visuelle und technische Leitlinie fuer das WordPress-Theme ist in [wordpress
 ## Content-Drafts
 
 - [Startseite](content/startseite-draft.md)
-- [Erstgespraech](content/erstgespraech-draft.md)
+- [Erstgespräch](content/erstgespraech-draft.md)
 - [Einzeltraining](content/einzeltraining-draft.md)
-- [Ueber mich](content/ueber-mich-draft.md)
+- [Über mich](content/ueber-mich-draft.md)
 - [Preise](content/preise-draft.md)
 - [Kontakt](content/kontakt-draft.md)
 - [DOGSpace](content/dogspace-draft.md)
@@ -83,11 +83,11 @@ Die visuelle und technische Leitlinie fuer das WordPress-Theme ist in [wordpress
 - [Hero-Übersicht](heros/README.md)
 - [Bild-Prompts](heros/image-prompts.md)
 
-## Sprachregel fuer diese Dokumentation
+## Sprachregel für diese Dokumentation
 
 - Interne Arbeitsdokumente sind deutsch.
 - Alte Exportnamen bleiben nur in Audit- und Migrationsdokumenten sichtbar.
-- Neue Website-Texte verwenden ausschliesslich den neuen Markennamen.
+- Neue Website-Texte verwenden ausschließlich den neuen Markennamen.
 
 ## Hinweis zum Archiv
 

@@ -13,7 +13,7 @@
   <!-- /wp:paragraph -->
 
   <!-- wp:heading {"level":2} -->
-  <h2 class="wp-block-heading">Preise im Ueberblick</h2>
+  <h2 class="wp-block-heading">Preise im Überblick</h2>
   <!-- /wp:heading -->
 
   <!-- wp:columns {"className":"bsh-card-grid"} -->
@@ -23,7 +23,7 @@
       <!-- wp:group {"className":"bsh-card bsh-price-card","layout":{"type":"constrained"}} -->
       <div class="wp-block-group bsh-card bsh-price-card">
         <!-- wp:heading {"level":3} -->
-        <h3 class="wp-block-heading">Erstgespraech</h3>
+        <h3 class="wp-block-heading">Erstgespräch</h3>
         <!-- /wp:heading -->
         <!-- wp:paragraph {"className":"bsh-price-card__value"} -->
         <p class="bsh-price-card__value">85 EUR</p>
@@ -32,7 +32,7 @@
         <p>60 Minuten</p>
         <!-- /wp:paragraph -->
         <!-- wp:paragraph -->
-        <p>Der Einstieg fuer neue Mensch-Hund-Teams.</p>
+        <p>Der Einstieg für neue Mensch-Hund-Teams.</p>
         <!-- /wp:paragraph -->
       </div>
       <!-- /wp:group -->
@@ -63,7 +63,7 @@
   <!-- /wp:columns -->
 
   <!-- wp:paragraph -->
-  <p>Trainingsort und moegliche Anfahrtskosten werden vorab individuell vereinbart. Fuer DOGSpace, Workshops und Coaching mit Hund werden derzeit keine verifizierten Oeffentlich-Preise dargestellt.</p>
+  <p>Trainingsort und mögliche Anfahrtskosten werden vorab individuell vereinbart. Für DOGSpace, Workshops und Coaching mit Hund werden derzeit keine verifizierten öffentlichen Preise dargestellt.</p>
   <!-- /wp:paragraph -->
 </section>
 <!-- /wp:group -->

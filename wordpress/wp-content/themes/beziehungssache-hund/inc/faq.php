@@ -670,7 +670,7 @@ if (! function_exists('bsh_faq_schema_json')) {
 }
 
 if (! function_exists('bsh_faq_page_content')) {
-    function bsh_faq_page_content(string $hero_image = 'erstgespraech-photorealistisch-01.png', string $hero_position = '52% center'): string
+    function bsh_faq_page_content(string $hero_image = 'beziehung-hund/entspannung-mit-hund-ruhe-und-vertrauen.png', string $hero_position = '52% center'): string
     {
         $topics = bsh_faq_topics();
         $schema = bsh_faq_schema_json($topics);

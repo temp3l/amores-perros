@@ -2,39 +2,39 @@
 
 ## 1. Inhalte
 
-- Startseite final pruefen
-- Erstgespraech final pruefen
-- Einzeltraining final pruefen
-- Ueber mich final pruefen
-- Preise final pruefen
-- Kontakt final pruefen
-- DOGSpace final pruefen
-- Workshops und Seminare final pruefen
-- Coaching mit Hund final pruefen
+- Startseite final prüfen
+- Erstgespräch final prüfen
+- Einzeltraining final prüfen
+- Über mich final prüfen
+- Preise final prüfen
+- Kontakt final prüfen
+- DOGSpace final prüfen
+- Workshops und Seminare final prüfen
+- Coaching mit Hund final prüfen
 
 ## 2. Fakten
 
 - Markenname auf `Beziehungssache Hund` vereinheitlichen
-- E-Mail-Adresse pruefen
+- E-Mail-Adresse prüfen
 - Telefon und Adresse gegen die finale Quelle abgleichen
-- Oeffnungszeiten final bestaetigen
-- Preise final bestaetigen
+- Öffnungszeiten final bestätigen
+- Preise final bestätigen
 
 ## 3. Recht
 
 - Impressum live stellen
 - Datenschutz live stellen
 - Kontaktformular rechtlich sauber konfigurieren
-- Tracking- und Cookie-Hinweise pruefen, falls Tools eingesetzt werden
+- Tracking- und Cookie-Hinweise prüfen, falls Tools eingesetzt werden
 
 ## 4. SEO
 
-- Titel und Meta Descriptions pruefen
+- Titel und Meta Descriptions prüfen
 - Canonicals setzen
 - Open-Graph-Daten setzen
 - Schema ausspielen
 - Sitemap generieren
-- robots.txt pruefen
+- robots.txt prüfen
 
 ## 5. Weiterleitungen
 
@@ -47,22 +47,21 @@
 
 - Formulare testen
 - SMTP testen
-- Mobile Darstellung pruefen
+- Mobile Darstellung prüfen
 - Bilder komprimieren
-- interne Links pruefen
-- 404-Seiten pruefen
+- interne Links prüfen
+- 404-Seiten prüfen
 
-## 7. Qualitaetssicherung
+## 7. Qualitätssicherung
 
-- Alle Seiten auf deutsche Sprache pruefen
-- Keine englischen Platzhalter uebrig lassen
-- Keine widerspruechlichen Preise oder Zeiten anzeigen
-- CTA-Kette von Startseite bis Kontakt pruefen
+- Alle Seiten auf deutsche Sprache prüfen
+- Keine englischen Platzhalter übrig lassen
+- Keine widersprüchlichen Preise oder Zeiten anzeigen
+- CTA-Kette von Startseite bis Kontakt prüfen
 
 ## 8. Go-live
 
 - Finale Seiten freigeben
 - Sitemap nach Launch einreichen
-- Monitoring fuer Formulare und Fehler aktivieren
+- Monitoring für Formulare und Fehler aktivieren
 - Erste Woche nach Launch auf Leads, Crawlfehler und Indexierung achten
-

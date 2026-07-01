@@ -33,13 +33,13 @@
     <!-- wp:column {"verticalAlignment":"center","width":"62%"} -->
     <div class="wp-block-column is-vertically-aligned-center" style="flex-basis:62%">
       <!-- wp:paragraph {"className":"bsh-eyebrow"} -->
-      <p class="bsh-eyebrow">Ueber Jacky</p>
+      <p class="bsh-eyebrow">Über Jacky</p>
       <!-- /wp:paragraph -->
       <!-- wp:heading {"level":2} -->
       <h2 class="wp-block-heading">Ruhig, klar und alltagstauglich</h2>
       <!-- /wp:heading -->
       <!-- wp:paragraph -->
-      <p>Jacky Rebien arbeitet mit Blick auf die Mensch-Hund-Beziehung und mit einem hohen Anspruch an persoenliche, nachvollziehbare Begleitung.</p>
+      <p>Jacky Rebien arbeitet mit Blick auf die Mensch-Hund-Beziehung und mit einem hohen Anspruch an persönliche, nachvollziehbare Begleitung.</p>
       <!-- /wp:paragraph -->
       <!-- wp:buttons -->
       <div class="wp-block-buttons">
