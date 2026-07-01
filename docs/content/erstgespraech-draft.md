@@ -1,67 +1,86 @@
-# Erstgespraech Draft
+# Erstgespräch Draft
 
 ## Ziel
 
-Die Seite soll das Erstgespraech als Einstiegsoffer erklaeren und Anfragen ausloesen.
+Die Seite erklärt das Erstgespräch als persönlichen Einstieg für neue Anfragen und führt sauber zum qualifizierten Kontaktformular.
 
 ## Primärer Intent
 
-`Erstgespraech Hundetraining Hamburg`
+`Erstgespräch Hundetraining Hamburg`
 
 ## Kernbotschaft
 
-Im Erstgespraech wird die Situation gemeinsam eingeordnet, damit daraus ein sinnvoller naechster Schritt fuer Mensch und Hund entstehen kann.
+Im Erstgespräch ordne ich die Situation gemeinsam mit dir ein, damit daraus ein realistischer nächster Schritt für dich und deinen Hund entstehen kann.
 
 ## Muss enthalten
 
-- Preis: 85 EUR
+- Preis: 85 €
 - Dauer: 60 Minuten
-- Ziel des Gespraechs
-- fuer wen das Angebot gedacht ist
-- was nach dem Gespraech passiert
-- CTA zur Anfrage
+- wann das Gespräch hilfreich ist
+- was genau im Gespräch passiert
+- welches Ergebnis realistisch ist
+- wie die Anfrage gestellt wird
 
 ## Empfohlene Struktur
 
 ### Hero
 
-- Headline: Erstgespraech fuer Hundetraining in Hamburg
-- Subline: Gemeinsam klären wir eure Situation und den naechsten sinnvollen Schritt
-- CTA: Erstgespraech anfragen
+- Headline: Erstgespräch für Hundetraining in Hamburg
+- Subline: Wir schauen gemeinsam auf eure aktuelle Situation und klären, welcher nächste Schritt zu dir und deinem Hund passt.
+- Meta: 60 Minuten, 85 €, Termin und Ort nach individueller Absprache
+- CTA: Erstgespräch anfragen
 
-### Wann ein Erstgespraech sinnvoll ist
+### Wann ein Erstgespräch hilfreich ist
 
-- Unsicherheit im Alltag
-- Probleme mit Leinenfuehrigkeit
-- Alleinbleiben
-- Grenzen setzen
-- wenn du nicht sicher bist, welches Angebot passt
+- wenn du noch unsicher bist, welches Angebot passt
+- bei stressigen Spaziergängen oder Hundebegegnungen
+- bei Alleinbleiben, Regeln oder Grenzen im Alltag
+- wenn mehrere Versuche bisher nicht geholfen haben
+- wenn du vor dem Einzeltraining eine klare Einschätzung möchtest
 
-### So laeuft es ab
+### So läuft es ab
 
-1. kurze Einordnung
-2. Fragen zu Hund, Mensch und Alltag
-3. Ziel definieren
-4. naechstes Vorgehen festlegen
+1. Du schilderst die aktuelle Situation.
+2. Ich frage nach Hund, Alltag, Hintergrund und bisherigen Erfahrungen.
+3. Wir formulieren ein realistisches erstes Ziel.
+4. Wir besprechen den nächsten sinnvollen Schritt.
 
-### Preis und Dauer
+### Konkretes Ergebnis
 
-- 85 EUR
+- fachliche Einordnung der Situation
+- erstes realistisches Ziel
+- Priorität für das wichtigste Thema
+- Einschätzung, ob Einzeltraining passt
+- Empfehlung für den nächsten Schritt
+
+### Preis und Rahmen
+
 - 60 Minuten
+- 85 €
+- Ort und mögliche Anfahrtskosten nach individueller Absprache
 
 ### Erwartungsmanagement
 
-- kein Standardrezept
-- kein Druck
-- keine pauschalen Loesungen
+- kein starres Standardrezept
+- keine Komplettlösung in einer Stunde
+- ehrliche Empfehlung statt Verkaufsdruck
+- bei sehr schwierigem oder aggressivem Verhalten nur nach vorheriger Absprache
 
-### CTA
+### FAQ
 
-- Erstgespraech anfragen
+- Muss ich schon genau wissen, worin das Problem liegt?
+- Muss mein Hund beim Erstgespräch dabei sein?
+- Finden bereits praktische Übungen statt?
+- Wo findet das Erstgespräch statt?
+- Was passiert nach dem Gespräch?
+- Ist das Erstgespräch Voraussetzung für Einzeltraining?
+
+### Abschluss-CTA
+
+- Erstgespräch anfragen
 
 ## Was die Seite nicht tun soll
 
-- nicht wie ein bloesser Kontaktblock wirken
-- keine unklaren Preisvarianten zeigen
-- keine Themen der anderen Seiten vorwegnehmen
-
+- nicht wie ein allgemeiner SEO-Text wirken
+- keine direkte Terminbuchung versprechen
+- keine Themen der anderen Seiten doppeln

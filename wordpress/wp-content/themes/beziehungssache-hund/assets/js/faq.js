@@ -177,14 +177,16 @@
     var heading = target.querySelector('h2[tabindex="-1"]');
     var summary = target.querySelector('summary');
 
-    if (heading) {
-      heading.focus({ preventScroll: true });
-      return;
-    }
+    requestAnimationFrame(function () {
+      if (heading) {
+        heading.focus({ preventScroll: true });
+        return;
+      }
 
-    if (summary) {
-      summary.focus({ preventScroll: true });
-    }
+      if (summary) {
+        summary.focus({ preventScroll: true });
+      }
+    });
   }
 
   function activateHash(hash) {

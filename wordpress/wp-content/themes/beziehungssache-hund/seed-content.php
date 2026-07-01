@@ -387,6 +387,362 @@ function bsh_seo_legal_note_section(string $keyphrase): string
 HTML;
 }
 
+function bsh_erstgespraech_process_step(string $number, string $title, string $text): string
+{
+    return sprintf(
+        <<<'HTML'
+<!-- wp:column -->
+<div class="wp-block-column">
+  <!-- wp:group {"className":"bsh-card bsh-process-step","layout":{"type":"constrained"}} -->
+  <div class="wp-block-group bsh-card bsh-process-step">
+    <!-- wp:paragraph {"className":"bsh-process-step__number"} -->
+    <p class="bsh-process-step__number">%1$s</p>
+    <!-- /wp:paragraph -->
+    <!-- wp:heading {"level":3} -->
+    <h3 class="wp-block-heading">%2$s</h3>
+    <!-- /wp:heading -->
+    <!-- wp:paragraph -->
+    <p>%3$s</p>
+    <!-- /wp:paragraph -->
+  </div>
+  <!-- /wp:group -->
+</div>
+<!-- /wp:column -->
+HTML,
+        esc_html($number),
+        esc_html($title),
+        wp_kses_post($text)
+    );
+}
+
+function bsh_erstgespraech_faq_card(string $question, string $answer): string
+{
+    return sprintf(
+        <<<'HTML'
+<!-- wp:group {"className":"bsh-card bsh-erstgespraech-faq-card","layout":{"type":"constrained"}} -->
+<div class="wp-block-group bsh-card bsh-erstgespraech-faq-card">
+  <!-- wp:heading {"level":3} -->
+  <h3 class="wp-block-heading">%1$s</h3>
+  <!-- /wp:heading -->
+  <!-- wp:paragraph -->
+  <p>%2$s</p>
+  <!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+HTML,
+        esc_html($question),
+        wp_kses_post($answer)
+    );
+}
+
+function bsh_erstgespraech_page_content(): string
+{
+    $process_steps = [
+        [
+            'number' => '01',
+            'title' => 'Die aktuelle Situation schildern',
+            'text' => 'Du beschreibst kurz, was im Alltag gerade schwierig ist und wobei du dir Orientierung wünschst.',
+        ],
+        [
+            'number' => '02',
+            'title' => 'Ich frage gezielt nach Kontext',
+            'text' => 'Ich frage nach Hund, Alltag, Hintergrund und bisherigen Erfahrungen, damit wir nicht aneinander vorbeireden.',
+        ],
+        [
+            'number' => '03',
+            'title' => 'Ein realistisches erstes Ziel',
+            'text' => 'Gemeinsam formulieren wir ein Ziel, das zu euch passt und nicht schon in der ersten Stunde zu viel verlangt.',
+        ],
+        [
+            'number' => '04',
+            'title' => 'Der nächste Schritt',
+            'text' => 'Am Ende steht eine klare Empfehlung, ob Einzeltraining, eine andere Begleitung oder zunächst etwas anderes sinnvoll ist.',
+        ],
+    ];
+
+    $faq_cards = [
+        [
+            'question' => 'Muss ich schon genau wissen, worin das Problem liegt?',
+            'answer' => 'Nein. Es reicht, wenn du beschreibst, was im Alltag schwierig ist und wann es vorkommt. Die genaue Einordnung erarbeiten wir gemeinsam.',
+        ],
+        [
+            'question' => 'Muss mein Hund beim Erstgespräch dabei sein?',
+            'answer' => 'Nicht zwingend. Ob dein Hund dabei sein sollte, hängt davon ab, was wir ansehen müssen und welcher Ort sinnvoll ist. Das klären wir vorab individuell.',
+        ],
+        [
+            'question' => 'Finden bereits praktische Übungen statt?',
+            'answer' => 'Je nach Situation kann ich dir schon erste sinnvolle Hinweise geben. Der Schwerpunkt liegt aber auf einer sauberen Einschätzung und Orientierung, nicht auf einem kompletten Trainingstermin.',
+        ],
+        [
+            'question' => 'Wo findet das Erstgespräch statt?',
+            'answer' => 'Der Ort richtet sich nach eurer Situation. Trainingsort und mögliche Anfahrtskosten stimmen wir vor dem Termin individuell ab.',
+        ],
+        [
+            'question' => 'Was passiert nach dem Gespräch?',
+            'answer' => 'Du bekommst eine klare Einschätzung und eine Empfehlung für den nächsten Schritt, zum Beispiel <a href="/einzeltraining/">Einzeltraining</a>, eine andere Form der Begleitung oder zunächst eine andere Priorität.',
+        ],
+        [
+            'question' => 'Ist das Erstgespräch Voraussetzung für Einzeltraining?',
+            'answer' => 'Nicht in jedem Fall. Ob ein Erstgespräch sinnvoll oder notwendig ist, hängt davon ab, wie klar eure Ausgangslage bereits ist.',
+        ],
+    ];
+
+    $content = [];
+
+    $content[] = <<<'HTML'
+<!-- wp:group {"tagName":"section","className":"bsh-hero bsh-page-hero","layout":{"type":"constrained"}} -->
+<section class="wp-block-group bsh-hero bsh-page-hero">
+  <!-- wp:html -->
+  <div class="bsh-eyebrow">Einstieg</div>
+  <!-- /wp:html -->
+  <!-- wp:heading {"level":1,"className":"bsh-page-hero__title"} -->
+  <h1 class="wp-block-heading bsh-page-hero__title">Erstgespräch für Hundetraining in Hamburg</h1>
+  <!-- /wp:heading -->
+  <!-- wp:paragraph {"className":"bsh-page-hero__lead"} -->
+  <p class="bsh-page-hero__lead">Wir schauen gemeinsam auf eure aktuelle Situation und klären, welcher nächste Schritt zu dir und deinem Hund passt.</p>
+  <!-- /wp:paragraph -->
+  <!-- wp:group {"className":"bsh-hero__meta","layout":{"type":"flex","flexWrap":"wrap"}} -->
+  <div class="wp-block-group bsh-hero__meta">
+    <!-- wp:html -->
+    <span>60 Minuten</span><span>85 €</span><span>Termin und Ort nach individueller Absprache</span>
+    <!-- /wp:html -->
+  </div>
+  <!-- /wp:group -->
+  <!-- wp:buttons -->
+  <div class="wp-block-buttons">
+    <!-- wp:button -->
+    <div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/kontakt/#erstgespraech-anfragen">Erstgespräch anfragen</a></div>
+    <!-- /wp:button -->
+  </div>
+  <!-- /wp:buttons -->
+</section>
+<!-- /wp:group -->
+HTML;
+
+    $content[] = <<<'HTML'
+<!-- wp:group {"tagName":"section","className":"bsh-section bsh-section--soft","layout":{"type":"constrained"}} -->
+<section class="wp-block-group bsh-section bsh-section--soft">
+  <!-- wp:heading {"level":2} -->
+  <h2 class="wp-block-heading">Wann ein Erstgespräch hilfreich ist</h2>
+  <!-- /wp:heading -->
+
+  <!-- wp:paragraph -->
+  <p>Ein Erstgespräch hilft dir besonders dann, wenn du merkst, dass ihr gerade mehr braucht als einen schnellen Tipp.</p>
+  <!-- /wp:paragraph -->
+
+  <!-- wp:list -->
+  <ul class="wp-block-list">
+    <li>du noch unsicher bist, welches Angebot zu euch passt</li>
+    <li>Spaziergänge, Leinenführigkeit oder Hundebegegnungen euch spürbar stressen</li>
+    <li>Alleinbleiben, Regeln oder Grenzen im Alltag immer wieder kippen</li>
+    <li>mehrere Versuche bisher nicht das gebracht haben, was ihr braucht</li>
+    <li>du vor dem Einstieg ins <a href="/einzeltraining/">Einzeltraining</a> erst eine klare Einschätzung möchtest</li>
+    <li>du mit einem sehr schwierigen oder aggressiven Hund nur nach vorheriger Absprache anfragen möchtest</li>
+  </ul>
+  <!-- /wp:list -->
+</section>
+<!-- /wp:group -->
+HTML;
+
+    $content[] = <<<'HTML'
+<!-- wp:group {"tagName":"section","className":"bsh-section","layout":{"type":"constrained"}} -->
+<section class="wp-block-group bsh-section">
+  <!-- wp:heading {"level":2} -->
+  <h2 class="wp-block-heading">Du musst nichts perfekt vorbereiten</h2>
+  <!-- /wp:heading -->
+
+  <!-- wp:paragraph -->
+  <p>Du musst mir keine perfekte Erklärung liefern. Es reicht, wenn du beschreibst, was im Alltag gerade schwierig ist.</p>
+  <!-- /wp:paragraph -->
+
+  <!-- wp:paragraph -->
+  <p>Ich schaue dann auf den Kontext: wann das Verhalten auftaucht, wo es passiert, wie euer Alltag aussieht und was ihr schon versucht habt. Wenn ich den Eindruck habe, dass ein anderer Weg sinnvoller ist als dieses Erstgespräch oder ein direkter Einstieg ins Einzeltraining, sage ich dir das offen.</p>
+  <!-- /wp:paragraph -->
+</section>
+<!-- /wp:group -->
+HTML;
+
+    $content[] = <<<'HTML'
+<!-- wp:group {"tagName":"section","className":"bsh-section bsh-section--soft","layout":{"type":"constrained"}} -->
+<section class="wp-block-group bsh-section bsh-section--soft">
+  <!-- wp:heading {"level":2} -->
+  <h2 class="wp-block-heading">So läuft das Gespräch ab</h2>
+  <!-- /wp:heading -->
+
+  <!-- wp:paragraph -->
+  <p>Das Gespräch ist kein starres Schema, sondern ein klarer Rahmen, in dem wir euer Thema sortieren.</p>
+  <!-- /wp:paragraph -->
+
+  <!-- wp:columns {"className":"bsh-process-grid"} -->
+  <div class="wp-block-columns bsh-process-grid">
+HTML;
+
+    foreach ($process_steps as $step) {
+        $content[] = bsh_erstgespraech_process_step(
+            $step['number'],
+            $step['title'],
+            $step['text']
+        );
+    }
+
+    $content[] = <<<'HTML'
+  </div>
+  <!-- /wp:columns -->
+</section>
+<!-- /wp:group -->
+HTML;
+
+    $content[] = <<<'HTML'
+<!-- wp:group {"tagName":"section","className":"bsh-section bsh-section--accent","layout":{"type":"constrained"}} -->
+<section class="wp-block-group bsh-section bsh-section--accent">
+  <!-- wp:heading {"level":2} -->
+  <h2 class="wp-block-heading">Nach dem Erstgespräch weißt du …</h2>
+  <!-- /wp:heading -->
+
+  <!-- wp:paragraph -->
+  <p>Das Gespräch soll dir Klarheit geben, nicht ein Verhalten in einer Stunde endgültig lösen.</p>
+  <!-- /wp:paragraph -->
+
+  <!-- wp:list -->
+  <ul class="wp-block-list">
+    <li>wie ich eure Situation fachlich einordne</li>
+    <li>welches Thema zuerst angegangen werden sollte</li>
+    <li>welches erste Ziel im Moment realistisch ist</li>
+    <li>ob <a href="/einzeltraining/">Einzeltraining</a> für euch sinnvoll ist</li>
+    <li>welcher nächste praktische Schritt zu euch passt</li>
+  </ul>
+  <!-- /wp:list -->
+</section>
+<!-- /wp:group -->
+HTML;
+
+    $content[] = <<<'HTML'
+<!-- wp:group {"tagName":"section","className":"bsh-section","layout":{"type":"constrained"}} -->
+<section class="wp-block-group bsh-section">
+  <!-- wp:heading {"level":2} -->
+  <h2 class="wp-block-heading">Preis und Rahmen</h2>
+  <!-- /wp:heading -->
+
+  <!-- wp:table -->
+  <figure class="wp-block-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Leistung</th>
+          <th>Umfang</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Erstgespräch</td>
+          <td>60 Minuten</td>
+        </tr>
+        <tr>
+          <td>Preis</td>
+          <td>85 €</td>
+        </tr>
+        <tr>
+          <td>Ort</td>
+          <td>individuell nach Situation vereinbart</td>
+        </tr>
+      </tbody>
+    </table>
+  </figure>
+  <!-- /wp:table -->
+
+  <!-- wp:paragraph -->
+  <p>Trainingsort und mögliche Anfahrtskosten stimmen wir vor dem Termin individuell ab. Ob dein Hund beim Erstgespräch dabei ist und welcher Ort sinnvoll ist, klären wir vorab anhand eurer Situation.</p>
+  <!-- /wp:paragraph -->
+
+  <!-- wp:paragraph -->
+  <p>Wenn du die Leistungen vorab vergleichen möchtest, findest du die Übersicht auch auf der Seite <a href="/preise/">Preise</a>.</p>
+  <!-- /wp:paragraph -->
+</section>
+<!-- /wp:group -->
+HTML;
+
+    $content[] = <<<'HTML'
+<!-- wp:group {"tagName":"section","className":"bsh-section bsh-section--soft","layout":{"type":"constrained"}} -->
+<section class="wp-block-group bsh-section bsh-section--soft">
+  <!-- wp:heading {"level":2} -->
+  <h2 class="wp-block-heading">Wofür das Erstgespräch da ist</h2>
+  <!-- /wp:heading -->
+
+  <!-- wp:paragraph -->
+  <p>Es gibt kein starres Standardrezept und keine Garantie, dass ein Thema nach 60 Minuten gelöst ist. Das Erstgespräch soll euch Orientierung geben, die Situation sauber einordnen und verhindern, dass ihr mit einem unpassenden Einstieg startet.</p>
+  <!-- /wp:paragraph -->
+
+  <!-- wp:paragraph -->
+  <p>Manchmal ist danach direktes <a href="/einzeltraining/">Einzeltraining</a> sinnvoll, manchmal zuerst etwas anderes. Bei Hunden mit starkem Aggressionsverhalten oder bekannten Beißvorfällen klären wir vorab, ob das Erstgespräch für eure Situation überhaupt der richtige Rahmen ist. Ehrlichkeit ist mir wichtiger als dir ein bestimmtes Paket zu verkaufen.</p>
+  <!-- /wp:paragraph -->
+</section>
+<!-- /wp:group -->
+HTML;
+
+    $content[] = <<<'HTML'
+<!-- wp:group {"tagName":"section","className":"bsh-section","layout":{"type":"constrained"}} -->
+<section class="wp-block-group bsh-section">
+  <!-- wp:heading {"level":2} -->
+  <h2 class="wp-block-heading">Warum das in Hamburg oft besonders wichtig ist</h2>
+  <!-- /wp:heading -->
+
+  <!-- wp:paragraph -->
+  <p>Im Hamburger Alltag treffen viele Hunde auf engem Raum auf Fahrräder, andere Hunde, Lieferverkehr, schmale Gehwege und oft wenig Abstand. Deshalb ordnen wir Probleme nicht abstrakt ein, sondern mit Blick auf euren echten Alltag.</p>
+  <!-- /wp:paragraph -->
+
+  <!-- wp:paragraph -->
+  <p>Genau das hilft, wenn du wissen möchtest, welches Hundetraining zu deinem Hund passt oder ob das Problem eher im Umfeld, im Timing oder in der bisherigen Kommunikation liegt. Wenn sich zeigt, dass ihr konkret üben müsst, ist <a href="/einzeltraining/">Einzeltraining</a> meist der nächste Schritt.</p>
+  <!-- /wp:paragraph -->
+</section>
+<!-- /wp:group -->
+HTML;
+
+    $content[] = <<<'HTML'
+<!-- wp:group {"tagName":"section","className":"bsh-section bsh-section--soft","layout":{"type":"constrained"}} -->
+<section class="wp-block-group bsh-section bsh-section--soft">
+  <!-- wp:heading {"level":2} -->
+  <h2 class="wp-block-heading">Häufige Fragen</h2>
+  <!-- /wp:heading -->
+
+  <!-- wp:paragraph -->
+  <p>Hier beantworte ich die Fragen, die vor einem Erstgespräch am häufigsten auftauchen.</p>
+  <!-- /wp:paragraph -->
+HTML;
+
+    foreach ($faq_cards as $faq_card) {
+        $content[] = bsh_erstgespraech_faq_card($faq_card['question'], $faq_card['answer']);
+    }
+
+    $content[] = <<<'HTML'
+</section>
+<!-- /wp:group -->
+HTML;
+
+    $content[] = <<<'HTML'
+<!-- wp:group {"tagName":"section","className":"bsh-section bsh-section--accent","layout":{"type":"constrained"}} -->
+<section class="wp-block-group bsh-section bsh-section--accent">
+  <!-- wp:heading {"level":2} -->
+  <h2 class="wp-block-heading">Beschreib kurz, was euch im Alltag beschäftigt</h2>
+  <!-- /wp:heading -->
+
+  <!-- wp:paragraph -->
+  <p>Du musst noch nicht genau wissen, was ihr braucht. Schreib mir kurz, worin die Schwierigkeit besteht, und wir klären gemeinsam, ob das Erstgespräch der passende Einstieg ist.</p>
+  <!-- /wp:paragraph -->
+
+  <!-- wp:buttons -->
+  <div class="wp-block-buttons">
+    <!-- wp:button -->
+    <div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/kontakt/#erstgespraech-anfragen">Erstgespräch anfragen</a></div>
+    <!-- /wp:button -->
+  </div>
+  <!-- /wp:buttons -->
+</section>
+<!-- /wp:group -->
+HTML;
+
+    return implode("\n\n", $content);
+}
+
 $pages = [
     [
         'title' => 'Startseite',
@@ -427,23 +783,10 @@ $pages = [
         ]),
     ],
     [
-        'title' => 'Erstgespraech',
+        'title' => 'Erstgespräch',
         'slug' => 'erstgespraech',
         'order' => 3,
-        'content' => implode("\n\n", [
-            bsh_page_hero(
-                'Einstieg',
-                'Erstgespraech fuer Hundetraining in Hamburg',
-                'Dieses Erstgespraech hilft dir dabei, die aktuelle Situation mit deinem Hund einzuordnen und einen realistischen naechsten Schritt fuer euren Alltag festzulegen.'
-            ),
-            '<!-- wp:group {"tagName":"section","className":"bsh-section","layout":{"type":"constrained"}} --><section class="wp-block-group bsh-section"><!-- wp:paragraph --><p>Ein Erstgespraech ist dann sinnvoll, wenn du nicht nur schnell einen Tipp suchst, sondern verstehen moechtest, was hinter eurem Thema steckt. Viele Mensch-Hund-Teams kommen mit Fragen zu Leinenfuehrigkeit, Alleinbleiben, Unsicherheit im Alltag oder wiederkehrenden Spannungen auf Spaziergaengen. Im Erstgespraech schauen wir gemeinsam darauf, was euch aktuell belastet, welche Ziele realistisch sind und welche Form der Begleitung wirklich zu euch passt.</p><!-- /wp:paragraph --><!-- wp:heading {"level":2} --><h2 class="wp-block-heading">Wann das Erstgespraech sinnvoll ist</h2><!-- /wp:heading --><!-- wp:list --><ul class="wp-block-list"><li>wenn du bei Leinenfuehrigkeit, Alleinbleiben oder Grenzen setzen Orientierung brauchst</li><li>wenn du noch nicht sicher bist, welches Angebot zu euch passt</li><li>wenn ihr einen ruhigen, individuellen Einstieg statt eines Standardprogramms sucht</li><li>wenn du Klarheit willst, bevor du ins Einzeltraining einsteigst</li></ul><!-- /wp:list --></section><!-- /wp:group -->',
-            '<!-- wp:group {"tagName":"section","className":"bsh-section bsh-section--soft","layout":{"type":"constrained"}} --><section class="wp-block-group bsh-section bsh-section--soft"><!-- wp:image {"sizeSlug":"full","linkDestination":"none"} --><figure class="wp-block-image size-full"><img src="/wp-content/themes/beziehungssache-hund/assets/optimized/portrait-720.webp" alt="Erstgespraech mit Hundetrainerin in Hamburg" /></figure><!-- /wp:image --><!-- wp:heading {"level":2} --><h2 class="wp-block-heading">So laeuft das Erstgespraech ab</h2><!-- /wp:heading --><!-- wp:paragraph --><p>Im Erstgespraech geht es nicht darum, dir in kurzer Zeit ein starres Rezept zu geben. Ich frage nach Hund, Mensch, Alltag und bisherigen Erfahrungen, damit aus dem Gespraech ein nachvollziehbarer naechster Schritt entstehen kann. Du sollst nach dem Termin wissen, wie ich eure Situation einschaetze, welches Ziel sinnvoll ist und ob eher ein einzelner Impuls oder eine laengerfristige Begleitung passt.</p><!-- /wp:paragraph --><!-- wp:list {"ordered":true,"className":"bsh-step-list"} --><ol class="wp-block-list bsh-step-list"><li>Wir ordnen die aktuelle Situation ein.</li><li>Ich frage nach Hund, Mensch und Alltag.</li><li>Wir definieren ein realistisches Ziel.</li><li>Danach legen wir den naechsten sinnvollen Schritt fest.</li></ol><!-- /wp:list --></section><!-- /wp:group -->',
-            '<!-- wp:group {"tagName":"section","className":"bsh-section","layout":{"type":"constrained"}} --><section class="wp-block-group bsh-section"><!-- wp:heading {"level":2} --><h2 class="wp-block-heading">Preis, Dauer und Erwartungsmanagement</h2><!-- /wp:heading --><!-- wp:table --><figure class="wp-block-table"><table><tbody><tr><td>Preis</td><td>85 EUR</td></tr><tr><td>Dauer</td><td>60 Minuten</td></tr></tbody></table></figure><!-- /wp:table --><!-- wp:paragraph --><p>Das Erstgespraech ist kein pauschales Standardrezept und keine garantierte Komplettloesung in einer Stunde. Es dient der fundierten Einordnung, schafft Orientierung und verhindert, dass ihr mit unpassenden Erwartungen in die weitere Arbeit startet. Wenn danach Einzeltraining sinnvoll ist, legen wir die ersten konkreten Schritte fuer euren Alltag fest. Wenn ein anderer Weg besser passt, sage ich dir das klar und ehrlich.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Wenn du vorab schon einen Eindruck von meiner Arbeit bekommen moechtest, findest du auch Hinweise auf <a href="https://instagram.com/cazoobi">Instagram</a>. Fuer die eigentliche Anfrage ist der direkte Weg ueber die <a href="/kontakt/">Kontaktseite</a> meist am sinnvollsten.</p><!-- /wp:paragraph --></section><!-- /wp:group -->',
-            bsh_seo_support_section('Erstgespraech Hundetraining Hamburg'),
-            bsh_seo_faq_section('Erstgespraech Hundetraining Hamburg'),
-            bsh_seo_closing_section('Erstgespraech Hundetraining Hamburg'),
-            '<!-- wp:pattern {"slug":"beziehungssache-hund/abschluss-cta"} /-->',
-        ]),
+        'content' => bsh_erstgespraech_page_content(),
     ],
     [
         'title' => 'Einzeltraining',
@@ -568,7 +911,7 @@ $pages = [
                 'Kontakt fuer Hundetraining in Hamburg ist bei Beziehungssache Hund direkt per E-Mail, Telefon oder Anfrageformular moeglich.'
             ),
             '<!-- wp:group {"tagName":"section","className":"bsh-section bsh-section--soft","layout":{"type":"constrained"}} --><section class="wp-block-group bsh-section bsh-section--soft"><!-- wp:image {"sizeSlug":"full","linkDestination":"none"} --><figure class="wp-block-image size-full"><img src="/wp-content/themes/beziehungssache-hund/assets/optimized/portrait-720.webp" alt="Kontakt fuer Hundetraining in Hamburg" /></figure><!-- /wp:image --><!-- wp:list {"className":"bsh-contact-list"} --><ul class="wp-block-list bsh-contact-list"><li>Beziehungssache Hund</li><li>Jacky Rebien</li><li>Bundesstr. 74, 20144 Hamburg</li><li><a href="mailto:info@beziehungssache-hund.de">info@beziehungssache-hund.de</a></li><li><a href="tel:+4915228385291">01522 8385291</a></li><li>Hamburg und Umgebung</li></ul><!-- /wp:list --></section><!-- /wp:group -->',
-            '<!-- wp:group {"tagName":"section","className":"bsh-section","layout":{"type":"constrained"}} --><section class="wp-block-group bsh-section"><!-- wp:heading {"level":2} --><h2 class="wp-block-heading">Wie Kontakt fuer Hundetraining in Hamburg am einfachsten funktioniert</h2><!-- /wp:heading --><!-- wp:paragraph --><p>Kontakt fuer Hundetraining in Hamburg soll dir bei Beziehungssache Hund moeglichst wenig Huerden machen. Wenn du ein <a href="/erstgespraech/">Erstgespraech</a>, <a href="/einzeltraining/">Einzeltraining</a> oder eine Rueckfrage zu DOGSpace, Workshops oder Coaching mit Hund hast, kannst du direkt per E-Mail, Telefon oder Anfrageformular schreiben. Hilfreich ist, wenn du kurz beschreibst, worum es geht und welcher Alltag euch gerade herausfordert.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Ich antworte am liebsten mit einem kurzen, klaren Blick auf deine Situation, damit wir nicht aneinander vorbeireden. Je genauer du dein Thema beschreibst, desto besser kann ich einschaetzen, ob ein Erstgespraech, direktes Einzeltraining oder eine andere Form der Begleitung zu euch passt. Auf diese Weise bleibt Kontakt bei Beziehungssache Hund kein unpersoenlicher Posteingang, sondern der Startpunkt fuer eine echte Einordnung.</p><!-- /wp:paragraph --><!-- wp:heading {"level":2} --><h2 class="wp-block-heading">Was du anfragen kannst</h2><!-- /wp:heading --><!-- wp:list --><ul class="wp-block-list"><li>Erstgespraech</li><li>Einzeltraining</li><li>DOGSpace</li><li>Workshops oder Seminare</li><li>Coaching mit Hund</li></ul><!-- /wp:list --><!-- wp:paragraph --><p>Wenn du vorab einen kleinen Eindruck von Haltung und Stil bekommen moechtest, findest du einzelne Einblicke auch auf <a href="https://instagram.com/cazoobi">Instagram</a>. Fuer verbindliche Absprachen nutze bitte immer die direkten Kontaktwege auf dieser Seite. So landen deine Fragen nicht in einem allgemeinen Formular-Template, sondern bei den Informationen, die fuer eine gute Antwort wirklich wichtig sind.</p><!-- /wp:paragraph --></section><!-- /wp:group -->',
+            '<!-- wp:group {"tagName":"section","anchor":"erstgespraech-anfragen","className":"bsh-section","layout":{"type":"constrained"}} --><section id="erstgespraech-anfragen" class="wp-block-group bsh-section"><!-- wp:heading {"level":2} --><h2 class="wp-block-heading">Wie Kontakt für Hundetraining in Hamburg am einfachsten funktioniert</h2><!-- /wp:heading --><!-- wp:paragraph --><p>Kontakt für Hundetraining in Hamburg soll dir bei Beziehungssache Hund möglichst wenig Hürden machen. Wenn du ein <a href="/erstgespraech/">Erstgespräch</a>, <a href="/einzeltraining/">Einzeltraining</a> oder eine Rückfrage zu DOGSpace, Workshops oder Coaching mit Hund hast, kannst du direkt per E-Mail, Telefon oder Anfrageformular schreiben. Hilfreich ist, wenn du kurz beschreibst, worum es geht und welcher Alltag euch gerade herausfordert.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>Ich antworte am liebsten mit einem kurzen, klaren Blick auf deine Situation, damit wir nicht aneinander vorbeireden. Je genauer du dein Thema beschreibst, desto besser kann ich einschätzen, ob ein Erstgespräch, direktes Einzeltraining oder eine andere Form der Begleitung zu euch passt. Auf diese Weise bleibt Kontakt bei Beziehungssache Hund kein unpersönlicher Posteingang, sondern der Startpunkt für eine echte Einordnung.</p><!-- /wp:paragraph --><!-- wp:heading {"level":2} --><h2 class="wp-block-heading">Was du anfragen kannst</h2><!-- /wp:heading --><!-- wp:list --><ul class="wp-block-list"><li>Erstgespräch</li><li>Einzeltraining</li><li>DOGSpace</li><li>Workshops oder Seminare</li><li>Coaching mit Hund</li></ul><!-- /wp:list --><!-- wp:paragraph --><p>Wenn du vorab einen kleinen Eindruck von Haltung und Stil bekommen möchtest, findest du einzelne Einblicke auch auf <a href="https://instagram.com/cazoobi">Instagram</a>. Für verbindliche Absprachen nutze bitte immer die direkten Kontaktwege auf dieser Seite. So landen deine Fragen nicht in einem allgemeinen Formular-Template, sondern bei den Informationen, die für eine gute Antwort wirklich wichtig sind.</p><!-- /wp:paragraph --></section><!-- /wp:group -->',
             bsh_seo_support_section('Kontakt fuer Hundetraining in Hamburg'),
             bsh_seo_faq_section('Kontakt fuer Hundetraining in Hamburg'),
             bsh_seo_closing_section('Kontakt fuer Hundetraining in Hamburg'),

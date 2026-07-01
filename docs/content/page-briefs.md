@@ -9,10 +9,10 @@
 
 ## Erstgespraech
 
-- Ziel: Einstiegsoffer verkaufen.
-- Primaerer Intent: Erstgespraech fuer Hundetraining.
-- Muss enthalten: Preis, Dauer, Ablauf, fuer wen es gedacht ist, CTA.
-- Nicht machen: als allgemeine Info-Seite wirken lassen.
+- Ziel: den passenden Einstieg klären und qualifizierte Anfragen auslösen.
+- Primaerer Intent: Erstgespräch für Hundetraining in Hamburg.
+- Muss enthalten: Preis, Dauer, Ablauf, Ergebnis, CTA zum Kontaktformular.
+- Nicht machen: wie eine allgemeine Info-Seite oder direkte Buchungsseite wirken.
 
 ## Einzeltraining
 
@@ -41,4 +41,3 @@
 - Primaerer Intent: Kontakt zum Hundetraining.
 - Muss enthalten: Telefon, E-Mail, Adresse, klare CTA, eventuelle Anfragenlogik.
 - Nicht machen: generische Template-Texte oder englische Platzhalter.
-

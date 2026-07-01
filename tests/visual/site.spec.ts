@@ -117,7 +117,7 @@ test('Einzeltraining page links to the FAQ topics', async ({ page }) => {
   await waitForStablePage(page);
 
   await expect(page.getByRole('heading', { name: 'Einzeltraining mit Hund in Hamburg – nah an eurem Alltag' })).toBeVisible();
-  await expect(page.getByRole('heading', { name: 'Einzeltraining in Hamburg genauer betrachtet' })).toHaveCount(0);
+  await expect(page.getByText('Wer mit einem Hund in Hamburg lebt, kennt die kleinen Herausforderungen des Alltags.')).toBeVisible();
 
   for (const [href, textFragment] of einzeltrainingAnchors) {
     const link = page.locator(`a[href="${href}"]`);
@@ -159,7 +159,6 @@ test.describe('FAQ page', () => {
 
       await expect(page.locator(`#${id}`)).toHaveCount(1);
       await expect(page.locator(`#${id} details`).first()).toHaveAttribute('open', '');
-      await expect(page.locator(`#faq-topic-${id}`)).toBeFocused();
 
       const anchorPositionIsSafe = await page.locator(`#${id}`).evaluate((element) => {
         const rect = element.getBoundingClientRect();
@@ -170,6 +169,10 @@ test.describe('FAQ page', () => {
       });
 
       expect(anchorPositionIsSafe).toBeTruthy();
+
+      await expect.poll(async () => {
+        return await page.evaluate(() => document.activeElement?.id ?? document.activeElement?.tagName ?? '');
+      }).toBe(`faq-topic-${id}`);
     }
   });
 
@@ -219,7 +222,7 @@ test.describe('FAQ page', () => {
 
     await waitForStablePage(page);
 
-    const transitionDuration = await page.locator('#grenzen-setzen .faq-answer').evaluate((element) => {
+    const transitionDuration = await page.locator('#grenzen-setzen details').first().locator('.faq-answer').evaluate((element) => {
       return getComputedStyle(element).transitionDuration;
     });
 

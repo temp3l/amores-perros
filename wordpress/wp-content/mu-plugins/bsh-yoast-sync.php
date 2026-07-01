@@ -55,9 +55,9 @@ if (! function_exists('bsh_sync_yoast_seo')) {
                 'cornerstone' => true,
             ],
             'erstgespraech' => [
-                'title' => 'Erstgespraech Hundetraining Hamburg | Beziehungssache Hund',
-                'description' => 'Im Erstgespraech klaeren wir eure Situation, Ziele und den naechsten sinnvollen Schritt fuer euch.',
-                'focus_keyphrase' => 'Erstgespraech Hundetraining Hamburg',
+                'title' => 'Erstgespräch Hundetraining Hamburg | Beziehungssache Hund',
+                'description' => 'Im Erstgespräch klären wir eure Situation, Ziele und den nächsten sinnvollen Schritt für dich und deinen Hund in Hamburg. 60 Minuten, 85 €.',
+                'focus_keyphrase' => 'Erstgespräch Hundetraining Hamburg',
             ],
             'einzeltraining' => [
                 'title' => 'Einzeltraining fuer Hund und Mensch in Hamburg | Beziehungssache Hund',

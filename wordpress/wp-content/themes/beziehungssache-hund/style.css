@@ -568,6 +568,10 @@ body.bsh-header-condensed .site-header .wp-block-navigation {
   margin-top: 0.75rem;
 }
 
+#erstgespraech-anfragen {
+  scroll-margin-top: 7.5rem;
+}
+
 .bsh-portrait-placeholder {
   min-height: 20rem;
   display: grid;
@@ -751,5 +755,9 @@ body.bsh-header-condensed .site-header .wp-block-navigation {
 
   .bsh-portrait-frame {
     aspect-ratio: 4 / 5;
+  }
+
+  #erstgespraech-anfragen {
+    scroll-margin-top: 6.5rem;
   }
 }
