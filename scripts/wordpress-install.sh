@@ -86,6 +86,36 @@ activate_theme_if_available() {
   fi
 }
 
+fix_upload_permissions() {
+  compose exec -T wordpress sh -lc '
+    mkdir -p /var/www/html/wp-content/uploads
+    chown -R www-data:www-data /var/www/html/wp-content/uploads
+    find /var/www/html/wp-content/uploads -type d -exec chmod 775 {} +
+    find /var/www/html/wp-content/uploads -type f -exec chmod 664 {} +
+  '
+}
+
+sync_wordpress_url() {
+  local current_home=""
+  local current_siteurl=""
+
+  current_home="$(wp option get home 2>/dev/null || true)"
+  current_siteurl="$(wp option get siteurl 2>/dev/null || true)"
+
+  if [[ -n "${current_home}" && "${current_home}" != "${WORDPRESS_URL}" ]]; then
+    echo "Aktualisiere gespeicherte WordPress-URLs von ${current_home} auf ${WORDPRESS_URL} ..."
+    wp search-replace "${current_home}" "${WORDPRESS_URL}" --all-tables --skip-columns=guid >/dev/null
+  fi
+
+  if [[ -n "${current_siteurl}" && "${current_siteurl}" != "${WORDPRESS_URL}" && "${current_siteurl}" != "${current_home}" ]]; then
+    echo "Aktualisiere abweichende Site-URL von ${current_siteurl} auf ${WORDPRESS_URL} ..."
+    wp search-replace "${current_siteurl}" "${WORDPRESS_URL}" --all-tables --skip-columns=guid >/dev/null
+  fi
+
+  wp option update home "${WORDPRESS_URL}" >/dev/null
+  wp option update siteurl "${WORDPRESS_URL}" >/dev/null
+}
+
 ensure_plugin_installed() {
   local plugin_slug="$1"
 
@@ -103,6 +133,8 @@ echo "Pruefe Docker-Services ..."
 wait_for_health database 180
 wait_for_health wordpress 180
 wait_for_wordpress_files 120
+echo "Repariere Upload-Berechtigungen ..."
+fix_upload_permissions
 
 echo "Pruefe Installationsstatus ..."
 if ! wp core is-installed >/dev/null 2>&1; then
@@ -122,6 +154,9 @@ echo "Aktiviere deutsche Spracheinstellungen ..."
 wp language core install de_DE --activate >/dev/null
 wp site switch-language de_DE >/dev/null
 wp option update WPLANG de_DE >/dev/null
+
+echo "Synchronisiere WordPress-Basis-URL ..."
+sync_wordpress_url
 
 echo "Installiere Kontaktformular-Plugin ..."
 ensure_plugin_installed forminator

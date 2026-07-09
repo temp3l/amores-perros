@@ -26,6 +26,10 @@ total: 1:30h analyse, aufbereitung + mailing (28.06)
 1.07
 * 1h tele, 30min uplkoad
 
+
+## Prompt für Bilder
+- README: images/images-von-jacky/beziehungssache-hund-website-bilder-optimiert/
+
 ## TODO:
 - Starte Codex anschließend mit dem Inhalt aus `docs/prompts/implement-faq-page.md`.
 - Den Codex-Prompt aus `docs/prompts/wire-faq-einzeltraining-extension.md` ausführen.

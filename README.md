@@ -42,6 +42,30 @@ Eine bereits vorhandene lokale `.env` wird von `make setup` nicht ueberschrieben
 
 Adminer und Mailpit sind ausschliesslich lokale Entwicklungswerkzeuge.
 
+## Zugriff aus dem WLAN
+
+Wenn die Site von einem anderen Geraet im selben Netzwerk erreichbar sein soll, sind zwei Dinge relevant:
+
+1. Der WordPress-Port muss auf allen Interfaces gebunden sein.
+2. Die in WordPress gespeicherte Basis-URL darf nicht auf `localhost` zeigen.
+
+Standardmaessig ist der Webserver bereits fuer LAN-Zugriff vorgesehen:
+
+```bash
+WORDPRESS_BIND_HOST=0.0.0.0
+```
+
+Passe in `.env` die Basis-URL auf die LAN-IP des Entwicklungsrechners an und synchronisiere danach die WordPress-Optionen erneut:
+
+```bash
+WORDPRESS_URL=http://192.168.x.x:8080
+make install
+```
+
+Danach ist die Site unter `http://192.168.x.x:8080` auch von einem zweiten Rechner im selben WLAN erreichbar.
+
+Adminer und Mailpit bleiben aus Sicherheitsgruenden standardmaessig auf `127.0.0.1` beschraenkt. Wenn du sie bewusst ebenfalls im LAN freigeben willst, musst du `ADMINER_BIND_HOST` oder `MAILPIT_BIND_HOST` explizit anpassen.
+
 ## Haeufige Befehle
 
 ```bash
@@ -183,10 +207,13 @@ Uploads liegen lokal in einem Docker-Volume und werden nicht als Quellcode versi
 
 - Belegter Port:
   Passe `WORDPRESS_PORT`, `ADMINER_PORT` oder `MAILPIT_HTTP_PORT` in `.env` an und starte neu.
+- Zugriff aus anderem Geraet funktioniert nicht:
+  Pruefe `WORDPRESS_URL` in `.env`, fuehre `make install` erneut aus und stelle sicher, dass die lokale Firewall eingehende Verbindungen auf Port `8080` erlaubt.
 - Datenbank noch nicht gesund:
   `docker compose ps` und `docker compose logs database` pruefen; `./scripts/wordpress-install.sh` wartet auf den Healthcheck.
 - Falsche Dateirechte:
   `docker compose run --rm wp-cli core version` pruefen; der WP-CLI-Service laeuft als `www-data` (`33:33`).
+  `./scripts/wordpress-install.sh` repariert die Berechtigungen fuer `wp-content/uploads` automatisch.
 - WordPress-Installationsstatus:
   `docker compose run --rm wp-cli core is-installed`
 - Sprache pruefen:

@@ -952,6 +952,18 @@ $pages = [
         ]),
     ],
     [
+        'title' => 'Landing 2',
+        'slug' => 'landing-2',
+        'order' => 15,
+        'content' => '<!-- wp:pattern {"slug":"beziehungssache-hund/landing-2"} /-->',
+    ],
+    [
+        'title' => 'Kitesplash',
+        'slug' => 'kitesplash',
+        'order' => 16,
+        'content' => '<!-- wp:pattern {"slug":"beziehungssache-hund/kitesplash"} /-->',
+    ],
+    [
         'title' => 'Hundetraining Hamburg',
         'slug' => 'hundetraining-hamburg',
         'order' => 2,

@@ -6,6 +6,35 @@ require_once __DIR__ . '/inc/hero-images.php';
 require_once __DIR__ . '/inc/price-cards.php';
 require_once __DIR__ . '/inc/faq.php';
 
+function bsh_register_theme_pattern(string $slug, string $title, string $pattern_path): void
+{
+    if (! function_exists('register_block_pattern')) {
+        return;
+    }
+
+    $pattern_file = get_theme_file_path($pattern_path);
+    if (! file_exists($pattern_file)) {
+        return;
+    }
+
+    ob_start();
+    include $pattern_file;
+    $content = ob_get_clean();
+
+    if (! is_string($content) || $content === '') {
+        return;
+    }
+
+    register_block_pattern(
+        'beziehungssache-hund/' . $slug,
+        [
+            'title' => __($title, 'beziehungssache-hund'),
+            'categories' => ['beziehungssache-hund'],
+            'content' => $content,
+        ]
+    );
+}
+
 add_action(
     'after_setup_theme',
     static function (): void {
@@ -30,6 +59,9 @@ add_action(
                 'label' => __('Beziehungssache Hund', 'beziehungssache-hund'),
             ]
         );
+
+        bsh_register_theme_pattern('landing-2', 'Landing 2', 'patterns/landing-2.php');
+        bsh_register_theme_pattern('kitesplash', 'Kitesplash', 'patterns/kitesplash.php');
     }
 );
 
@@ -125,6 +157,21 @@ add_action(
         echo '<link rel="shortcut icon" type="image/png" href="' . esc_url($favicon) . '">' . "\n";
     },
     1
+);
+
+add_filter(
+    'body_class',
+    static function (array $classes): array {
+        if (is_page('landing-2')) {
+            $classes[] = 'bsh-landing-2-page';
+        }
+
+        if (is_page('kitesplash')) {
+            $classes[] = 'bsh-kitesplash-page';
+        }
+
+        return $classes;
+    }
 );
 
 function bsh_should_enqueue_image_slider(): bool
