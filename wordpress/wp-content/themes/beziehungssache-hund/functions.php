@@ -87,11 +87,13 @@ add_action(
 add_action(
     'wp_enqueue_scripts',
     static function (): void {
+        $theme_stylesheet = get_theme_file_path('style.css');
+
         wp_enqueue_style(
             'beziehungssache-hund-style',
             get_stylesheet_uri(),
             [],
-            wp_get_theme()->get('Version')
+            file_exists($theme_stylesheet) ? (string) filemtime($theme_stylesheet) : wp_get_theme()->get('Version')
         );
 
         wp_enqueue_script(
