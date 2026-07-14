@@ -1,0 +1,50 @@
+/*
+ * Editor-only adjustments so patterns and template parts remain readable inside
+ * the block editor and Site Editor. Frontend visuals stay in blocks.css.
+ */
+
+.editor-styles-wrapper {
+  background: var(--wp--preset--color--cream);
+  color: var(--wp--preset--color--ink);
+}
+
+.editor-styles-wrapper .wp-block {
+  max-width: var(--wp--style--global--content-size);
+}
+
+.editor-styles-wrapper .wp-block[data-align="wide"] {
+  max-width: var(--wp--style--global--wide-size);
+}
+
+.editor-styles-wrapper .wp-block[data-align="full"] {
+  max-width: none;
+}
+
+.editor-styles-wrapper .site-header,
+.editor-styles-wrapper .site-footer {
+  margin-inline: calc(50% - 50vw);
+  padding-inline: 1rem;
+}
+
+.editor-styles-wrapper .site-header .wp-block-navigation__responsive-container {
+  display: none;
+}
+
+.editor-styles-wrapper .bsh-section {
+  margin-block: 1.5rem;
+}
+
+.editor-styles-wrapper .bsh-card,
+.editor-styles-wrapper .faq-item,
+.editor-styles-wrapper .bsh-home-intro__question,
+.editor-styles-wrapper .bsh-home-intro__quote {
+  outline: 1px dashed rgba(15, 15, 15, 0.08);
+}
+
+.editor-styles-wrapper .bsh-media-gallery .wp-block-image img,
+.editor-styles-wrapper .bsh-offer-card img,
+.editor-styles-wrapper .bsh-profile__media img,
+.editor-styles-wrapper .bsh-home-intro__story img {
+  min-height: 12rem;
+  object-fit: cover;
+}

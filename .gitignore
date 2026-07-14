@@ -16,6 +16,7 @@
 # Local WordPress runtime data
 backups/*.sql
 backups/*.sql.gz
+wordpress/wp-content/backups-dup-lite/
 wordpress/wp-content/index.php
 wordpress/wp-content/languages/
 wordpress/wp-content/plugins/akismet/
@@ -32,3 +33,4 @@ wordpress/wp-content/themes/twentytwentyfive/
 
 # OS files
 .DS_Store
+images/

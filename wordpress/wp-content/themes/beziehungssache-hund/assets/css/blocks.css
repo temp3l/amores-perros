@@ -1,0 +1,522 @@
+/*
+ * Frontend block styles for reusable sections, template parts and shared content
+ * patterns. Design tokens come from theme.json; these rules handle layout and
+ * editor-friendly presentation only.
+ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--wp--preset--color--cream);
+  color: var(--wp--preset--color--ink);
+  font-family: var(--wp--preset--font-family--body-sans);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.wp-site-blocks {
+  min-height: 100vh;
+}
+
+.bsh-skip-link {
+  position: absolute;
+  top: 0;
+  left: 1rem;
+  z-index: 1000;
+  padding: 0.75rem 1rem;
+  border-radius: var(--wp--custom--radius--sm);
+  background: var(--wp--preset--color--terracotta);
+  color: var(--wp--preset--color--white);
+  transform: translateY(-150%);
+  transition: transform 0.2s ease;
+}
+
+.bsh-skip-link:focus {
+  transform: translateY(1rem);
+}
+
+.bsh-main {
+  padding: 0 1rem 4rem;
+}
+
+.entry-content,
+.wp-block-post-content {
+  width: 100%;
+}
+
+.bsh-shell {
+  width: min(100%, var(--wp--style--global--wide-size));
+  margin-inline: auto;
+}
+
+.site-header,
+.site-footer {
+  color: var(--wp--preset--color--white);
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  margin: 0 0 1.5rem;
+  border-bottom: 1px solid rgba(174, 124, 81, 0.28);
+  background:
+    linear-gradient(180deg, rgba(20, 20, 20, 0.96), rgba(12, 12, 12, 0.96)),
+    var(--wp--preset--color--ink);
+  box-shadow: var(--wp--preset--shadow--soft);
+  backdrop-filter: blur(14px);
+}
+
+.site-header__inner,
+.site-footer__inner {
+  width: min(100%, var(--wp--style--global--wide-size));
+  margin-inline: auto;
+}
+
+.site-header__inner {
+  padding: 1rem;
+}
+
+.site-header__brand {
+  gap: 1rem;
+}
+
+.site-header__brand .wp-block-image,
+.site-footer__brand .wp-block-image {
+  margin: 0;
+}
+
+.site-header__logo img,
+.site-footer__logo img {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.site-header .wp-block-site-title,
+.site-header .wp-block-site-tagline,
+.site-footer .wp-block-heading,
+.site-footer p,
+.site-footer li,
+.site-footer a {
+  color: inherit;
+}
+
+.site-header .wp-block-site-title,
+.site-header .wp-block-site-tagline {
+  margin: 0;
+}
+
+.site-header .wp-block-site-title a,
+.site-footer a {
+  text-decoration: none;
+}
+
+.site-header .wp-block-site-tagline {
+  color: rgba(250, 248, 243, 0.74);
+}
+
+.site-header .wp-block-navigation {
+  width: 100%;
+}
+
+.site-header .wp-block-navigation__container {
+  gap: 0.3rem 0.9rem;
+  justify-content: flex-end;
+}
+
+.site-header .wp-block-navigation-item__content {
+  padding: 0.5rem 0.85rem;
+  border-radius: var(--wp--custom--radius--pill);
+}
+
+.site-header .wp-block-navigation-item__content:hover,
+.site-header .wp-block-navigation-item__content:focus {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.site-header .wp-block-navigation__responsive-container.is-menu-open {
+  padding: 1.25rem;
+  background: var(--wp--preset--color--ink);
+  color: var(--wp--preset--color--white);
+}
+
+.site-footer {
+  margin-top: 4rem;
+  padding: 3rem 1rem;
+  background:
+    radial-gradient(circle at top left, rgba(174, 124, 81, 0.22), transparent 30%),
+    linear-gradient(180deg, #131313 0%, #0f0f0f 100%);
+}
+
+.site-footer__inner {
+  display: grid;
+  gap: 2rem;
+}
+
+.site-footer__brand,
+.site-footer__nav,
+.site-footer__cta {
+  gap: 1rem;
+}
+
+.site-footer .wp-block-navigation__container {
+  gap: 0.4rem 1rem;
+}
+
+.site-footer .wp-block-button.is-style-outline .wp-block-button__link {
+  border-color: rgba(250, 248, 243, 0.35);
+  color: var(--wp--preset--color--white);
+}
+
+.bsh-section {
+  position: relative;
+  margin-block: 2rem;
+  padding: clamp(1.5rem, 2vw, 2rem);
+  border-radius: var(--wp--custom--radius--lg);
+  background: rgba(255, 255, 255, 0.66);
+  box-shadow: var(--wp--preset--shadow--card);
+}
+
+.bsh-section--soft {
+  background: var(--wp--preset--color--sand);
+}
+
+.bsh-section--accent {
+  background:
+    linear-gradient(135deg, rgba(174, 124, 81, 0.92), rgba(142, 97, 58, 0.92)),
+    var(--wp--preset--color--terracotta);
+  color: var(--wp--preset--color--white);
+}
+
+.bsh-section--accent .wp-block-heading,
+.bsh-section--accent p,
+.bsh-section--accent li,
+.bsh-section--accent a {
+  color: inherit;
+}
+
+.bsh-eyebrow {
+  margin: 0;
+  color: var(--wp--preset--color--terracotta);
+  font-size: var(--wp--preset--font-size--small);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.bsh-card {
+  height: 100%;
+  padding: 1.35rem;
+  border: 1px solid rgba(15, 15, 15, 0.08);
+  border-radius: var(--wp--custom--radius--md);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: var(--wp--preset--shadow--soft);
+}
+
+.bsh-card > *:first-child {
+  margin-top: 0;
+}
+
+.bsh-card > *:last-child {
+  margin-bottom: 0;
+}
+
+.bsh-home-intro,
+.bsh-home-intro__story,
+.bsh-home-intro__bond-grid,
+.bsh-home-intro__bond-row,
+.bsh-offer-grid,
+.bsh-problem-grid,
+.bsh-media-grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.bsh-home-intro {
+  background:
+    radial-gradient(circle at top right, rgba(174, 124, 81, 0.15), transparent 28%),
+    linear-gradient(180deg, rgba(250, 248, 243, 0.9), rgba(255, 255, 255, 0.85));
+}
+
+.bsh-home-intro__story {
+  grid-template-columns: minmax(0, 1.3fr) minmax(15rem, 0.7fr);
+  align-items: center;
+}
+
+.bsh-home-intro__quote,
+.bsh-home-intro__question {
+  padding: 1.25rem;
+  border-radius: var(--wp--custom--radius--md);
+  background: rgba(255, 255, 255, 0.74);
+}
+
+.bsh-home-intro__question {
+  border-inline-start: 4px solid var(--wp--preset--color--terracotta);
+  font-size: var(--wp--preset--font-size--medium);
+}
+
+.bsh-home-intro__divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(15, 15, 15, 0.16), transparent);
+}
+
+.bsh-home-intro__formula .wp-block-column {
+  padding: 1rem;
+  border-radius: var(--wp--custom--radius--md);
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.bsh-home-intro__formula-letter {
+  margin: 0 0 0.25rem;
+  color: var(--wp--preset--color--terracotta);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.bsh-home-intro__formula-copy {
+  margin: 0;
+  font-weight: 600;
+}
+
+.bsh-home-intro__card-label {
+  margin: 0;
+  color: var(--wp--preset--color--terracotta);
+  font-size: var(--wp--preset--font-size--small);
+  font-weight: 700;
+}
+
+.bsh-home-intro__card-title {
+  margin-bottom: 0.35rem;
+}
+
+.bsh-home-intro__bond-list {
+  margin-block: 0.75rem 0;
+  padding-inline-start: 1.1rem;
+}
+
+.bsh-home-intro__bond-list li + li {
+  margin-top: 0.35rem;
+}
+
+.bsh-offer-grid,
+.bsh-media-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.bsh-offer-card,
+.bsh-problem-card,
+.bsh-price-card,
+.bsh-process-step,
+.bsh-contact-card {
+  gap: 0.9rem;
+}
+
+.bsh-offer-card .wp-block-image,
+.bsh-profile__media .wp-block-image {
+  margin: 0;
+}
+
+.bsh-offer-card img,
+.bsh-profile__media img,
+.bsh-media-grid img,
+.bsh-home-intro__story img {
+  width: 100%;
+  border-radius: var(--wp--custom--radius--md);
+  object-fit: cover;
+  box-shadow: var(--wp--preset--shadow--soft);
+}
+
+.bsh-problem-grid,
+.bsh-process-grid,
+.bsh-price-grid {
+  margin-top: 1.5rem;
+}
+
+.bsh-problem-card {
+  border-top: 3px solid var(--wp--preset--color--terracotta);
+}
+
+.bsh-process-step__number,
+.bsh-price-card__value {
+  margin: 0;
+  color: var(--wp--preset--color--terracotta);
+  font-weight: 700;
+}
+
+.bsh-process-step__number {
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  line-height: 1;
+}
+
+.bsh-price-card__value {
+  font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+  line-height: 1.1;
+}
+
+.bsh-price-card__meta {
+  margin: 0;
+  color: var(--wp--preset--color--muted);
+  font-size: var(--wp--preset--font-size--small);
+}
+
+.bsh-media-grid .wp-block-image {
+  margin: 0;
+}
+
+.bsh-profile {
+  align-items: center;
+}
+
+.bsh-profile__media {
+  min-height: 100%;
+}
+
+.bsh-contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.bsh-contact-list,
+.bsh-page-intro__outline,
+.bsh-step-list {
+  padding-inline-start: 1.15rem;
+}
+
+.bsh-contact-list li + li,
+.bsh-page-intro__outline li + li,
+.bsh-step-list li + li {
+  margin-top: 0.35rem;
+}
+
+.bsh-page-intro {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(250, 248, 243, 0.92)),
+    var(--wp--preset--color--white);
+}
+
+.bsh-page-intro__title {
+  margin-bottom: 0.5rem;
+}
+
+.bsh-page-intro__lead {
+  max-width: 44rem;
+  font-size: var(--wp--preset--font-size--medium);
+}
+
+.bsh-media-gallery {
+  gap: 1rem;
+}
+
+.bsh-media-gallery .wp-block-gallery {
+  margin-top: 1.25rem;
+}
+
+.bsh-media-gallery .blocks-gallery-item,
+.bsh-media-gallery .wp-block-image {
+  margin-bottom: 0;
+}
+
+.bsh-media-gallery img {
+  border-radius: var(--wp--custom--radius--md);
+  box-shadow: var(--wp--preset--shadow--soft);
+}
+
+.faq-navigation {
+  margin-bottom: 2rem;
+  padding: 1rem 1.25rem;
+  border-radius: var(--wp--custom--radius--md);
+  background: rgba(255, 255, 255, 0.74);
+}
+
+.faq-navigation ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.faq-navigation a {
+  text-decoration: none;
+}
+
+.faq-item {
+  margin-top: 1rem;
+  overflow: clip;
+  border: 1px solid rgba(15, 15, 15, 0.08);
+  border-radius: var(--wp--custom--radius--md);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: var(--wp--preset--shadow--soft);
+}
+
+.faq-item summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 1rem 1.25rem;
+  font-weight: 600;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-answer__inner {
+  padding: 0 1.25rem 1.25rem;
+}
+
+.faq-topic + .faq-topic {
+  margin-top: 2rem;
+}
+
+@media (max-width: 900px) {
+  .site-header__inner,
+  .site-footer__inner {
+    width: min(100%, calc(var(--wp--style--global--wide-size) - 1rem));
+  }
+
+  .bsh-home-intro__story,
+  .bsh-offer-grid,
+  .bsh-media-grid,
+  .bsh-contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 781px) {
+  .bsh-main {
+    padding-inline: 0.75rem;
+  }
+
+  .site-header {
+    position: static;
+  }
+
+  .site-header__inner {
+    padding: 0.75rem;
+  }
+
+  .site-header .wp-block-navigation__container,
+  .site-footer .wp-block-navigation__container {
+    justify-content: flex-start;
+  }
+
+  .bsh-section {
+    padding: 1.25rem;
+  }
+}
