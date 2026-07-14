@@ -45,7 +45,13 @@ add_action(
         add_theme_support('editor-styles');
         add_theme_support('custom-spacing');
         add_theme_support('custom-line-height');
-        add_editor_style('style.css');
+        add_editor_style(
+            [
+                'style.css',
+                'assets/css/faq.css',
+                'assets/css/editor.css',
+            ]
+        );
 
         register_nav_menus(
             [
@@ -62,6 +68,19 @@ add_action(
 
         bsh_register_theme_pattern('landing-2', 'Landing 2', 'patterns/landing-2.php');
         bsh_register_theme_pattern('kitesplash', 'Kitesplash', 'patterns/kitesplash.php');
+    }
+);
+
+add_action(
+    'init',
+    static function (): void {
+        register_block_style(
+            'core/group',
+            [
+                'name' => 'bsh-hidden',
+                'label' => __('Auf Website ausblenden', 'beziehungssache-hund'),
+            ]
+        );
     }
 );
 
@@ -159,6 +178,59 @@ add_action(
     1
 );
 
+add_action(
+    'wp_head',
+    static function (): void {
+        if (! is_page('faq')) {
+            return;
+        }
+
+        $post = get_post();
+        if (! $post instanceof WP_Post) {
+            return;
+        }
+
+        $questions = [];
+        $collect = static function (array $blocks) use (&$collect, &$questions): void {
+            foreach ($blocks as $block) {
+                if (($block['blockName'] ?? '') === 'core/details') {
+                    $rendered = render_block($block);
+                    if (preg_match('/<summary[^>]*>(.*?)<\/summary>(.*)<\/details>/si', $rendered, $matches) === 1) {
+                        $question = trim(wp_strip_all_tags($matches[1]));
+                        $answer = trim(preg_replace('/\s+/', ' ', wp_strip_all_tags($matches[2])) ?? '');
+                        if ($question !== '' && $answer !== '') {
+                            $questions[] = [
+                                '@type' => 'Question',
+                                'name' => $question,
+                                'acceptedAnswer' => [
+                                    '@type' => 'Answer',
+                                    'text' => $answer,
+                                ],
+                            ];
+                        }
+                    }
+                }
+
+                if (! empty($block['innerBlocks'])) {
+                    $collect($block['innerBlocks']);
+                }
+            }
+        };
+        $collect(parse_blocks($post->post_content));
+
+        if ($questions === []) {
+            return;
+        }
+
+        echo '<script type="application/ld+json">' . wp_json_encode([
+            '@context' => 'https://schema.org',
+            '@type' => 'FAQPage',
+            'mainEntity' => $questions,
+        ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . '</script>' . "\n";
+    },
+    20
+);
+
 add_filter(
     'body_class',
     static function (array $classes): array {
@@ -185,7 +257,7 @@ function bsh_should_enqueue_image_slider(): bool
         return false;
     }
 
-    return str_contains($post->post_content, 'data-bsh-slider');
+    return str_contains($post->post_content, 'bsh-image-slider');
 }
 
 function bsh_page_uses_forminator(): bool

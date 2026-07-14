@@ -6,7 +6,8 @@
 - Lightweight custom block theme
 - Gutenberg for content editing
 - No Elementor or Divi dependency
-- The primary header dropdown navigation uses Max Mega Menu on a registered theme location so the main menu remains manageable and clickable in WordPress without a custom JS dropdown layer
+- The primary header navigation uses the Core Navigation block in the header template part so links, submenus and structure remain editable in the Site Editor
+- Canonical page content is seeded only when a page has no editorial content; repeated setup runs must not overwrite Gutenberg changes
 
 ## Content Model
 

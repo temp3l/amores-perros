@@ -3,6 +3,12 @@
   "version": 3,
   "settings": {
     "appearanceTools": true,
+    "custom": {
+      "radius": {
+        "md": "0.5rem",
+        "pill": "999px"
+      }
+    },
     "color": {
       "defaultPalette": false,
       "palette": [
@@ -51,6 +57,20 @@
         "%",
         "vh",
         "vw"
+      ]
+    },
+    "shadow": {
+      "presets": [
+        {
+          "name": "Card",
+          "slug": "card",
+          "shadow": "0 18px 40px rgba(15, 15, 15, 0.12)"
+        },
+        {
+          "name": "Soft",
+          "slug": "soft",
+          "shadow": "0 10px 24px rgba(15, 15, 15, 0.08)"
+        }
       ]
     },
     "typography": {

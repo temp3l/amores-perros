@@ -69,7 +69,7 @@ Seiten starten mit einem kompakten Intro-Bereich aus H1, Subheading und kurzer √
 
 Fuer grosse Fotos und Portraits wird AVIF als Prim√§rformat mit WebP-Fallback genutzt. Logo- und Markenmotive werden ebenfalls in den zu ihrem sichtbaren Einsatz passenden Zielgroessen ausgeliefert, statt in den Originalabmessungen geladen zu werden.
 
-Die Hauptnavigation im Header wird ueber Max Mega Menu an einer registrierten Theme-Location ausgespielt, damit Dropdowns klickbar bleiben und ohne Sonderlogik im WordPress-Backend pflegbar sind.
+Die Hauptnavigation im Header wird als Core-Navigation-Block im Header-Template-Part ausgespielt. Links, Untermenues und Reihenfolge bleiben damit ohne Plugin-Sonderlogik direkt im Site Editor pflegbar.
 
 Die Umsetzung bleibt dennoch ein eigenes WordPress-Theme und keine 1:1-Kopie des alten Blocs-Layouts.
 

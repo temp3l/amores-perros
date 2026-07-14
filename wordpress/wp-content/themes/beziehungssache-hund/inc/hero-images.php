@@ -44,27 +44,19 @@ if (! function_exists('bsh_beziehung_hund_picture')) {
     function bsh_beziehung_hund_picture(string $slug, string $alt, bool $eager = false): string
     {
         $base = '/wp-content/themes/beziehungssache-hund/assets/optimized/beziehung-hund/' . ltrim($slug, '/');
-        $loading = $eager ? 'eager' : 'lazy';
+        $attributes = [
+            'sizeSlug' => 'full',
+            'linkDestination' => 'none',
+            'className' => 'bsh-image-frame',
+        ];
 
-        return <<<HTML
-<!-- wp:html -->
-<figure class="bsh-image-frame">
-  <picture>
-    <source
-      type="image/avif"
-      srcset="{$base}-720.avif 720w, {$base}-1448.avif 1448w"
-      sizes="(max-width: 781px) calc(100vw - 2rem), 720px"
-    />
-    <source
-      type="image/webp"
-      srcset="{$base}-720.webp 720w, {$base}-1448.webp 1448w"
-      sizes="(max-width: 781px) calc(100vw - 2rem), 720px"
-    />
-    <img src="{$base}-1448.webp" alt="{$alt}" loading="{$loading}" decoding="async" width="1448" height="1086" />
-  </picture>
-</figure>
-<!-- /wp:html -->
-HTML;
+        return sprintf(
+            '<!-- wp:image %1$s -->%2$s<figure class="wp-block-image size-full bsh-image-frame"><img src="%3$s" alt="%4$s" /></figure>%2$s<!-- /wp:image -->',
+            wp_json_encode($attributes, JSON_UNESCAPED_SLASHES),
+            "\n",
+            esc_url($base . '-1448.webp'),
+            esc_attr($alt)
+        );
     }
 }
 
@@ -81,20 +73,13 @@ if (! function_exists('bsh_image_slider_section')) {
         static $slider_index = 0;
 
         $slider_index++;
-        $slider_id = sprintf('bsh-image-slider-%d', $slider_index);
-        $slider_label = esc_attr($title);
         $slides = [];
 
         foreach ($images as $image) {
-            $slides[] = sprintf(
-                '<li class="bsh-image-slider__slide">%s</li>',
-                trim(
-                    bsh_beziehung_hund_picture(
-                        $image['slug'],
-                        $image['alt'],
-                        ! empty($image['eager'])
-                    )
-                )
+            $slides[] = bsh_beziehung_hund_picture(
+                $image['slug'],
+                $image['alt'],
+                ! empty($image['eager'])
             );
         }
 
@@ -111,21 +96,11 @@ if (! function_exists('bsh_image_slider_section')) {
   <p>{$lead}</p>
   <!-- /wp:paragraph -->
 
-  <!-- wp:html -->
-  <div class="bsh-image-slider" data-bsh-slider>
-    <div class="bsh-image-slider__viewport">
-      <ul class="bsh-image-slider__track" id="{$slider_id}" aria-label="{$slider_label}" tabindex="0">
-        {$slide_markup}
-      </ul>
-    </div>
-    <p class="bsh-image-slider__hint">Wische oder nutze die Pfeile.</p>
-    <div class="bsh-image-slider__pagination" data-bsh-slider-dots aria-label="{$slider_label} Seiten"></div>
-    <div class="bsh-image-slider__controls">
-      <button type="button" class="bsh-image-slider__button" data-bsh-slider-prev aria-controls="{$slider_id}">Zurück</button>
-      <button type="button" class="bsh-image-slider__button" data-bsh-slider-next aria-controls="{$slider_id}">Weiter</button>
-    </div>
-  </div>
-  <!-- /wp:html -->
+  <!-- wp:gallery {"columns":1,"linkTo":"none","className":"bsh-image-slider"} -->
+  <figure class="wp-block-gallery has-nested-images columns-1 is-cropped bsh-image-slider">
+    {$slide_markup}
+  </figure>
+  <!-- /wp:gallery -->
 </section>
 <!-- /wp:group -->
 HTML;
@@ -165,11 +140,11 @@ if (! function_exists('bsh_image_gallery_section')) {
   <p>{$lead}</p>
   <!-- /wp:paragraph -->
 
-  <!-- wp:html -->
-  <div class="bsh-image-grid">
+  <!-- wp:gallery {"linkTo":"none","className":"bsh-image-grid"} -->
+  <figure class="wp-block-gallery has-nested-images columns-default is-cropped bsh-image-grid">
     {$picture_markup}
-  </div>
-  <!-- /wp:html -->
+  </figure>
+  <!-- /wp:gallery -->
 </section>
 <!-- /wp:group -->
 HTML;

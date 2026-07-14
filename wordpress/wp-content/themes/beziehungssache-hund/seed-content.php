@@ -28,6 +28,11 @@ function bsh_upsert_page(array $definition)
     if ($existing instanceof WP_Post) {
         $postarr['ID'] = $existing->ID;
 
+        // Installation must never overwrite content already owned by editors.
+        if (trim($existing->post_content) !== '') {
+            unset($postarr['post_content']);
+        }
+
         return wp_update_post($postarr, true);
     }
 
@@ -157,9 +162,9 @@ function bsh_page_intro(string $eyebrow, string $title, string $lead): string
     return <<<HTML
 <!-- wp:group {"tagName":"section","className":"bsh-section bsh-page-intro","layout":{"type":"constrained"}} -->
 <section class="wp-block-group bsh-section bsh-page-intro">
-  <!-- wp:html -->
-  <div class="bsh-eyebrow">{$eyebrow}</div>
-  <!-- /wp:html -->
+  <!-- wp:paragraph {"className":"bsh-eyebrow"} -->
+  <p class="bsh-eyebrow">{$eyebrow}</p>
+  <!-- /wp:paragraph -->
 
   <!-- wp:heading {"level":1,"className":"bsh-page-intro__title"} -->
   <h1 class="wp-block-heading bsh-page-intro__title">{$title}</h1>
@@ -369,7 +374,9 @@ function bsh_sync_contact_form(): int
 
 function bsh_contact_form_shortcode_block(): string
 {
-    $form_id = bsh_sync_contact_form();
+    $form_id = defined('BSH_SEED_LIBRARY_ONLY') && BSH_SEED_LIBRARY_ONLY === true
+        ? (int) get_option('bsh_contact_form_id')
+        : bsh_sync_contact_form();
 
     if ($form_id <= 0) {
         return '';
@@ -521,9 +528,9 @@ function bsh_erstgespraech_page_content(): string
         <<<'HTML'
 <!-- wp:group {"tagName":"section","className":"bsh-section bsh-page-intro","layout":{"type":"constrained"}} -->
 <section class="wp-block-group bsh-section bsh-page-intro">
-  <!-- wp:html -->
-  <div class="bsh-eyebrow">Einstieg</div>
-  <!-- /wp:html -->
+  <!-- wp:paragraph {"className":"bsh-eyebrow"} -->
+  <p class="bsh-eyebrow">Einstieg</p>
+  <!-- /wp:paragraph -->
   <!-- wp:heading {"level":1,"className":"bsh-page-intro__title"} -->
   <h1 class="wp-block-heading bsh-page-intro__title">Erstgespräch für Hundetraining in Hamburg</h1>
   <!-- /wp:heading -->
@@ -770,162 +777,9 @@ HTML;
  * @param int $menu_id
  * @return void
  */
-function bsh_delete_nav_menu_items(int $menu_id): void
+function bsh_seed_page_definitions(): array
 {
-    $items = wp_get_nav_menu_items($menu_id);
-
-    if (! is_array($items)) {
-        return;
-    }
-
-    foreach ($items as $item) {
-        if ($item instanceof WP_Post) {
-            wp_delete_post($item->ID, true);
-        }
-    }
-}
-
-/**
- * @param int $menu_id
- * @param array<string, mixed> $args
- * @return int
- */
-function bsh_add_nav_menu_item(int $menu_id, array $args): int
-{
-    $menu_item_id = wp_update_nav_menu_item($menu_id, 0, $args);
-
-    if (is_wp_error($menu_item_id)) {
-        fwrite(STDERR, $menu_item_id->get_error_message() . PHP_EOL);
-        exit(1);
-    }
-
-    return (int) $menu_item_id;
-}
-
-/**
- * @param array<string, int|WP_Error> $page_ids
- * @return void
- */
-function bsh_sync_primary_navigation(array $page_ids): void
-{
-    $menu_name = 'Hauptnavigation';
-    $menu      = wp_get_nav_menu_object($menu_name);
-
-    if (! $menu instanceof WP_Term) {
-        $menu_id = wp_create_nav_menu($menu_name);
-        if (is_wp_error($menu_id)) {
-            fwrite(STDERR, $menu_id->get_error_message() . PHP_EOL);
-            exit(1);
-        }
-        $menu = wp_get_nav_menu_object((int) $menu_id);
-    }
-
-    if (! $menu instanceof WP_Term) {
-        fwrite(STDERR, "Hauptnavigation konnte nicht angelegt werden." . PHP_EOL);
-        exit(1);
-    }
-
-    bsh_delete_nav_menu_items((int) $menu->term_id);
-
-    $add_page_item = static function (int $menu_id, string $slug, string $title) use ($page_ids): ?int {
-        if (! isset($page_ids[$slug]) || ! is_numeric($page_ids[$slug])) {
-            return null;
-        }
-
-        $page = get_post((int) $page_ids[$slug]);
-        if (! $page instanceof WP_Post) {
-            return null;
-        }
-
-        return bsh_add_nav_menu_item(
-            $menu_id,
-            [
-                'menu-item-title' => $title,
-                'menu-item-object-id' => $page->ID,
-                'menu-item-object' => 'page',
-                'menu-item-type' => 'post_type',
-                'menu-item-status' => 'publish',
-            ]
-        );
-    };
-
-    foreach ([
-        ['slug' => 'startseite', 'title' => 'Startseite'],
-        ['slug' => 'erstgespraech', 'title' => 'Erstgespräch'],
-        ['slug' => 'einzeltraining', 'title' => 'Einzeltraining'],
-        ['slug' => 'ueber-jacky-rebien', 'title' => 'Über mich'],
-        ['slug' => 'preise', 'title' => 'Preise'],
-        ['slug' => 'kontakt', 'title' => 'Kontakt'],
-    ] as $definition) {
-        $add_page_item((int) $menu->term_id, $definition['slug'], $definition['title']);
-    }
-
-    $more_item_id = bsh_add_nav_menu_item(
-        (int) $menu->term_id,
-        [
-            'menu-item-title' => 'Mehr',
-            'menu-item-url' => '#',
-            'menu-item-object' => 'custom',
-            'menu-item-type' => 'custom',
-            'menu-item-status' => 'publish',
-        ]
-    );
-
-    foreach ([
-        ['slug' => 'dogspace-hamburg', 'title' => 'DOGSpace'],
-        ['slug' => 'workshops-seminare', 'title' => 'Workshops und Seminare'],
-        ['slug' => 'coaching-mit-hund', 'title' => 'Coaching mit Hund'],
-    ] as $definition) {
-        if (! isset($page_ids[$definition['slug']]) || ! is_numeric($page_ids[$definition['slug']])) {
-            continue;
-        }
-
-        $page = get_post((int) $page_ids[$definition['slug']]);
-        if (! $page instanceof WP_Post) {
-            continue;
-        }
-
-        bsh_add_nav_menu_item(
-            (int) $menu->term_id,
-            [
-                'menu-item-title' => $definition['title'],
-                'menu-item-object-id' => $page->ID,
-                'menu-item-object' => 'page',
-                'menu-item-type' => 'post_type',
-                'menu-item-parent-id' => $more_item_id,
-                'menu-item-status' => 'publish',
-            ]
-        );
-    }
-
-    $locations = get_theme_mod('nav_menu_locations', []);
-    if (! is_array($locations)) {
-        $locations = [];
-    }
-    $locations['primary'] = (int) $menu->term_id;
-    set_theme_mod('nav_menu_locations', $locations);
-
-    $settings = get_option('megamenu_settings', []);
-    if (! is_array($settings)) {
-        $settings = [];
-    }
-    $settings['primary'] = array_merge(
-        [
-            'enabled' => '1',
-            'theme' => 'default',
-        ],
-        isset($settings['primary']) && is_array($settings['primary']) ? $settings['primary'] : []
-    );
-    $settings['primary']['enabled'] = '1';
-    $settings['primary']['theme'] = 'default';
-    update_option('megamenu_settings', $settings);
-
-    if (function_exists('do_action')) {
-        do_action('megamenu_delete_cache');
-    }
-}
-
-$pages = [
+    return [
     [
         'title' => 'Startseite',
         'slug' => 'startseite',
@@ -950,18 +804,6 @@ $pages = [
             bsh_seo_closing_section('Hundetraining Hamburg'),
             '<!-- wp:pattern {"slug":"beziehungssache-hund/abschluss-cta"} /-->',
         ]),
-    ],
-    [
-        'title' => 'Landing 2',
-        'slug' => 'landing-2',
-        'order' => 15,
-        'content' => '<!-- wp:pattern {"slug":"beziehungssache-hund/landing-2"} /-->',
-    ],
-    [
-        'title' => 'Kitesplash',
-        'slug' => 'kitesplash',
-        'order' => 16,
-        'content' => '<!-- wp:pattern {"slug":"beziehungssache-hund/kitesplash"} /-->',
     ],
     [
         'title' => 'Hundetraining Hamburg',
@@ -1299,40 +1141,43 @@ $pages = [
             bsh_seo_legal_note_section('Datenschutz Beziehungssache Hund'),
         ]),
     ],
-];
+    ];
+}
 
-$page_ids = [];
+if (! defined('BSH_SEED_LIBRARY_ONLY') || BSH_SEED_LIBRARY_ONLY !== true) {
+    $pages = bsh_seed_page_definitions();
 
-foreach ($pages as $page_definition) {
-    $page_id = bsh_upsert_page($page_definition);
+    $page_ids = [];
 
-    if ($page_id instanceof WP_Error) {
-        fwrite(STDERR, $page_id->get_error_message() . PHP_EOL);
-        exit(1);
+    foreach ($pages as $page_definition) {
+        $page_id = bsh_upsert_page($page_definition);
+
+        if ($page_id instanceof WP_Error) {
+            fwrite(STDERR, $page_id->get_error_message() . PHP_EOL);
+            exit(1);
+        }
+
+        $page_ids[$page_definition['slug']] = $page_id;
     }
 
-    $page_ids[$page_definition['slug']] = $page_id;
+    $sample_page = get_page_by_path('sample-page', OBJECT, 'page');
+
+    if ($sample_page instanceof WP_Post) {
+        wp_trash_post($sample_page->ID);
+    }
+
+    if (isset($page_ids['startseite'])) {
+        update_option('show_on_front', 'page');
+        update_option('page_on_front', $page_ids['startseite']);
+    }
+
+    if (isset($page_ids['ratgeber'])) {
+        update_option('page_for_posts', $page_ids['ratgeber']);
+    }
+
+    if (isset($page_ids['datenschutz'])) {
+        update_option('wp_page_for_privacy_policy', $page_ids['datenschutz']);
+    }
+
+    echo sprintf("Seiten synchronisiert: %d\n", count($page_ids));
 }
-
-$sample_page = get_page_by_path('sample-page', OBJECT, 'page');
-
-if ($sample_page instanceof WP_Post) {
-    wp_trash_post($sample_page->ID);
-}
-
-if (isset($page_ids['startseite'])) {
-    update_option('show_on_front', 'page');
-    update_option('page_on_front', $page_ids['startseite']);
-}
-
-if (isset($page_ids['ratgeber'])) {
-    update_option('page_for_posts', $page_ids['ratgeber']);
-}
-
-if (isset($page_ids['datenschutz'])) {
-    update_option('wp_page_for_privacy_policy', $page_ids['datenschutz']);
-}
-
-bsh_sync_primary_navigation($page_ids);
-
-echo sprintf("Seiten synchronisiert: %d\n", count($page_ids));

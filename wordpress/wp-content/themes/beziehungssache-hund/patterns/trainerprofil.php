@@ -12,21 +12,9 @@
   <div class="wp-block-columns are-vertically-aligned-center">
     <!-- wp:column {"verticalAlignment":"center","width":"38%"} -->
     <div class="wp-block-column is-vertically-aligned-center" style="flex-basis:38%">
-      <!-- wp:html -->
-      <picture class="bsh-portrait-frame">
-        <source
-          type="image/avif"
-          srcset="/wp-content/themes/beziehungssache-hund/assets/optimized/portrait-360.avif 360w, /wp-content/themes/beziehungssache-hund/assets/optimized/portrait-720.avif 720w"
-          sizes="(max-width: 781px) calc(100vw - 2rem), 288px"
-        />
-        <source
-          type="image/webp"
-          srcset="/wp-content/themes/beziehungssache-hund/assets/optimized/portrait-360.webp 360w, /wp-content/themes/beziehungssache-hund/assets/optimized/portrait-720.webp 720w"
-          sizes="(max-width: 781px) calc(100vw - 2rem), 288px"
-        />
-        <img src="/wp-content/themes/beziehungssache-hund/assets/optimized/portrait-720.webp" alt="Jacky Rebien mit Hund" loading="lazy" decoding="async" width="720" height="795" />
-      </picture>
-      <!-- /wp:html -->
+      <!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"bsh-portrait-frame"} -->
+      <figure class="wp-block-image size-full bsh-portrait-frame"><img src="/wp-content/themes/beziehungssache-hund/assets/optimized/portrait-720.webp" alt="Jacky Rebien mit Hund" /></figure>
+      <!-- /wp:image -->
     </div>
     <!-- /wp:column -->
 

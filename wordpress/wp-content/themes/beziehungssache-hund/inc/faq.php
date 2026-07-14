@@ -531,27 +531,63 @@ if (! function_exists('bsh_faq_render_parts')) {
     function bsh_faq_render_parts(array $parts): string
     {
         return implode("\n", array_map(
-            static fn ($part): string => '<p>' . wp_kses_post($part) . '</p>',
+            static fn ($part): string => sprintf(
+                '<!-- wp:paragraph --><p>%s</p><!-- /wp:paragraph -->',
+                wp_kses_post((string) $part)
+            ),
             $parts
         ));
+    }
+}
+
+if (! function_exists('bsh_faq_render_list')) {
+    function bsh_faq_render_list(array $items, bool $ordered = false, string $class_name = ''): string
+    {
+        $tag = $ordered ? 'ol' : 'ul';
+        $attributes = $ordered ? ['ordered' => true] : [];
+        if ($class_name !== '') {
+            $attributes['className'] = $class_name;
+        }
+        $classes = trim('wp-block-list ' . $class_name);
+        $content = [];
+
+        foreach ($items as $item) {
+            $content[] = '<!-- wp:list-item --><li>' . wp_kses_post((string) $item) . '</li><!-- /wp:list-item -->';
+        }
+
+        return sprintf(
+            '<!-- wp:list %1$s --><%2$s class="%3$s">%4$s</%2$s><!-- /wp:list -->',
+            $attributes === [] ? '' : wp_json_encode($attributes, JSON_UNESCAPED_SLASHES),
+            $tag,
+            esc_attr($classes),
+            implode('', $content)
+        );
     }
 }
 
 if (! function_exists('bsh_faq_render_answer')) {
     function bsh_faq_render_answer(array $parts): string
     {
-        $html = [];
+        $blocks = [];
 
         foreach ($parts as $part) {
-            if (str_starts_with(trim((string) $part), '<ul') || str_starts_with(trim((string) $part), '<ol') || str_starts_with(trim((string) $part), '<blockquote')) {
-                $html[] = wp_kses_post((string) $part);
+            $part = trim((string) $part);
+
+            if (preg_match('/^<(ul|ol)[^>]*>(.*)<\/\1>$/si', $part, $list_match) === 1) {
+                preg_match_all('/<li[^>]*>(.*?)<\/li>/si', $list_match[2], $item_matches);
+                $blocks[] = bsh_faq_render_list($item_matches[1] ?? [], $list_match[1] === 'ol');
                 continue;
             }
 
-            $html[] = '<p>' . wp_kses_post((string) $part) . '</p>';
+            if (preg_match('/^<blockquote[^>]*>(.*)<\/blockquote>$/si', $part, $quote_match) === 1) {
+                $blocks[] = '<!-- wp:quote --><blockquote class="wp-block-quote"><!-- wp:paragraph --><p>' . wp_kses_post($quote_match[1]) . '</p><!-- /wp:paragraph --></blockquote><!-- /wp:quote -->';
+                continue;
+            }
+
+            $blocks[] = '<!-- wp:paragraph --><p>' . wp_kses_post($part) . '</p><!-- /wp:paragraph -->';
         }
 
-        return implode("\n", $html);
+        return implode("\n", $blocks);
     }
 }
 
@@ -561,10 +597,11 @@ if (! function_exists('bsh_faq_render_question')) {
         $item_id = $topic_id . '-question-' . ($index + 1);
 
         return sprintf(
-            '<details class="faq-item" id="%1$s"><summary><span class="faq-question">%2$s</span><span class="faq-icon" aria-hidden="true"></span></summary><div class="faq-answer"><div class="faq-answer__inner">%3$s</div></div></details>',
+            '<!-- wp:details {"anchor":"%1$s","className":"faq-item"} -->%4$s<details class="wp-block-details faq-item" id="%1$s"><summary>%2$s</summary>%4$s%3$s%4$s</details>%4$s<!-- /wp:details -->',
             esc_attr($item_id),
             esc_html($question['question']),
-            bsh_faq_render_answer($question['answer'])
+            bsh_faq_render_answer($question['answer']),
+            "\n"
         );
     }
 }
@@ -573,49 +610,41 @@ if (! function_exists('bsh_faq_render_topic')) {
     function bsh_faq_render_topic(array $topic): string
     {
         $topic_id = bsh_faq_topic_slug($topic);
-        $heading_id = 'faq-topic-' . $topic_id;
         $parts = [];
 
-        $parts[] = sprintf(
-            '<section id="%1$s" class="faq-topic" aria-labelledby="%2$s"><h2 id="%2$s" tabindex="-1">%3$s</h2>',
-            esc_attr($topic_id),
-            esc_attr($heading_id),
-            esc_html($topic['title'])
-        );
+        $parts[] = '<!-- wp:group ' . wp_json_encode(['tagName' => 'section', 'anchor' => $topic_id, 'className' => 'faq-topic', 'layout' => ['type' => 'constrained']], JSON_UNESCAPED_SLASHES) . ' -->';
+        $parts[] = '<section id="' . esc_attr($topic_id) . '" class="wp-block-group faq-topic">';
+        $parts[] = '<!-- wp:heading {"level":2} --><h2 class="wp-block-heading">' . esc_html($topic['title']) . '</h2><!-- /wp:heading -->';
 
         foreach ($topic['intro'] ?? [] as $paragraph) {
-            $parts[] = '<p class="faq-topic__intro">' . wp_kses_post($paragraph) . '</p>';
+            $parts[] = '<!-- wp:paragraph {"className":"faq-topic__intro"} --><p class="faq-topic__intro">' . wp_kses_post($paragraph) . '</p><!-- /wp:paragraph -->';
         }
 
         if (! empty($topic['steps'])) {
-            $parts[] = '<ol class="faq-process">';
-            foreach ($topic['steps'] as $step) {
-                $parts[] = '<li>' . esc_html($step) . '</li>';
-            }
-            $parts[] = '</ol>';
+            $parts[] = bsh_faq_render_list($topic['steps'], true, 'faq-process');
         }
 
         if (! empty($topic['notice'])) {
-            $parts[] = '<p class="faq-topic__notice">' . esc_html($topic['notice']) . '</p>';
+            $parts[] = '<!-- wp:paragraph {"className":"faq-topic__notice"} --><p class="faq-topic__notice">' . esc_html($topic['notice']) . '</p><!-- /wp:paragraph -->';
         }
 
-        $parts[] = '<div class="faq-list">';
+        $parts[] = '<!-- wp:group {"className":"faq-list","layout":{"type":"constrained"}} --><div class="wp-block-group faq-list">';
 
         foreach ($topic['questions'] as $index => $question) {
             $parts[] = bsh_faq_render_question($question, $topic_id, $index);
         }
 
-        $parts[] = '</div>';
+        $parts[] = '</div><!-- /wp:group -->';
 
         if (! empty($topic['cta_label']) && ! empty($topic['cta_url'])) {
             $parts[] = sprintf(
-                '<div class="faq-topic__cta wp-block-buttons"><div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="%1$s">%2$s</a></div></div>',
+                '<!-- wp:buttons {"className":"faq-topic__cta"} --><div class="wp-block-buttons faq-topic__cta"><!-- wp:button --><div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="%1$s">%2$s</a></div><!-- /wp:button --></div><!-- /wp:buttons -->',
                 esc_url($topic['cta_url']),
                 esc_html($topic['cta_label'])
             );
         }
 
-        $parts[] = '</section>';
+        $parts[] = '</section><!-- /wp:group -->';
 
         return implode("\n", $parts);
     }
@@ -634,7 +663,7 @@ if (! function_exists('bsh_faq_render_navigation')) {
             );
         }
 
-        return '<nav class="faq-topics-nav" aria-label="Themen in den häufigen Fragen">' . implode('', $items) . '</nav>';
+        return bsh_faq_render_list($items, false, 'faq-topics-nav');
     }
 }
 
@@ -671,14 +700,13 @@ if (! function_exists('bsh_faq_page_content')) {
     function bsh_faq_page_content(string $hero_image = 'beziehung-hund/entspannung-mit-hund-ruhe-und-vertrauen.png', string $hero_position = '52% center'): string
     {
         $topics = bsh_faq_topics();
-        $schema = bsh_faq_schema_json($topics);
         $content = [];
-        $content[] = '<div class="bsh-faq-page">';
+        $content[] = '<!-- wp:group {"className":"bsh-faq-page","layout":{"type":"constrained"}} --><div class="wp-block-group bsh-faq-page">';
         $content[] = '<!-- wp:group {"tagName":"section","className":"bsh-section bsh-page-intro bsh-faq-intro","layout":{"type":"constrained"}} -->';
         $content[] = '<section class="wp-block-group bsh-section bsh-page-intro bsh-faq-intro">';
-        $content[] = '<!-- wp:html -->';
-        $content[] = '<div class="bsh-eyebrow">FAQ</div>';
-        $content[] = '<!-- /wp:html -->';
+        $content[] = '<!-- wp:paragraph {"className":"bsh-eyebrow"} -->';
+        $content[] = '<p class="bsh-eyebrow">FAQ</p>';
+        $content[] = '<!-- /wp:paragraph -->';
         $content[] = '<!-- wp:heading {"level":1,"className":"bsh-page-intro__title"} -->';
         $content[] = '<h1 class="wp-block-heading bsh-page-intro__title">Häufige Fragen</h1>';
         $content[] = '<!-- /wp:heading -->';
@@ -717,14 +745,13 @@ if (! function_exists('bsh_faq_page_content')) {
             $content[] = bsh_faq_render_topic($topic);
         }
 
+        $content[] = '<!-- wp:group {"tagName":"section","className":"bsh-section bsh-section--accent faq-contact-cta","layout":{"type":"constrained"}} -->';
         $content[] = '<section class="wp-block-group bsh-section bsh-section--accent faq-contact-cta">';
-        $content[] = '<h2>Du bist unsicher, welches Training zu euch passt?</h2>';
-        $content[] = '<p>Beschreibe uns deine Situation über das Kontaktformular, per E-Mail, telefonisch oder über WhatsApp. Bei Hunden mit aggressivem Verhalten oder bekannten Beißvorfällen ist eine vorherige Absprache zwingend erforderlich.</p>';
-        $content[] = '<div class="wp-block-buttons"><div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/kontakt/">Kontakt aufnehmen</a></div></div>';
-        $content[] = '</section>';
-        $content[] = '</div>';
-
-        $content[] = '<script type="application/ld+json">' . $schema . '</script>';
+        $content[] = '<!-- wp:heading {"level":2} --><h2 class="wp-block-heading">Du bist unsicher, welches Training zu euch passt?</h2><!-- /wp:heading -->';
+        $content[] = '<!-- wp:paragraph --><p>Beschreibe uns deine Situation über das Kontaktformular, per E-Mail, telefonisch oder über WhatsApp. Bei Hunden mit aggressivem Verhalten oder bekannten Beißvorfällen ist eine vorherige Absprache zwingend erforderlich.</p><!-- /wp:paragraph -->';
+        $content[] = '<!-- wp:buttons --><div class="wp-block-buttons"><!-- wp:button --><div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/kontakt/">Kontakt aufnehmen</a></div><!-- /wp:button --></div><!-- /wp:buttons -->';
+        $content[] = '</section><!-- /wp:group -->';
+        $content[] = '</div><!-- /wp:group -->';
 
         return implode("\n\n", $content);
     }

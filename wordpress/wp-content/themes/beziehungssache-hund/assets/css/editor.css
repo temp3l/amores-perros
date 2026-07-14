@@ -26,6 +26,34 @@
   padding-inline: 1rem;
 }
 
+.editor-styles-wrapper .site-header {
+  position: relative;
+  top: auto;
+}
+
+.editor-styles-wrapper .wp-block-gallery.bsh-image-slider {
+  grid-auto-flow: row;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  overflow: visible;
+}
+
+.editor-styles-wrapper .wp-block-group.is-style-bsh-hidden {
+  display: block;
+  opacity: 0.55;
+  outline: 2px dashed var(--bsh-terracotta);
+  outline-offset: 4px;
+}
+
+.editor-styles-wrapper .wp-block-group.is-style-bsh-hidden::before {
+  display: block;
+  content: "Auf Website ausgeblendet";
+  margin-bottom: 0.5rem;
+  color: var(--bsh-ink);
+  font-size: 0.8rem;
+  font-weight: 700;
+  pointer-events: none;
+}
+
 .editor-styles-wrapper .site-header .wp-block-navigation__responsive-container {
   display: none;
 }

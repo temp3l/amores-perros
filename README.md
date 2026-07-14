@@ -200,8 +200,23 @@ Uploads liegen lokal in einem Docker-Volume und werden nicht als Quellcode versi
 - `./scripts/wordpress-install.sh` erstellt bzw. aktualisiert die kanonischen Seiten aus `docs/technical/wordpress-page-tree.md` und `docs/seo/url-map.md`.
 - `./scripts/wordpress-install.sh` installiert und aktiviert zusaetzlich `Yoast SEO` und synchronisiert die kanonischen Seitentitel und Descriptions fuer die angelegten Seiten.
 - `./scripts/wordpress-install.sh` installiert und aktiviert zusaetzlich `Forminator` fuer das Kontaktformular; lokale Formularmails laufen ueber das Mailpit-SMTP im Container-Netz.
+- Header, Footer und Navigation werden mit Core-Bloecken im Site Editor gepflegt; Max Mega Menu ist nicht erforderlich.
+- Bereits vorhandene Gutenberg-Seiteninhalte werden bei erneuten Installationslaeufen nicht ueberschrieben.
 - Die Startseite wird als statische Frontpage gesetzt, `Ratgeber` als Beitragsseite.
 - `Impressum` und `Datenschutz` werden lokal als Platzhalterseiten angelegt und muessen vor einem Launch mit rechtlich geprueften Inhalten ersetzt werden.
+
+### Editor-first-Migration
+
+Die idempotente lokale Migration besitzt Audit-, Dry-Run-, Migrations- und Verifikationsmodi:
+
+```bash
+docker compose run --rm wp-cli site-editor-migration audit
+docker compose run --rm wp-cli site-editor-migration migrate --dry-run
+docker compose run --rm wp-cli site-editor-migration migrate
+docker compose run --rm wp-cli site-editor-migration verify
+```
+
+Vor dem ersten schreibenden Lauf ist ein Datenbankexport erforderlich. Details stehen in `docs/gutenberg-migration-report.md`.
 
 ## Fehlersuche
 

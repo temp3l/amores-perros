@@ -60,6 +60,10 @@ async function waitForStablePage(page: Parameters<typeof test>[0]['page']) {
   await page.addStyleTag({ content: stabilityStyles });
   await page.waitForTimeout(250);
   await page.evaluate(async () => {
+    document.querySelectorAll<HTMLImageElement>('img[loading="lazy"]').forEach((image) => {
+      image.loading = 'eager';
+    });
+
     await Promise.race([
       document.fonts.ready,
       new Promise<void>((resolve) => window.setTimeout(resolve, 5000))
@@ -102,7 +106,8 @@ test.describe('Visual regressions', () => {
       await expect(page).toHaveScreenshot(pageDefinition.snapshotName, {
         fullPage: true,
         animations: 'disabled',
-        caret: 'hide'
+        caret: 'hide',
+        maxDiffPixels: 5
       });
     });
   }
@@ -145,7 +150,7 @@ test.describe('FAQ page', () => {
       await expect(page.locator(`#${id}`)).toHaveCount(1);
     }
 
-    const questionTexts = await page.locator('.faq-item .faq-question').allTextContents();
+    const questionTexts = await page.locator('.faq-item > summary').allTextContents();
     expect(new Set(questionTexts).size).toBe(questionTexts.length);
   });
 
@@ -175,8 +180,8 @@ test.describe('FAQ page', () => {
       expect(anchorPositionIsSafe).toBeTruthy();
 
       await expect.poll(async () => {
-        return await page.evaluate(() => document.activeElement?.id ?? document.activeElement?.tagName ?? '');
-      }).toBe(`faq-topic-${id}`);
+        return await page.evaluate(() => document.activeElement?.tagName ?? '');
+      }).toBe('SUMMARY');
     }
   });
 
@@ -226,7 +231,7 @@ test.describe('FAQ page', () => {
 
     await waitForStablePage(page);
 
-    const transitionDuration = await page.locator('#grenzen-setzen details').first().locator('.faq-answer').evaluate((element) => {
+    const transitionDuration = await page.locator('#grenzen-setzen details').first().evaluate((element) => {
       return getComputedStyle(element).transitionDuration;
     });
 

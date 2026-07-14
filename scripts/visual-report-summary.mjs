@@ -17,7 +17,9 @@ function collectFailedTests(suite, failures = []) {
   }
 
   for (const spec of suite.specs ?? []) {
-    const failedResults = (spec.tests ?? []).filter((test) => test.status !== 'expected');
+    const failedResults = (spec.tests ?? []).filter(
+      (test) => test.status !== 'expected' && test.status !== 'skipped'
+    );
     if (failedResults.length === 0) {
       continue;
     }
